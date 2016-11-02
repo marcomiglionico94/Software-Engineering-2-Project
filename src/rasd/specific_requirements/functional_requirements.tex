@@ -6,10 +6,8 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item allows the user to book a car for up to an hour before he/she pick it up:
 
 \begin{itemize}
-\item The system must be able to show at least the 4 available cars nearest to the position of the user;
-\item The system must not accept the reservation if the specified time is not at least one hour after the current time;
-\item The system must remove the booked car from the list of available cars;
-\item The system must transfer the reservation to the appropriate car;
+\item When an hour passes from the moment in which the user reserved a car and the user did not unlocked it yet, the system must turn the state of that car from booked to available;
+\item The system must turn the state of the car from available to booked after the user reserve it;
 \end{itemize}
 
 \item allows the user to login to the service:
@@ -23,26 +21,22 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must ask the user to insert a specific location;
-\item The system must check if the specified location exists;
+\item The system must be able to check if the specified location exists;
 \item The system must not accept the reservation if the specified destination doesn't exist;
-\item The system must be able to show the list available cars in that specific location;
-\item The system must remove the booked car from the list of available cars;
-\item The system must transfer the reservation to the appropriate car;
+\item The system must be able to show at least the 4 available cars nearest to that specific location;
 \end{itemize}
 
 \item allows the user to find the closest cars with respect to his/her position:
 
 \begin{itemize}
 \item The system must be able to check the position of the user through the GPS position;
-\item The system must show the list of the cars that are within a range of 3 km from his/her current position;
-\item The system must remove the booked car from the list of available cars;
-\item The system must transfer the reservation to the appropriate car;
+\item The system must be able to show at least the 4 available cars nearest to the position of the user;
 \end{itemize}
 
 \item allows the user to know in every moment the current fee he/she has to pay;
 
 \begin{itemize}
-\item The system will charge the user a certain amount of money per minute;
+\item The system must be able to calculate the current fee with respect to the amount of money per minute; %TODO specify the price?
 \item The system must be able to show on the screen of the car the current fee that the user has to pay;
 \end{itemize}
 
@@ -50,34 +44,35 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must be able to show to the user where is the closest safe area;
-\item The system must notify the user when he/she is inside a safe area
-\item The system must let the user end the reservation when he/she is a safe area;
+\item The system must notify the user when he/she is inside a safe area; %TODO it is necessary?
+\item The system must let the user end the reservation when he/she is in a safe area;
 \item The system mustn't let the user end the reservation if he/she is not in a safe area;
-\item The system must change the status of the car in available when the ride end;
-\item The system must add the car to the list of available cars once the ride end;
+\item The system must change the status of the car in available when the ride ends;
 \end{itemize}
 
 \item allows the user to unlock the vehicle when he/she is next to it using the mobile app:
 
 \begin{itemize}
-\item The system must be able to calculate the distance between the car and the user using the GPS;
-\item The system must notify the user when he/she is within a range of 20 metres from the car;
-\item The system must show the user the option to unlock the car;
-\item The system must be able check if the user is unlocking the correct car ????
-\item The system must be able to unlock the car
+\item The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS;
+\item The system must notify the user when he/she is within a range of 20 metres from the car; %TODO it is necessary?
+\item When the distance between the car and the mobile phone of the user is less than 2 meters the system must show to the user the option to unlock the car;
+\item The system must let the user unlock only the car that he currently reserved;
+\item The system must be able to unlock the cars remotely;
 \item The system must be notified when the user enter inside the car;
-\item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes
+\item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes;
 \end{itemize}
 
 \item allows the user to obtain a 10\% discount if he/she takes at least 2 passengers:
+
 \begin{itemize}
-\item The system must be able to detect the number of passenger on the car;
-\item The system must apply the discount on the current fee that the user has to pay;
+\item The system must be able to detect the number of passenger in the car;
+\item The system must apply the 10\% discount on the current fee that the user has to pay if there are at least 2 passengers in the car;
 \end{itemize}
 
 \item allows the user to recharge a car only in a power grid station:
-\begin{itemize}
-\item The system must be able to show to the user where is the closest power grid station;
 
+\begin{itemize}
+\item The system must be able to show to the user the position of the closest power grid station;
 \end{itemize}
+
 \end{enumerate}
