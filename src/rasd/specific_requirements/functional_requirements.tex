@@ -33,8 +33,8 @@ Assuming that the domain properties stipulated in the paragraph[1.5]hold, and, i
 \item allows the user to find the closest cars with respect to his/her position:
 
 \begin{itemize}
-\item the system must be able to check the position of the user through the GPS position;
-\item the system must show the list of the cars that are within a range of 3 km from his/her current position;
+\item The system must be able to check the position of the user through the GPS position;
+\item The system must show the list of the cars that are within a range of 3 km from his/her current position;
 \item The system must remove the booked car from the list of available cars;
 \item The system must transfer the reservation to the appropriate car;
 \end{itemize}
@@ -42,8 +42,33 @@ Assuming that the domain properties stipulated in the paragraph[1.5]hold, and, i
 \item allows the user to know in every moment the current fee he/she has to pay;
 
 \begin{itemize}
-\item the system must be able to show on the 
+\item The system will charge the user a certain amount of money per minute;
+\item The system must be able to show on the screen of the car the current fee that the user has to pay;
 \end{itemize}
 
+\item Allows the user to end the ride only in specific areas called safe areas:
+
+\begin{itemize}
+\item The system must be able to show to the user where is the closest safe area;
+\item The system must notify the user when he/she is inside a safe area
+\item The system must let the user end the reservation when he/she is a safe area;
+\item The system mustn't let the user end the reservation if he/she is not in a safe area;
+\item The system must change the status of the car in available when the ride end;
+\item The system must add the car to the list of available cars once the ride end;
+\end{itemize}
+
+\item allows the user to unlock the vehicle when he/she is next to it using the mobile app:
+
+\begin{itemize}
+\item The system must be able to calculate the distance between the car and the user using the GPS;
+\item The system must notify the user when he/she is within a range of 20 metres from the car;
+\item The system must show the user the option to unlock the car;
+\item The system must be able check if the user is unlocking the correct car ????
+\item The system must be able to unlock the car
+\item The system must be notified when the user enter inside the car;
+\item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes
+\end{itemize}
+
+\item allows the user to obtain a 10\% discount if he/she takes at least 2 passengers:
 
 \end{enumerate}
