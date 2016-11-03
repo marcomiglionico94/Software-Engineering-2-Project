@@ -10,11 +10,12 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item The system must turn the state of the car from available to booked after the user reserve it;
 \end{itemize}
 
-\item allows the user to login to the service:
+\item allows only the registered users to access the service:
 
 \begin{itemize}
+\item The system must let the user sign up to the system if the data that he provides are valid; %TODO specify "valid"?
 \item The system must be able to check if the username and password provided are correct;
-\item The system must let the user login only if the provided username and the password are correct;
+\item The system must let the user login if the provided username and the password are correct;
 \end{itemize}
 
 \item allows the user to search for a car in a specific location:
@@ -22,7 +23,6 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \begin{itemize}
 \item The system must ask the user to insert a specific location;
 \item The system must be able to check if the specified location exists;
-\item The system must not accept the reservation if the specified destination does not exist;
 \item The system must be able to show all the available cars within a range of 1 KM from that specific location;
 \item If there are not any available cars within a range of 1 KM from that specific location the system must notify the user;
 \end{itemize}
@@ -55,7 +55,6 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS;
-\item The system must notify the user when he/she is within a range of 20 metres from the car; %TODO it is necessary?
 \item When the distance between the car and the mobile phone of the user is less than 2 meters the system must show to the user the option to unlock the car;
 \item The system must let the user unlock only the car that he currently reserved;
 \item The system must be able to unlock the cars remotely;
