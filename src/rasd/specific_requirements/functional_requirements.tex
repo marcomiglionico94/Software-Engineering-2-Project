@@ -6,7 +6,7 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item allows the user to book a car for up to an hour before he/she pick it up:
 
 \begin{itemize}
-\item When an hour passes from the moment in which the user reserved a car and the user did not unlocked it yet, the system must turn the state of that car from booked to available;
+\item The system must turn the state of the car from booked to available if the user did not unlock it within an hour since the moment of the reservation;
 \item The system must turn the state of the car from available to booked after the user reserve it;
 \end{itemize}
 
@@ -22,21 +22,23 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \begin{itemize}
 \item The system must ask the user to insert a specific location;
 \item The system must be able to check if the specified location exists;
-\item The system must not accept the reservation if the specified destination doesn't exist;
-\item The system must be able to show at least the 4 available cars nearest to that specific location;
+\item The system must not accept the reservation if the specified destination does not exist;
+\item The system must be able to show all the available cars within a range of 1 KM from that specific location;
+\item If there are not any available cars within a range of 1 KM from that specific location the system must notify the user;
 \end{itemize}
 
 \item allows the user to find the closest cars with respect to his/her position:
 
 \begin{itemize}
-\item The system must be able to check the position of the user through the GPS position;
-\item The system must be able to show at least the 4 available cars nearest to the position of the user;
+\item The system must be able to check the position of the user through the GPS position of his mobile phone;
+\item The system must be able to show all the available cars within a range of 1 KM from the position of the user;
+\item If there are not any available cars within a range of 1 KM from the position of the user the system must notify the user;
 \end{itemize}
 
 \item allows the user to know in every moment the current fee he/she has to pay;
 
 \begin{itemize}
-\item The system must be able to calculate the current fee with respect to the amount of money per minute; %TODO specify the price?
+\item The system must be able to calculate the current fee with respect to the amount of money per minute defined by the company;
 \item The system must be able to show on the screen of the car the current fee that the user has to pay;
 \end{itemize}
 
@@ -44,10 +46,9 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must be able to show to the user where is the closest safe area;
-\item The system must notify the user when he/she is inside a safe area; %TODO it is necessary?
-\item The system must let the user end the reservation when he/she is in a safe area;
-\item The system mustn't let the user end the reservation if he/she is not in a safe area;
-\item The system must change the status of the car in available when the ride ends;
+\item The system must notify the user when he/she is inside a safe area;
+\item The system must end the reservation only when the user is parked in a safe area and he/she exits the car;
+\item When the reservation ends the system must change the status of the car in available and lock the car;
 \end{itemize}
 
 \item allows the user to unlock the vehicle when he/she is next to it using the mobile app:
