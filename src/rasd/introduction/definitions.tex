@@ -1,21 +1,21 @@
 \section{Definitions, acronyms, abbreviations}
 \begin{description}
-	\item [User:] he or she who want to book a car. In order to use the service he or she has to subscribe and commit the following information:
+	\item [User:] he or she who want to reserve a car. In order to use the service he or she has to subscribe and commit the following information:
 	\begin{itemize}
 		\item Name
 		\item Surname
 		\item Driving Licence
 		\item Payment Method
 	\end{itemize}
-	\item [Car:] The object the user can book. It is uniquely identified by its plate. It could be in one of three different states:
+	\item [Car:] The object the user can reserve. It is uniquely identified by its plate. It could be in one of three different states:
 	\begin{itemize}
-		\item Available: the car can be booked.
-		\item Booked: the car is booked but who did it has not yet arrived.
-		\item Busy: the car is booked and who did it is in the car itself.
+		\item Available: the car can be reserved.
+		\item Booked: the car is reserved but who did it has not yet arrived.
+		\item Busy: the car is reserved and who did it is in the car itself.
 	\end{itemize}
 	Each car has its own capacity and battery level.
-	\item [Safe Area:] Where the user can park the car in order to end the rental.
-	\item [Power Grid Station:] Where the user can park the car and charge it, in order to end the rental and obtain the relative discount.
-	\item [On-Board Computer:] The object that communicate with server, in order to update car status and calculate rental cost.
+	\item [Safe Area:] An area where the user can park the car in order to end the rental. It is uniquely identified by a GPS coordinate and a range.
+	\item [Power Grid Station:] A spot where the user can park the car and charge it, in order to end the rental and obtain the relative discount. It is uniquely identified by a GPS coordinate.
+	\item [On-Board Computer:] The object that communicate with server, in order to update car status and calculate rental fee.
 	
 \end{description}
