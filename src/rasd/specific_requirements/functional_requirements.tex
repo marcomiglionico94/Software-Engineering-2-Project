@@ -2,6 +2,20 @@
 Assuming that the domain properties stipulated in the paragraph [1.5] hold, and, in order to achieve the goals listed in paragraph [1.3], the following requirements can be derived. The requirements are grouped under each goal from which it is derived.
 
 \begin{enumerate}
+\item allows the user to sign up to the system:
+
+\begin{itemize}
+\item the system must acquire the user informations(name, surname, address, birth date and credit card number)
+\item the system must verify that the username chose by the user is unique;
+\item the system must register the new user if the data provided are valid;
+\end{itemize}
+
+\item allows only the registered users to log in to the system:
+
+\begin{itemize}
+\item The system must be able to check if the username and password provided are correct;
+\item The system must let the user login if and only if the provided username and the password are correct;
+\end{itemize}
 
 \item allows the user to book a car for up to an hour before he/she picks it up:
 
@@ -10,20 +24,12 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item The system must turn the state of the car from available to booked after the user reserve it;
 \end{itemize}
 
-\item allows only the registered users to access the service:
-
-\begin{itemize}
-\item The system must let the user sign up to the system if the data that he provides are valid; %TODO specify "valid"?
-\item The system must be able to check if the username and password provided are correct;
-\item The system must let the user login if the provided username and the password are correct;
-\end{itemize}
-
 \item allows the user to search for a car in a specific location:
 
 \begin{itemize}
 \item The system must ask the user to insert a specific location;
 \item The system must be able to check if the specified location exists;
-\item The system must be able to show all the available cars within a range of 1 KM from that specific location;
+\item The system must be able to show all the available cars,with their current level of battery,within a range of 1 KM from that specific location;
 \item If there are not any available cars within a range of 1 KM from that specific location the system must notify the user;
 \end{itemize}
 
@@ -31,7 +37,7 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must be able to check the position of the user through the GPS position of his mobile phone;
-\item The system must be able to show all the available cars within a range of 1 KM from the position of the user;
+\item The system must be able to show all the available cars,with their current level of battery, within a range of 1 KM from the position of the user;
 \item If there are not any available cars within a range of 1 KM from the position of the user the system must notify the user;
 \end{itemize}
 
@@ -45,7 +51,7 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item Allows the user to end the ride only in specific areas called safe areas:
 
 \begin{itemize}
-\item The system must be able to show to the user where is the closest safe area;
+\item The system must be able to show to the user the position of the safe areas on the map;
 \item The system must notify the user when he/she is inside a safe area;
 \item The system must end the reservation only when the user is parked in a safe area and he/she exits the car;
 \item When the reservation ends the system must change the status of the car in available and lock the car;
@@ -55,8 +61,8 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 
 \begin{itemize}
 \item The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS;
-\item When the distance between the car and the mobile phone of the user is less than 2 meters the system must show to the user the option to unlock the car;
-\item The system must let the user unlock only the car that he currently reserved;
+\item When the distance between the car and the mobile phone of the user is less than 6 meters the system must show to the user the option to unlock the car;
+\item The system must let the user unlock only the car that he/she currently reserved;
 \item The system must be able to unlock the cars remotely;
 \item The system must be notified when the user enter inside the car;
 \item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes;
@@ -107,5 +113,10 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 \item The system must ask the user his/her destination;
 \item The system must be able to check the availability of power plug in a specific station;
 \item The system must be able to ensure a uniform distribution of cars in the city;
+\end{itemize}
+
+\item the system must keep the electric cars working and with an high level of battery:
+\begin{itemize}
+\item The system must .... %TODO
 \end{itemize}
 \end{enumerate}
