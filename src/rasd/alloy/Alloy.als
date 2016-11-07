@@ -11,10 +11,10 @@ time >= 0
 }
 
 abstract sig CarState{}
-sig Available extends CarState{}
-sig Unavailable extends CarState{}
-sig Reserved extends CarState{}
-sig Busy extends CarState{}
+one sig Available extends CarState{}
+one sig Unavailable extends CarState{}
+one sig Reserved extends CarState{}
+one sig Busy extends CarState{}
 
 sig Position{
 latitude: one Int,
@@ -113,8 +113,8 @@ fact twoRidesImpliesTwoCarsAndTwoUsers{
 no disjoint r1, r2: Ride | r1.user = r2.user or r1.car = r2.car
 }
 
-fact rentedCarNoAvailable{
-all r: Ride| r.car.currentState != Available
+fact aReservedorBusyCarHasAlwaysARide {
+all c: ElectricCar |(c.currentState in Reserved + Busy) <=>  one r: Ride | r.car = c
 }
 
 fact unavailableCarCannotStart{
@@ -154,4 +154,4 @@ plus[mul[sub[p.latitude, sa.center.latitude], sub[p.latitude, sa.center.latitude
 
 
 pred show() {}
-run show for 10 but exactly 3 Ride
+run show for 10 but exactly 5 ElectricCar, exactly 2 Ride
