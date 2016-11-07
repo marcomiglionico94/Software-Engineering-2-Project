@@ -1,0 +1,60 @@
+\section{Use Case Description}
+In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.\\
+\\
+\textbf{User registration} \\
+\\
+\textbf{Name:}User registration \\
+\textbf{Actors:}User,External system for Payments \\
+\textbf{Entry conditions:}User is not registered to the system \\
+\textbf{Flow of events:} \\
+\begin{itemize}
+\item The user open the application and click on the button sign up in the homepage;
+\item The system show him/her a registration form;
+\item The user fill the form with his/her data: name,surname, birth date, driving licence number, credit card number, username and password. Then he/she submit it;
+\item The system check the correctness of the data inserted by the user and verify the validity of the credit card through an external system;
+\item If all the data are correct the system send him/her a confirmation email of the registration;
+\end{itemize}
+\textbf{Exit conditions:}The user is successfully registered to the system and now can log in.\\
+\textbf{Exceptions:}
+\begin{itemize}
+\item The information inserted by the user are not valid or some informations are missing.
+In this the registration fails and the user is redirected to the homepage.
+\item The external system for credit card validation is not available. In this case the user cannot complete the registration until the problem will be fixed.
+\end{itemize}
+
+
+\textbf{User log in} \\
+\\
+\textbf{Name:} User log in \\
+\textbf{Actors:} User \\
+\textbf{Entry conditions:} The user is registered to the system and he/she is not banned\\
+\textbf{Flow of events:}
+\begin{itemize}
+\item The user open the application and click on the button log in in the homepage;
+\item The system show him a form in which he/she can insert the username and the password;
+\item The user fill the form and then click submit it;
+\item The system check that the username and password are correct;
+\end{itemize}
+\textbf{Exit conditions:} The user is successfully logged into the system and now he/she can access to all its functionalities \\
+\textbf{Exceptions:} \\
+The username and password inserted by the user are not correct.In this case the user is not logged in and he/she will be redirected to the homepage.\\
+
+\textbf{Search Car}\\
+\\
+\textbf{Name:} Search Car\\
+\textbf{Actors:} User\\
+\textbf{Entry conditions:} The user is logged into the system \\
+\textbf{Flow of events:}
+\begin{itemize}
+\item The user choose the option "Search Car"
+\item The system allows the user to choose one of the 2 options for searching the car: "Search in a specific address" or "Search from current location".
+\item If the user choose "Search in a specific address" the system will ask him/her to insert the address and then it will verify the correctness of the inserted data;
+\item If the user choose "Search from current location" the system will detect his/her position through the GPS and it will search for car within a range of 1 km from the user's position.
+\item The system will show on the map the available cars that satisfy the parameters,with their number and their current battery.
+\end{itemize}
+\textbf{Exit conditions:} The user can visualize on the map the available cars that fits the parameters \\
+\textbf{Exceptions:}  
+\begin{itemize}
+\item The are no available cars that satisfy the parameters. In this case the user is notified of the unavailability of cars.
+\item The address inserted by the user is not correct. In this case the system will ask the user to insert it again
+\end{itemize}
