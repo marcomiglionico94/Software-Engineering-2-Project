@@ -14,18 +14,18 @@ In the future some API will be provided, in order to permit the evolution of the
 All the interfaces shall be intuitive and user friendly. They should not
 require the reading of detailed documentation to be used.
 
+\subsection{Software interfaces}
+The mobile app will be developed both for IOS and Android, so the system will use the API of these operating systems to access to the GPS of the smartphone and maps.
+
+The interaction with the car is managed by "HandyCar", a system that abstract all the operations related to the interaction with the car, like lock and unlock the car, know his buttery level and the number of passengers and so on.
+In fact, every sensor and actuator of the car is connected to the "HandyCar Board", so thanks to this, they can be controlled via simple API through the internet.
+
 \subsection{Hardware interfaces}
 In the system there are the following hardware interfaces:
 \begin{description}
 	\item [Broken button:] a button that is present in every car and can be pressed by the user to report that there something wrong with the mechanical aspects of the car;
 	\item [GPS:] it's used to track the position of cars and users;
-	\item [passengers detector:] it's a sensors system that detects how many passengers there are in the car.
+	\item [HandyCar Board:] the board to which all the actuators and sensors of the car are connected. The sensors system that detects how many passengers there are in the car it's connected to this board too, so the board can memorize the maximum number of passengers of the current ride.
 \end{description}
-
-\subsection{Software interfaces}
-The mobile app will be developed both for IOS and Android, so the system will use the API of these operating systems to access to the GPS of the smartphone.
-
-The interaction with the car is managed by "HandyCar", a system that abstract all the operations related to the interaction with the car, like lock and unlock the car, know his buttery level and the number of passengers and so on.
-In fact, every sensor and actuator of the car is connected to the "HandyCar Board", so thanks to this, they can be controlled via simple API through the internet.
 
 %I don't know if by hardware and software interfaces they means these things.
