@@ -1,8 +1,7 @@
 \section{Use Case Description}
 In this paragraph some use cases will be described. These use cases can be derived from the scenarios and the use case diagram.\\
 \\
-\textbf{User registration} \\
-\\
+\section*{User registration} 
 \textbf{Name:}User registration \\
 \textbf{Actors:}User,External system for Payments \\
 \textbf{Entry conditions:}User is not registered to the system \\
@@ -23,8 +22,7 @@ In this the registration fails and the user is redirected to the homepage.
 \end{itemize}
 
 
-\textbf{User log in} \\
-\\
+\section*{User log in} 
 \textbf{Name:} User log in \\
 \textbf{Actors:} User \\
 \textbf{Entry conditions:} The user is registered to the system and he/she is not banned\\
@@ -39,8 +37,7 @@ In this the registration fails and the user is redirected to the homepage.
 \textbf{Exceptions:} \\
 The username and password inserted by the user are not correct.In this case the user is not logged in and he/she will be redirected to the homepage.\\
 
-\textbf{Search Car}\\
-\\
+\section*{Search Car}
 \textbf{Name:} Search Car + Search from current location + Search in a specific address\\
 \textbf{Actors:} User\\
 \textbf{Entry conditions:} The user is logged into the system and he/she is not banned\\
@@ -59,8 +56,7 @@ The username and password inserted by the user are not correct.In this case the 
 \item The address inserted by the user is not correct. In this case the system will ask the user to insert it again
 \end{itemize}
 
-\textbf{Reserve Car}\\
-\\
+\section*{Reserve Car}
 \textbf{Name:} Reserve Car\\
 \textbf{Actors:} User\\
 \textbf{Entry conditions:}
@@ -84,8 +80,7 @@ The username and password inserted by the user are not correct.In this case the 
 \end{itemize}
 
 
-\textbf{Ride}\\
-\\
+\section*{Ride}
 \textbf{Name:} Ride\\
 \textbf{Actors:} User and other people that don't necessarily need to be registered in to the system\\
 \textbf{Entry conditions:}
@@ -113,8 +108,7 @@ The username and password inserted by the user are not correct.In this case the 
 
 
 
-\textbf{Reservation Expire}\\
-\\
+\section*{Reservation Expire}
 \textbf{Name:} Reservation Expire\\
 \textbf{Actors:} User, External system for payments\\
 \textbf{Entry conditions:}
@@ -137,8 +131,7 @@ The username and password inserted by the user are not correct.In this case the 
 \item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
 \end{itemize}
 
-\textbf{Recharge Car}\\
-\\
+\section*{Recharge Car}
 \textbf{Name:} Recharge Car\\
 \textbf{Actors:} User, other passengers that are not necessarily registered into the system,Maintainer\\
 \textbf{Entry conditions:}
@@ -160,8 +153,7 @@ The username and password inserted by the user are not correct.In this case the 
 \item The user recharge the car and don't end the ride. In this case he/she can continue to use it but the discount for the battery plug-in won't be calculated.
 \end{itemize}
 
-\textbf{End Ride}\\
-\\
+\section*{End Ride}
 \textbf{Name:} End Ride\\
 \textbf{Actors:} User, other passengers that are not necessarily registered into the system\\
 \textbf{Entry conditions:}
@@ -193,6 +185,55 @@ The username and password inserted by the user are not correct.In this case the 
 \item The payment is not successful. In this case the user is notified and banned from the system;
 \item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
 \end{itemize}
+
+\section*{Discount calculation}
+\textbf{Name:} Discount calculation\\
+\textbf{Actors:} No actors but only the System\\
+\textbf{Entry conditions:} The user end the ride;\\
+\textbf{Flow of events:}
+\begin{itemize}
+\item The system check through the sensor of the car the number of passenger, the level of battery , the GPS position and if the car is plugged to a power grid;
+\item The system apply the following discounts or fees on the bill that the user has to pay:
+\begin{itemize}
+\item -10\% if the system detect that there are at least 2 passenger on the car excluding the driver;
+\item -20\% if the car is left with no more than 50\% of the battery empty
+\item -30\% if the car is left in a special parking area where it can be recharged and the user takes care of plugging the car into the power grid;
+\item +30\% if the car is left at more than 3 km from the nearest power grid station or with more than 80\% of the battery empty
+\end{itemize}
+\item The system calculate the final bill that the user has to pay and show it on the screen of the car
+\end{itemize}
+\textbf{Exit conditions:} The user can visualize the final bill with the fees or discounts applied \\
+\textbf{Exceptions:} The user plug the car without ending the ride and decide to use it again after the recharge. In this case the 20\% discount is not applied. \\
+
+\section*{Payment}
+\textbf{Name:} Discount calculation\\
+\textbf{Actors:} External system for payments\\
+\textbf{Entry conditions:}
+\begin{itemize}
+\item The ride is ended or the reservation has expired;
+\item The eventual discounts or fees have been applied
+\end{itemize}
+\textbf{Flow of events:}
+\begin{itemize}
+\item The system send a request to the external system for payments with the credit card information of the user and the the final bill that the user has to pay;
+\item The external system for payments receive the request and take it in charge.
+\item The payment is performed
+\end{itemize}
+\textbf{Exit conditions:}The bill has been paid.\\
+\textbf{Exceptions:}
+\begin{itemize}
+\item The payment is not successful. In this case the user is notified and banned from the system;
+\item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
+\end{itemize}
+
+
+
+
+
+
+
+
+
 
 
 
