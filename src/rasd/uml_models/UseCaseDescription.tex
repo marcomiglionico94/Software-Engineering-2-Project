@@ -3,21 +3,21 @@ In this paragraph some use cases will be described. These use cases can be deriv
 \\
 \section*{User registration} 
 \textbf{Name:}User registration \\
-\textbf{Actors:}User,External system for Payments \\
+\textbf{Actors:}User,External system for Payments,External system for driving licence validation\\
 \textbf{Entry conditions:}User is not registered to the system \\
 \textbf{Flow of events:} \\
 \begin{itemize}
 \item The user open the application and click on the button sign up in the homepage;
 \item The system show him/her a registration form;
 \item The user fill the form with his/her data: name,surname, birth date, driving licence number, credit card number, username and password. Then he/she submit it;
-\item The system check the correctness of the data inserted by the user and verify the validity of the credit card through an external system;
+\item The system check the correctness of the data inserted by the user and verify the validity of the credit card and of the driving license through 2 external systems;
 \item If all the data are correct the system send him/her a confirmation email of the registration;
 \end{itemize}
 \textbf{Exit conditions:}The user is successfully registered to the system and now can log in.\\
 \textbf{Exceptions:}
 \begin{itemize}
 \item The information inserted by the user are not valid or some informations are missing.
-In this the registration fails and the user is redirected to the homepage.
+In this case the registration fails and the user is redirected to the registration form.
 \item The external system for credit card validation is not available. In this case the user cannot complete the registration until the problem will be fixed.
 \end{itemize}
 
@@ -29,13 +29,13 @@ In this the registration fails and the user is redirected to the homepage.
 \textbf{Flow of events:}
 \begin{itemize}
 \item The user open the application and click on the button log in in the homepage;
-\item The system show him a form in which he/she can insert the username and the password;
-\item The user fill the form and then click submit it;
-\item The system check that the username and password are correct;
+\item The system show him/her a form in which he/she can insert the username and the password;
+\item The user fill the form and then click on submit it;
+\item The system check the correctness of the username and password;
 \end{itemize}
 \textbf{Exit conditions:} The user is successfully logged into the system and now he/she can access to all its functionalities \\
 \textbf{Exceptions:} \\
-The username and password inserted by the user are not correct.In this case the user is not logged in and he/she will be redirected to the homepage.\\
+The username and password inserted by the user are not correct.In this case the user is not logged in and he/she will be redirected to the login form.\\
 
 \section*{Search Car}
 \textbf{Name:} Search Car + Search from current location + Search in a specific address\\
@@ -47,7 +47,7 @@ The username and password inserted by the user are not correct.In this case the 
 \item The system allows the user to choose one of the 2 options for searching the car: "Search in a specific address" or "Search from current location".
 \item If the user choose "Search in a specific address" the system will ask him/her to insert the address and then it will verify the correctness of the inserted data;
 \item If the user choose "Search from current location" the system will detect his/her position through the GPS and it will search for car within a range of 1 km from the user's position.
-\item The system will show on the map the available cars that satisfy the parameters,with their number and their current battery.
+\item The system will show on the map the available cars that satisfy the parameters,with their unique number and their current battery.
 \end{itemize}
 \textbf{Exit conditions:} The user can visualize on the map the available cars that fits the parameters \\
 \textbf{Exceptions:}  
@@ -91,10 +91,10 @@ The username and password inserted by the user are not correct.In this case the 
 \end{itemize}
 \textbf{Flow of events:}
 \begin{itemize}
-\item The user reach the location of the car following the direction given by the mobile app;
-\item The system show on the mobile phone of the user the option to unlock the car when he/she is within a range of 6 metres from the car
+\item The user reach the location of the car following the directions given by the mobile app;
+\item The system show on the mobile application of the user the option to unlock the car when he/she is within a range of 6 metres from the car;
 \item The user choose to unlock the car;
-\item The system take charge the request and unlock the car;
+\item The system take charge of the request and unlock the car;
 \item The user and the passenger(in case there are any) enter inside the car;
 \item The user ignite the engine and the system is notified;
 \item The system start charging the user with a predefined amount of money per minute and show him/her the current fee on the screen of the car;
@@ -120,14 +120,14 @@ The username and password inserted by the user are not correct.In this case the 
 \textbf{Flow of events:}
 \begin{itemize}
 \item The status of the car changes from booked to available if the system verify that the car has not been picked-up by the user;
-\item The system charge 1 euro to the user;
+\item The system charges 1 euro to the user;
 \item The external system for payments take charge of the request and invoke the \textbf{Payment} use case;
 \item The user is notified about the result of the operation;
 \end{itemize}
 \textbf{Exit conditions:} The user is now able to reserve a new car \\
 \textbf{Exceptions:}
 \begin{itemize}
-\item The payment is not successful. In this case the user is notified and banned from the system;
+\item\textbf{Payment Failed} use case;
 \item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
 \end{itemize}
 
@@ -141,14 +141,14 @@ The username and password inserted by the user are not correct.In this case the 
 \end{itemize}
 \textbf{Flow of events:}
 \begin{itemize}
-\item The user or one of the passenger go out of the car and plug the car in one of the power grid;
 \item The user end the ride;
+\item The user or one of the passenger go out of the car and plug the car in one of the power grid;
 \item The system is notified when the car is plugged into the power grid;
 \end{itemize}
 \textbf{Exit conditions:} The car has been recharged \\
 \textbf{Exceptions:}
 \begin{itemize}
-\item The car has been parked in an unsafe area or is not able to reach the nearest power grid station with the current battery. In this case the maintainer reach the area where the car has been parked and start charging the car on site. At this point the system is notified that the car has been charged by the maintainer;
+\item The car has been parked in an unsafe area or is not able to reach the nearest power grid station with the current battery. In this case the maintainer reach the area where the car has been parked, start charging the car on site and then he/she take it to a safe area. At this point the system is notified that the car has been charged by the maintainer and its status is changed from unavailable to available;
 \item The power grid has  a problem and doesn't recharge the car. In this case the user can use the help button and notify the problem to the system;
 \item The user recharge the car and don't end the ride. In this case he/she can continue to use it but the discount for the battery plug-in won't be calculated.
 \end{itemize}
@@ -158,18 +158,18 @@ The username and password inserted by the user are not correct.In this case the 
 \textbf{Actors:} User, other passengers that are not necessarily registered into the system\\
 \textbf{Entry conditions:}
 \begin{itemize}
-\item The car is inside a safe area
+\item The car is inside a safe area;
 \item The user decide to end the ride;
 \end{itemize}
 \textbf{Flow of events:}
 \begin{itemize}
 \item The user turn off the engine of the car and click on the proper button to end the ride;
-\item The system is notified about the ride;
-\item The system wait until there are no passengers on the car;
-\item The system and stop charging the user
-\item The system detect if the car has been parked in a safe area or in a special area where it can be recharged. In the second case the system wait 10 minutes before start calculating the bill;
+\item The system is notified about the end of the ride;
+\item The system wait until there are no more passengers on the car;
+\item The system stop charging the user;
+\item The system detect if the car has been parked in a safe area or in a special area where it can be recharged.
 \item The system lock the car and change his status from busy to available;
-\item The system invoke the \textbf{Discount calculation} use case;
+\item The system wait 10 minutes before invoking the \textbf{Discount calculation} use case to give him the time to plug the car into a power grid;
 \item The system charge the calculated bill to the user;
 \item The system invoke the \textbf{Payment} use case;
 \end{itemize}
@@ -180,10 +180,11 @@ The username and password inserted by the user are not correct.In this case the 
 \end{itemize}
 \textbf{Exceptions:}
 \begin{itemize}
-\item The user leave the car outside a safe area. In this case the the user cannot end the ride and he/she will continue to pay until the limit time for a reservation has been reached. In addiction a maintainer will take charge of moving the car to a safe area.
-\item The user turn off the car but the passenger or the user don't go out of the car within 3 minutes. In this case the system will start charging and additional fee per minute to the user.
-\item The payment is not successful. In this case the user is notified and banned from the system;
-\item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
+\item The user leave the car outside a safe area. In this case the the user cannot end the ride and he/she will continue to pay until the limit time for a ride has been reached. In addiction a maintainer will take charge of moving the car to a safe area;
+\item The user turn off the car but the passenger or the user don't go out of the car within 3 minutes. In this case the system will start charging an additional fee per minute to the user;
+\item\textbf{Payment Failed} use case;
+\item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again;
+\item The user plug the car to the power grid after 10 minutes from the end of the ride. In this case the discount will not be applied;
 \end{itemize}
 
 \section*{Discount calculation}
@@ -222,9 +223,26 @@ The username and password inserted by the user are not correct.In this case the 
 \textbf{Exit conditions:}The bill has been paid.\\
 \textbf{Exceptions:}
 \begin{itemize}
-\item The payment is not successful. In this case the user is notified and banned from the system;
+\item\textbf{Payment Failed} use case;
 \item The external system for payments in not available. In this case the payment will be performed as soon as the it will become available again
 \end{itemize}
+
+\section*{Payment failed}
+\textbf{Name:} Payment failed\\
+\textbf{Actors:} External system for payments\\
+\textbf{Entry conditions:}
+\begin{itemize}
+\item The System has sent to the external system for payments the request of charging the user with his/her current bill.The credit card number and CCV are contained into the request
+\item The external system for payments has tried to perform the payment;
+\end{itemize}
+\textbf{Flow of events:}
+\begin{itemize}
+\item The payment failed because the user has not enough money to pay the bill;
+\item The System is notified by the external system for payments;
+\item The System banned the user from the system;
+\textbf{Exit conditions:}The user is banned.\\
+\textbf{Exceptions:} No exceptions \\
+
 
 
 
