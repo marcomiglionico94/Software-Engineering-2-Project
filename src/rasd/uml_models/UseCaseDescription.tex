@@ -207,7 +207,7 @@ The username and password inserted by the user are not correct.In this case the 
 \textbf{Exceptions:} The user plug the car without ending the ride and decide to use it again after the recharge. In this case the 20\% discount is not applied. \\
 
 \section*{Payment}
-\textbf{Name:} Discount calculation\\
+\textbf{Name:} Payment\\
 \textbf{Actors:} External system for payments\\
 \textbf{Entry conditions:}
 \begin{itemize}
@@ -240,8 +240,30 @@ The username and password inserted by the user are not correct.In this case the 
 \item The payment failed because the user has not enough money to pay the bill;
 \item The System is notified by the external system for payments;
 \item The System banned the user from the system;
+\end{itemize}
 \textbf{Exit conditions:}The user is banned.\\
 \textbf{Exceptions:} No exceptions \\
+
+\section*{Money Saving Option}
+\textbf{Name:} Money Saving Option\\
+\textbf{Actors:} User\\
+\textbf{Entry conditions:}
+\begin{itemize}
+\item The user is inside the car;
+\item The ride is not ended;
+\end{itemize}
+\textbf{Flow of events:}
+\begin{itemize}
+\item The user activate the Money Saving Option from the button present on the car;
+\item The system ask the user to insert his/her final destination;
+\item The user type his/her final destination;
+\item The system determine the power grid station where the user can leave the car by taking into account the distance from the user's destination and the available plugs in that station;
+\item The system show the information about this power grid station on the screen of the car
+\end{itemize}
+\textbf{Exit conditions:}The Money Saving Option is enabled.\\
+\textbf{Exceptions:} 
+The user insert a destination that is not valid. In this case the system will ask the user to insert another destination\\
+
 
 
 
