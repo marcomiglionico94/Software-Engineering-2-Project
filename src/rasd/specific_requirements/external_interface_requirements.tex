@@ -7,7 +7,13 @@ The user interfaces must satisfy the following UI constraints:
 	\begin{itemize}
 	\item The iOS version must adhere to the iOS Human Interface Guide-lines
 	\item The Android version must follow Android design guidelines
-	\item The interface must offer the possibility to choose the language used.
+	\item The mobile app will not support landscape mode
+	\item The interface must offer the possibility to choose the language used between the available ones;
+	\item If the user in 
+	\end{itemize}
+\item[Server back-end]
+	\begin{itemize}
+	\item The server back-end must be configurable by means of a configuration text file.
 	\end{itemize}
 \end{description}
 
@@ -15,5 +21,6 @@ The user interfaces must satisfy the following UI constraints:
 The mobile app must be able to access the GPS data of the user’s phone.
 \subsection{Software Interfaces}
 The mobile app must run on both Android 4.0.3+ and IOS 8+.
+
 \subsection{Communication Interfaces}
 The mobile app, the tablet in the car and the HandyCar Board communicate with the server through a REST interface via HTTPS requests (port 443).

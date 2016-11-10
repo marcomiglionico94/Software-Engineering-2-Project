@@ -6,26 +6,52 @@ The PowerEnJoy front end is only composed of a mobile app.
 %There can be a website that contains only information and reminds to the link of the app in both Apple Store and Play Store, but it is not our purpose to develop it.
 The system developed will not be integrated with other existing systems that managed a car-sharing service.
 
-Also, the system will only be user based, this means no internal interface will be developed.
+Also, the system will only be user based, this means no internal interface will be developed for now.
 For example, it will be possible to modify the safe areas and the power grid stations only by the database interface, so editing the tables directly.
 In the future some API will be provided, in order to permit the evolution of the features of the system.
+
+The interaction with the car is managed by "HandyCar", a system that abstract all the operations related to the interaction with the car, like lock and unlock the car, know his battery level, the number of passengers and so on.
+
 
 \subsection{User Interfaces}
 All the interfaces shall be intuitive and user friendly. They should not
 require the reading of detailed documentation to be used.
 
-\subsection{Software interfaces}
-The mobile app will be developed both for IOS and Android, so the system will use the API of these operating systems to access to the GPS of the smartphone and maps.
+\subsubsection*{Main Page}
 
-The interaction with the car is managed by "HandyCar", a system that abstract all the operations related to the interaction with the car, like lock and unlock the car, know his buttery level and the number of passengers and so on.
-In fact, every sensor and actuator of the car is connected to the "HandyCar Board", so thanks to this, they can be controlled via simple API through the internet.
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth,height=\dimexpr\textheight-4\baselineskip-\abovecaptionskip-\belowcaptionskip\relax,keepaspectratio]{overall_description/mockup/main_page.png}
+	\caption{Main page.}
+	\label{fig:mockup_main_page}
+\end{figure}
+
+In figure \ref{fig:mockup_main_page} is represented the first page that is shown to the user if it logged in to the system before.
+
+From this page a user can search for the nearest available car having a quick look to their battery level, too.
+
+The legend of the battery level is the following:
+\begin{description}
+	\item[red:] battery level from 1\% to 19\%;
+	\item[yellow:] battery level from 20\% to 49\%;
+	\item[green:] battery level from 50\% to 100\%.
+\end{description}
+
+
 
 \subsection{Hardware interfaces}
 In the system there are the following hardware interfaces:
 \begin{description}
-	\item [Broken button:] a button that is present in every car and can be pressed by the user to report that there something wrong with the mechanical aspects of the car;
+	\item [Panic button:] a button that is present in every car and can be pressed by the user to report that there something wrong with the mechanical aspects of the car;
 	\item [GPS:] it's used to track the position of cars and users;
-	\item [HandyCar Board:] the board to which all the actuators and sensors of the car are connected. The sensors system that detects how many passengers there are in the car it's connected to this board too, so the board can memorize the maximum number of passengers of the current ride.
+	\item [HandyCar Board:] a board to which all the actuators and sensors of the car are connected. The sensors system that detects how many passengers there are in the car it's connected to this board too, so the board can memorize the maximum number of passengers of the current ride.
 \end{description}
 
-%I don't know if by hardware and software interfaces they means these things.
+\subsection{Software interfaces}
+The mobile app will be developed both for IOS and Android, so the system will use the API of these operating systems to access to the GPS of the smartphone and maps.
+
+Furthermore, the HandyCar Board provides some simple API, in order to control the board remotely through the Internet.
+
+
+
+
