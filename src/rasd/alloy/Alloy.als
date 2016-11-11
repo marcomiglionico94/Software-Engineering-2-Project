@@ -63,17 +63,17 @@ feeVariatorPercentage: one Int
 }{
 feeVariatorPercentage <= 100
 }
-sig PassengersDiscount extends FeeVariator{
+one sig PassengersDiscount extends FeeVariator{
 minPassengersNumber: one Int
 }
-sig PlugDiscount extends FeeVariator{}
-sig BatteryDiscount extends FeeVariator{
+one sig PlugDiscount extends FeeVariator{}
+one sig BatteryDiscount extends FeeVariator{
 minBatteryDiscount: one Int
 }{
 minBatteryDiscount <= 100
 minBatteryDiscount >= 0
 }
-sig FarorLowonBatteryMalus extends FeeVariator{
+one sig FarorLowonBatteryMalus extends FeeVariator{
 maxBatteryLevel: one Int,
 minDistancefromPGS: one Int
 }{
@@ -109,26 +109,14 @@ fact no2SimilarUsers{
 no disjoint u1, u2: User | u1.email = u2.email or u1.taxCode = u2.taxCode or u1.password = u2.password
 }
 
-fact twoOngoingRidesImpliesTwoCarsAndTwoUsers{
-all disjoint r1, r2: Ride | #r1.endTime = 0 && #r2.endTime = 0 implies r1.user != r2.user && r1.car != r2.car
-}
-
-fact allRidesAreConsecutive{
-all disjoint r1, r2: Ride | haveCarOrUserinCommon[r1, r2] implies #r1.endTime = 0 && r2.endTime.time < r1.reservationTime.time or  #r2.endTime = 0 && r1.endTime.time < r2.reservationTime.time or #r1.endTime = 1 && #r2.endTime = 1 && (r2.endTime.time < r1.reservationTime.time or r1.endTime.time < r2.reservationTime.time)
-}
-
 fact aReservedorBusyCarHasAlwaysARide {
-all c: ElectricCar |(c.currentState in Reserved + Busy) implies  one r: Ride | r.car = c && #r.endTime = 0
+all c: ElectricCar |(c.currentState in Reserved + Busy) implies  one r: Ride | r.car = c && rideisOngoing[r]
 }
 
 fact anOngoingRideHasACarReservedOrBusyAndViceVersa{
 all r: Ride | #r.unlockTime = 0 && #r.endTime = 0 implies r.car.currentState = Reserved
 all r: Ride | #r.unlockTime = 1 && #r.endTime = 0 implies r.car.currentState = Busy
-all c: ElectricCar | c.currentState in (Busy + Reserved) implies one r: Ride | #r.endTime = 0
-}
-
-fact unavailableCarCannotStart{
-all c: ElectricCar | c.currentState = Unavailable implies c.engineOn = False
+all c: ElectricCar | c.currentState in (Busy + Reserved) implies one r: Ride | rideisOngoing[r]
 }
 
 fact aStartedCarisBusy{
@@ -141,10 +129,6 @@ no disjoint c1, c2: ElectricCar | c1.currentPosition = c2.currentPosition
 
 fact no2PGSinTheSameSpot{
 no disjoint psg1, psg2: PowerGridStation | psg1.location = psg2.location
-}
-
-fact noUnavailableCarCanBeRent{
-no r: Ride | r.car.currentState = Unavailable && #r.endTime = 0
 }
 
 fact noPassengersGreaterthanSeatsNumber{
@@ -165,7 +149,41 @@ pred haveCarOrUserinCommon[r1: Ride, r2: Ride]{
 r1.user = r2.user or r1.car = r2.car
 }
 
+pred rideisOngoing[r: Ride]{
+#r.endTime = 0
+}
 
+pred reserveACar[ui: User, uf: User, ci: ElectricCar, cf: ElectricCar, r: Ride]{
+no ride: Ride | (ride.user = ui or ride.car = ci) && rideisOngoing[ride]
 
-pred show() {}
-run show for 8 but exactly 1 Ride, exactly 5 ElectricCar
+r.car = cf && rideisOngoing[r] && cf.currentState = Reserved && r.user = uf
+}
+
+/*pred endARide[ri: Ride, rf: Ride]{
+rideisOngoing[ri]
+
+(!(rideisOngoing[ri])) && ri.car.currentState = Available
+}*/
+
+//Assertion
+
+assert noUnavailableCarCanBeRent{
+no r: Ride | r.car.currentState = Unavailable && rideisOngoing[r]
+}
+
+assert twoOngoingRidesImpliesTwoCarsAndTwoUsers{
+all disjoint r1, r2: Ride | rideisOngoing[r1] && rideisOngoing[r2] implies r1.user != r2.user && r1.car != r2.car
+}
+
+assert allRidesAreConsecutive{
+all disjoint r1, r2: Ride | haveCarOrUserinCommon[r1, r2] implies rideisOngoing[r1] && r2.endTime.time < r1.reservationTime.time or  rideisOngoing[r2] && r1.endTime.time < r2.reservationTime.time or !(rideisOngoing[r1] or rideisOngoing[r2]) && (r2.endTime.time < r1.reservationTime.time or r1.endTime.time < r2.reservationTime.time)
+}
+
+assert unavailableCarCannotStart{
+all c: ElectricCar | c.currentState = Unavailable implies c.engineOn = False
+}
+
+check unavailableCarCannotStart
+//pred show() {}
+
+//run show for 8 but exactly 2 Ride, exactly 1 ElectricCar
