@@ -42,6 +42,8 @@ radius: one Int
 sig PowerGridStation{
 location: one Position,
 plugs: set Plug
+}{
+#plugs > 0
 }
 
 sig Plug{
@@ -65,6 +67,8 @@ feeVariatorPercentage <= 100
 }
 one sig PassengersDiscount extends FeeVariator{
 minPassengersNumber: one Int
+}{
+minPassengersNumber > 0
 }
 one sig PlugDiscount extends FeeVariator{}
 one sig BatteryDiscount extends FeeVariator{
@@ -79,6 +83,7 @@ minDistancefromPGS: one Int
 }{
 maxBatteryLevel <= 100
 maxBatteryLevel >= 0
+minDistancefromPGS > 0
 }
 
 sig Ride{
@@ -123,10 +128,6 @@ fact aStartedCarisBusy{
 all c: ElectricCar | c.engineOn = True implies c.currentState = Busy
 }
 
-fact no2CarsinTheSameSpot{
-no disjoint c1, c2: ElectricCar | c1.currentPosition = c2.currentPosition
-}
-
 fact no2PGSinTheSameSpot{
 no disjoint psg1, psg2: PowerGridStation | psg1.location = psg2.location
 }
@@ -135,8 +136,16 @@ fact noPassengersGreaterthanSeatsNumber{
 no r: Ride | r.maxPassengersNumber > r.car.seatsNumber
 }
 
+fact eachPlugHasAPSG{
+all pl: Plug | one psg: PowerGridStation | pl in psg.plugs
+}
+
 fact eachPGSinaSA{
 all psg: PowerGridStation | one sa: SafeArea | positionInSA[psg.location, sa]
+}
+
+fact eachBusyPlugHasACarPlugged{
+all psg: PowerGridStation | busyPlug[psg] = carParkedIn[psg.location]
 }
 
 //Predicates
@@ -165,6 +174,15 @@ rideisOngoing[ri]
 (!(rideisOngoing[ri])) && ri.car.currentState = Available
 }*/
 
+//Functions
+fun busyPlug[psg: PowerGridStation]: Int{
+#{pl: Plug| pl in psg.plugs && pl.busy = True}
+}
+
+fun carParkedIn[p: Position]: Int{
+#{c: ElectricCar | c.currentState in {Available + Unavailable} && c.currentPosition = p}
+}
+
 //Assertion
 
 assert noUnavailableCarCanBeRent{
@@ -183,7 +201,10 @@ assert unavailableCarCannotStart{
 all c: ElectricCar | c.currentState = Unavailable implies c.engineOn = False
 }
 
-check unavailableCarCannotStart
-//pred show() {}
+assert noPlugInTwoPSG{
+no disjoint psg1, psg2: PowerGridStation, pl: Plug | pl in psg1.plugs && pl in psg2.plugs
+}
 
-//run show for 8 but exactly 2 Ride, exactly 1 ElectricCar
+pred show() {}
+check noPlugInTwoPSG
+run show for 8 but exactly 1 Ride, exactly 2 ElectricCar, exactly 3 Plug, exactly 2 PowerGridStation
