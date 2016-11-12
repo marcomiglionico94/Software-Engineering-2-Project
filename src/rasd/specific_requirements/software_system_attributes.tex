@@ -1,2 +1,38 @@
 \section{Software System Attributes}
-Software System Attributes.
+
+\subsection{Reliability}
+The data should be always accessible and they should also be duplicated in case
+of a system fault to prevent data losses.
+
+\subsection{Availability}
+The system shall have an availability of 99.9\%, because a user could strongly rely on this system as his main transport, so it is important to provide an high availability. Also for this reason, the interruption of the service, due to upgrade or maintenance interventions, must be announced at least 5 days before its interruption. 
+
+\subsection{Security}
+\begin{itemize}
+\item All the communications between the system and his components must be encrypted using SSL protocol.
+\item The system must refuse all attempts of establishing an insecure communication channel (e.g. simple HTTP).
+\item Users' passwords must not be stored in plain text, but they must be hashed and salted. In addition to this, the hash algorithm used must be specified design to hash passwords.
+\item If a user fails to insert a password more than 4 times, then he has to insert a captcha to try again.
+\item The system shall use a secure authentication protocol.
+\item The system shall record all the reservations and rides of the user in order to ensure "non-repudiation";
+\end{itemize}
+
+
+\subsection{Maintainability}
+
+\begin{itemize}
+\item The application must be strongly documented to help future and current developers to maintain and apply changes to the system easily.
+\item The Application must only use well documented and maintained APIs.
+\item The source code will be written using a Version Control System with remote hosting, in order to have backups of every state of the application.
+\item The system will receive log files about failures of the application
+containing information in order to identify the criticality to work on the next patch.
+\item The structure of the system shall allow as much as possible to be changed without the introduction of degradation.
+\end{itemize}
+
+\subsection{Portability}
+The mobile application should be compatible with Android 4.0.3+ and IOS 8+, while the back-end should be compatible to all major hardware and software platform present on the market.
+The version of Android and IOS are such as to ensures to reach more than the 97\% of the users that use these OS, while Windows Mobile is not supported because there are not enough users that use it to justify the costs.
+
+The user must be able to install the app from Play Store and Apple Store.
+
+For what regards the back-end, there must not be host-dependent dependencies.
