@@ -6,21 +6,39 @@ The user interfaces must satisfy the following UI constraints:
 \item[Mobile App:]
 	\begin{itemize}
 	\item The iOS version must adhere to the iOS Human Interface Guide-lines
-	\item The Android version must follow Android design guidelines
-	\item The mobile app will not support landscape mode
-	\item The interface must offer the possibility to choose the language used between the available ones;
-	\item If the user in 
+	\item The Android version must follow Android design guidelines;
+	\item If the user did not logged in before in his current device the app must show him the login page;
+	\item From the lateral panel that appears when the user presses the menu button he must be able to reach an help page, to change his data and to see his status (so for example if he has pending payment);
+	\item The refresh button can be pressed by the user in order to update the current available cars, including their battery level;
+	\item UI controls and views must be suitable for the input interface and the screen size.
 	\end{itemize}
 \item[Server back-end]
 	\begin{itemize}
 	\item The server back-end must be configurable by means of a configuration text file.
 	\end{itemize}
+\item[Tablet on-board:]
+	\begin{itemize}
+	\item The tablet must let the user enable the money saving option. After that the user must be able to insert his destination.
+	\item The interface must follow Android design guidelines;
+	\end{itemize}
+\item[Common to tablet on-board and Mobile app:]
+\begin{itemize}
+	\item The interface must offer the possibility to choose the language used between the available ones;
+	\item The interface must follow Android design guidelines;
+	\item The compilation of data fields has to be made with suitable controls like multiple choice, date picker or text field in order to simplify the user experience;
+	\end{itemize}
 \end{description}
 
 \subsection{Hardware Interfaces}
-The mobile app must be able to access the GPS data of the user’s phone.
+\begin{description}
+	\item [Panic button:] when the panic button is pressed the HandyCar board must send a message to the system to notify that in that car there is something wrong. The message must contain an ID that identifies the car from which it was pressed.
+\end{description}
+
 \subsection{Software Interfaces}
-The mobile app must run on both Android 4.0.3+ and IOS 8+.
+\begin{itemize}
+\item The mobile app must run on both Android 4.0.3+ and IOS 8+.
+\item The payment gateway and the motorization gateway has to communicate via HTTPS in order to ensure security.
+\end{itemize}
 
 \subsection{Communication Interfaces}
-The mobile app, the tablet in the car and the HandyCar Board communicate with the server through a REST interface via HTTPS requests (port 443).
+The mobile app, the tablet in the car, the HandyCar Board and the remote system itself communicate with each other through HTTPS requests (port 443). In this way we ensure that everything that is sent on the internet is encrypted.
