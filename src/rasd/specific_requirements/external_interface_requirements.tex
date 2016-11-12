@@ -38,7 +38,32 @@ The user interfaces must satisfy the following UI constraints:
 \begin{itemize}
 \item The mobile app must run on both Android 4.0.3+ and IOS 8+.
 \item The payment gateway and the motorization gateway has to communicate via HTTPS in order to ensure security.
+\item Both payment gateway and motorization gateway expect a POST on their server in order to begin a transaction and the payload must be in JSON format. Every transition is very simple, because after the post they will respond to us with another POST, where the payload is composed by a "yes/no" plus further optional information.
 \end{itemize}
+
+In the next subsections we will see more in detail the services offered by the Payment gateway and the motorization gateway.
+
+\subsubsection{Payment gateway}
+The payment gateway offers to our system these two services:
+\begin{itemize}
+\item know if the payment information of a user are valid;
+\item execute a payment.
+\end{itemize}
+
+For the first point, the response will be "yes" if the information are valid and "no" otherwise.
+
+For what regards the second one, the response will be "yes" if the payment was executed correctly and "no" otherwise.
+
+\subsubsection{Motorization gateway}
+The motorization gateway offers the following two services:
+\begin{itemize}
+\item know if the driving licence and the document matches with the other data provided from the user (except the payment information);
+\item forward a fine that the company received to the motorization.
+\end{itemize}
+
+For the first service, the response will be "yes" if the information are valid and "no" otherwise.
+
+For the second point, the system must send the content of the fine, the information of the car to what the fine was addressed and the driving licence number of the user that was driving it. The response from the motorization is not expected, so if it arrives it will be ignored.
 
 \subsection{Communication Interfaces}
 The mobile app, the tablet in the car, the HandyCar Board and the remote system itself communicate with each other through HTTPS requests (port 443). In this way we ensure that everything that is sent on the internet is encrypted.
