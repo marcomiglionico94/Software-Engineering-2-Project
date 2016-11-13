@@ -31,7 +31,8 @@ The user interfaces must satisfy the following UI constraints:
 
 \subsection{Hardware Interfaces}
 \begin{description}
-	\item [Panic button:] when the panic button is pressed the HandyCar board must send a message to the system to notify that in that car there is something wrong. The message must contain an ID that identifies the car from which it was pressed.
+	\item [Panic button:] When the panic button is pressed the HandyCar board must send a message to the system to notify that in that car there is something wrong. The message must contain an ID that identifies the car from which it was pressed.
+	When the system receives a message from a panic button the call center of PowerEnJoy calls the driver of that car to provide assistance to that user. After the user exits the car, the operator of PowerEnJoy call center can assign to that car the state of "unavailable".
 \end{description}
 
 \subsection{Software Interfaces}
