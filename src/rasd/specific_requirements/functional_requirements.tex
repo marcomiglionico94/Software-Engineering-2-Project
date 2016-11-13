@@ -1,16 +1,24 @@
-\section{Functional Requirements}
+\section{Goals and Functional Requirements}
 % Definition of use case diagrams, use cases and associated sequence/activity diagrams
-Assuming that the domain properties stipulated in the paragraph [1.5] hold, and, in order to achieve the goals listed in paragraph [1.3], the following requirements can be derived. The requirements are grouped under each goal from which it is derived.
+Assuming that the domain properties stipulated in the paragraph [1.5] hold, here are presented all the goal to  achieve and the requirements, grouped under each goal from which they are derived.
 
 \begin{enumerate}
 
-\item: allows the user to register to the system if he/she provides valid name, surname,email address,username,password, birth date,driving license and credit card information:
+\item allows the user to reserve a car for up to an hour before he/she picks it up:
 
 \begin{itemize}
-	\item The system must be able to acquire all the informations for the registration(name, surname, email address, username, password, birth date, driving license and credit card information)
-	\item The system must be able to check that all the fields has been completed with valid data;
+	\item The system must allow only the users that has not been banned to reserve a car;
+	\item The system must turn the state of the car from reserved to available if the user did not unlock it within an hour since the moment of the reservation;
+	\item The system must turn the state of the car from available to reserved after the user reserve it;
+\end{itemize}
+
+\item: allows the user to register to the system if he/she provides valid personal and payment information:
+
+\begin{itemize}
+	\item The system must be able to acquire all the informations for the registration(name, surname, email address, username, birth date, driving license and payment information)
+	\item The system must be able to check that all the mandatory fields has been completed with valid data;
 	\item The system must be able to check the validity of the driving license through an external service;
-	\item The system must be able to check the validity of the credit car information through an external service;
+	\item The system must be able to check the validity of the payment information through an external service;
 \end{itemize}
 
 \item allows only the registered users to log in to the system:
@@ -20,18 +28,10 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 	\item The system must allow the user login if and only if the provided username and the password are correct;
 \end{itemize}
 
-\item allows the user to book a car for up to an hour before he/she picks it up:
-
-\begin{itemize}
-	\item The system must allow only the users that has not been banned to book a car;
-	\item The system must turn the state of the car from booked to available if the user did not unlock it within an hour since the moment of the reservation;
-	\item The system must turn the state of the car from available to booked after the user reserve it;
-\end{itemize}
-
 \item  allows to unlock a car only to the user who currently reserved it:
 
 \begin{itemize}
-	\item The system must be able to check if the user who unlock the car is the same who reserve it;
+	\item The system must be able to check if the user who wants to unlock the car is the same who reserved it;
 	\item The system must be able to unlock the car remotely;
 \end{itemize}
 
@@ -81,10 +81,10 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, and,
 	\item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes;
 \end{itemize}
 
-\item allows the user to recharge a car only in a power grid station:
+\item allows the user to recharge a car in power grid stations:
 
 \begin{itemize}
-	\item The system must be able to show to the user the position of the  power grid stations;
+	\item The system must be able to show to the user the position of the power grid stations;
 	\item The system must show the option to recharge the car only when the user is in a power grid station
 \end{itemize}
 
