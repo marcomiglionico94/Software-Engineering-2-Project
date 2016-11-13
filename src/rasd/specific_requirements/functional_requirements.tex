@@ -67,15 +67,15 @@ Assuming that the domain properties stipulated in the paragraph [2.5] hold, here
 	\item {[R2]} The system must be able to show to the user the number of free plugs in every power grid stations.
 \end{itemize}
 
-\item {[G9]} Does not allow user that had not paid the last bill to use the system, banning them until the bill will be paid:
+\item {[G9]} Does not allow user that had not paid the last fee to use the system, banning them until that fee will be paid:
 
 \begin{itemize}
 	\item {[R1]} The system must allow only the users that has not been banned to search for a car;
 	\item {[R2]} The system must allow only the users that has not been banned to reserve a car;
 	\item {[R3]} The system must be able to know the result of the payment operation;
-	\item {[R4]} The system must ban a user that has a pending bill;
-	\item {[R5]} The system must be able to mark a bill as paid if and only if the payment operation is successful;
-	\item {[R6]} The system must be able to remove the ban from the user when his/her pending bill has been extinguished.
+	\item {[R4]} The system must ban a user that has a pending fee;
+	\item {[R5]} The system must be able to mark a fee as paid if and only if the payment operation is successful;
+	\item {[R6]} The system must be able to remove the ban from the user when his/her pending fee has been extinguished.
 \end{itemize}
 
 \item {[G10]} Allows the user to enable the saving money option:
@@ -100,18 +100,18 @@ Assuming that the domain properties stipulated in the paragraph [2.5] hold, here
 \item {[G13]} Stimulates the virtuous behaviours of the users:
 
 \begin{itemize}
-	\item {[R1]} The system must be able to detect that there are at least two passengers (not including the driver) on the car and in this case it applies a discount of 10\% on the bill of the user that reserve the car;
-	\item {[R2]} The system must be able to detect if  the battery level is greater or equal to the 50\% of the total battery level and in this case it applies a discount of 20\% on the bill of the user that reserve the car;
-	\item {[R3]} The system must be able to detect if the car is in a recharging station area and it is plugged to the power grid, in this case it applies a discount of 30\% on the bill of the user that reserve the car;
-	\item {[R4]} The system must be able to detect if the battery level is less than 20\% of the total battery level, in this case the system applies a raise of 30\% on the bill of the user that reserve the car;
-	\item {[R5]} The system must be able to detect if the car is left more than 3 Km away from the nearest recharging station, in this case the system applies a raise of 30\% on the bill of user that reserve the car.
+	\item {[R1]} The system must be able to detect that there are at least two passengers (not including the driver) on the car and in this case it applies a discount of 10\% on the final fee of that ride;
+	\item {[R2]} The system must be able to detect if the battery level at the end of the ride is greater or equal to the 50\% of the total battery level and in this case it applies a discount of 20\% on the final fee of that ride;
+	\item {[R3]} The system must be able to detect if the car is in a recharging station area and it is plugged to the power grid when the reservation ends, in this case it applies a discount of 30\% on the final fee of that ride;
+	\item {[R4]} The system must be able to detect if the battery level at the end of the ride is less than 20\% of the total battery level, in this case the system applies a raise of 30\% on the final fee of that ride;
+	\item {[R5]} The system must be able to detect if the car is left more than 3 Km away from the nearest recharging station, in this case the system applies a raise of 30\% on the final fee of that ride.
 \end{itemize}
 
 \item {[G14]} Allows the user to register to the system if he/she provides valid personal and payment information:
 
 \begin{itemize}
-	\item {[R1]} The system must be able to acquire all the informations for the registration(name, surname, email address, username, birth date, driving license and payment information);
-	\item {[R2]} The system must be able to check that all the mandatory fields has been completed with valid data;
+	\item {[R1]} The system must be able to acquire all the informations for the registration (name, surname, email address, username, birth date, driving license and payment information);
+	\item {[R2]} The system must be able to check if all the mandatory fields has been completed with valid data;
 	\item {[R3]} The system must be able to check the validity of the driving license through an external service;
 	\item {[R4]} The system must be able to check the validity of the payment information through an external service.
 \end{itemize}
