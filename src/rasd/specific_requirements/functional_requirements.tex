@@ -4,124 +4,123 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, here
 
 \begin{enumerate}
 
-\item {[G1]} allows the user to reserve a car for up to an hour before he/she picks it up:
+\item {[G1]} Allows the user to reserve a car for up to an hour before he/she picks it up:
 
 \begin{itemize}
-	\item The system must allow only the users that has not been banned to reserve a car;
-	\item The system must turn the state of the car from reserved to available if the user did not unlock it within an hour since the moment of the reservation;
-	\item The system must turn the state of the car from available to reserved after the user reserve it;
+	\item {[R1]} The system must turn the state of the car from reserved to available if the user did not unlock it within an hour since the moment of the reservation;
+	\item {[R2]} The system must turn the state of the car from available to reserved after the user reserve it.
 \end{itemize}
 
-\item: allows the user to register to the system if he/she provides valid personal and payment information:
+\item {[G2]} Allows the user to find the closest cars with respect to his/her position:
 
 \begin{itemize}
-	\item The system must be able to acquire all the informations for the registration(name, surname, email address, username, birth date, driving license and payment information)
-	\item The system must be able to check that all the mandatory fields has been completed with valid data;
-	\item The system must be able to check the validity of the driving license through an external service;
-	\item The system must be able to check the validity of the payment information through an external service;
+	\item {[R1]} The system must be able to check the position of the user through the GPS position of his mobile phone;
+	\item {[R2]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 KM from the position of the user;
+	\item {[R3]} If there are not any available cars within a range of 1 KM from the position of the user the system must notify the user.
 \end{itemize}
 
-\item allows only the registered users to log in to the system:
+\item {[G3]} Allows the user to search for a car in a specific location:
 
 \begin{itemize}
-	\item The system must be able to check if the username and password provided are correct;
-	\item The system must allow the user login if and only if the provided username and the password are correct;
+	\item {[R1]} The system must ask the user to insert a specific location;
+	\item {[R2]} The system must be able to identify a specified location;
+	\item {[R3]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 KM from that specific location;
+	\item {[R4]} If there are not any available cars within a range of 1 KM from that specific location the system must notify the user.
 \end{itemize}
 
-\item  allows to unlock a car only to the user who currently reserved it:
+\item {[G4]} Allows to unlock a car only to the user who currently reserved it:
 
 \begin{itemize}
-	\item The system must be able to check if the user who wants to unlock the car is the same who reserved it;
-	\item The system must be able to unlock the car remotely;
+	\item {[R1]} The system must be able to check if the user who wants to unlock the car is the same who reserved it;
 \end{itemize}
 
-\item allows the user to search for a car in a specific location:
+\item {[G5]} Allows the user to end the ride only in specific areas called safe areas:
 
 \begin{itemize}
-	\item The system must allow only the users that has not been banned to search for a car;
-	\item The system must ask the user to insert a specific location;
-	\item The system must be able to check if the specified location exists;
-	\item The system must be able to show all the available cars,with their current level of battery, within a range of 1 KM from that specific location;
-	\item If there are not any available cars within a range of 1 KM from that specific location the system must notify the user;
+	\item {[R1]} The system must be able to show to the user the position of the safe areas on the map;
+	\item {[R2]} The system must notify the user when he/she is inside a safe area;
+	\item {[R3]} The system must end the reservation only when the car is parked in a safe area and the user exits the vehicle;
+	\item {[R4]} When the reservation ends the system must change the status of the car in available and lock the car.
 \end{itemize}
 
-\item allows the user to find the closest cars with respect to his/her position:
+\item {[G6]} Allows the user to unlock the vehicle when he/she is next to it using the mobile app:
 
 \begin{itemize}
-	\item The system must allow only the users that has not been banned to search for a car;
-	\item The system must be able to check the position of the user through the GPS position of his mobile phone;
-	\item The system must be able to show all the available cars,with their current level of battery, within a range of 1 KM from the position of the user;
-	\item If there are not any available cars within a range of 1 KM from the position of the user the system must notify the user;
+	\item {[R1]} The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS positions;
+	\item {[R2]} When the distance between the car and the mobile phone of the user is less than 6 meters the system must show to the user the option to unlock the car;
+	\item {[R3]} The system must be able to unlock the cars remotely;
+	\item {[R4]} The system must be notified when the user enter inside the car;
+	\item {[R5]} The system must be able to lock the car again if the user doesn't enter inside the car within 3 minutes.
 \end{itemize}
 
-\item allows the user to know in every moment the current fee he/she has to pay;
+\item {[G7]} Allows the user to know the current fee he/she has to pay;
 
 \begin{itemize}
-	\item The system must be able to calculate the current fee with respect to the amount of money per minute defined by the company;
-	\item The system must be able to show on the tablet present on the car the current fee that the user has to pay;
+	\item {[R1]} The system must be able to calculate the current fee with respect to the amount of money per minute defined by the company;
+	\item {[R2]} The system must be able to show on the tablet present on the car the current fee that the user has to pay.
 \end{itemize}
 
-\item Allows the user to end the ride only in specific areas called safe areas:
+\item {[G8]} Allows the user to recharge a car in power grid stations:
 
 \begin{itemize}
-	\item The system must be able to show to the user the position of the safe areas on the map;
-	\item The system must notify the user when he/she is inside a safe area;
-	\item The system must end the reservation only when the user is parked in a safe area and he/she exits the car;
-	\item When the reservation ends the system must change the status of the car in available and lock the car;
+	\item {[R1]} The system must be able to show to the user the position of the power grid stations;
+	\item {[R2]} The system must be able to show to the user the number of free plugs in every power grid stations.
 \end{itemize}
 
-\item allows the user to unlock the vehicle when he/she is next to it using the mobile app:
+\item {[G9]} Does not allow user that had not paid the last bill to use the system, banning them until the bill will be paid:
 
 \begin{itemize}
-	\item The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS;
-	\item When the distance between the car and the mobile phone of the user is less than 6 meters the system must show to the user the option to unlock the car;
-	\item The system must let the user unlock only the car that he/she currently reserved;
-	\item The system must be able to unlock the cars remotely;
-	\item The system must be notified when the user enter inside the car;
-	\item The system must be able to unlock the car again if the user doesn't enter inside the car within 3 minutes;
+	\item {[R1]} The system must allow only the users that has not been banned to search for a car;
+	\item {[R2]} The system must allow only the users that has not been banned to reserve a car;
+	\item {[R3]} The system must be able to know the result of the payment operation;
+	\item {[R4]} The system must ban a user that has a pending bill;
+	\item {[R5]} The system must be able to mark a bill as paid if and only if the payment operation is successful;
+	\item {[R6]} The system must be able to remove the ban from the user when his/her pending bill has been extinguished.
 \end{itemize}
 
-\item allows the user to recharge a car in power grid stations:
+\item {[G10]} Allows the user to enable the saving money option:
 
 \begin{itemize}
-	\item The system must be able to show to the user the position of the power grid stations;
-	\item The system must show the option to recharge the car only when the user is in a power grid station
+	\item {[R1]} The system must allow the user to enable the saving mode option in every moment from when he/she starts ride;
+	\item {[R2]} The system must be able to recognize the best power grid to station where to park a specified car based on its position and the distribution of the other cars of PowerEnJoy;
+	\item {[R3]} The system must be able to provide information about the station where to leave the car to obtain a discount;
+	\item {[R4]} The system must ask the user his/her destination;
+	\item {[R5]} The system must be able to check the availability of power plug in a specific station;
 \end{itemize}
 
-\item Does not allow user that cannot pay the bill to use the system banning them until the bill will be paid:
+\item {[G11]} Keeps the electric cars working, with an high level of battery and well distributed:
 
 \begin{itemize}
-	\item The system must be able to know the result of the payment operation;
-	\item The system must ban the user that has a pending bill;
-	\item The system must be able to mark a bill as paid if and only if the payment operation is successful;
-	\item The system must be able to remove the ban from the user when his/her pending bill has been extinguished
+	\item {[R1]} There must be some maintainers that repair every broken car after at maximum two working days after the time they broke;
+	\item {[R2]} There must be some maintainers that recharge the cars after at maximum one working day after the time they discharged.
+	\item {[R3]} The system must be able to identify a lack of cars in some parts of the city.
+	\item {[R4]} If there is a lack of cars in some parts of the city, the system has to notify the maintainers.
 \end{itemize}
 
-\item allows the user to enable the saving money option:
+\item {[G13]} Stimulates the virtuous behaviours of the users:
 
 \begin{itemize}
-	\item The system must allow the user to enable the saving mode option in every moment from when he/she start ride;
-	\item The system must be able to provide information about the station where to leave the car to obtain a discount;
-	\item The system must ask the user his/her destination;
-	\item The system must be able to check the availability of power plug in a specific station;
-	\item The system must be able to ensure a uniform distribution of cars in the city;
+	\item {[R1]} The system must be able to detect that there are at least two passengers (not including the driver) on the car and in this case it applies a discount of 10\% on the bill of the user that reserve the car;
+	\item {[R2]} The system must be able to detect if  the battery level is greater or equal to the 50\% of the total battery level and in this case it applies a discount of 20\% on the bill of the user that reserve the car;
+	\item {[R3]} The system must be able to detect if the car is in a recharging station area and it is plugged to the power grid, in this case it applies a discount of 30\% on the bill of the user that reserve the car;
+	\item {[R4]} The system must be able to detect if the battery level is less than 20\% of the total battery level, in this case the system applies a raise of 30\% on the bill of the user that reserve the car;
+	\item {[R5]} The system must be able to detect if the car is left more than 3 Km away from the nearest recharging station, in this case the system applies a raise of 30\% on the bill of user that reserve the car.
 \end{itemize}
 
-\item keeps the electric cars working and with an high level of battery:
+\item {[G14]} Allows the user to register to the system if he/she provides valid personal and payment information:
 
 \begin{itemize}
-	\item There must be some maintainers that repair every broken car at maximum after two working days after the time they broke;
-	\item There must be some maintainers that recharge the cars at maximum after one working day after the time they discharged.
+	\item {[R1]} The system must be able to acquire all the informations for the registration(name, surname, email address, username, birth date, driving license and payment information);
+	\item {[R2]} The system must be able to check that all the mandatory fields has been completed with valid data;
+	\item {[R3]} The system must be able to check the validity of the driving license through an external service;
+	\item {[R4]} The system must be able to check the validity of the payment information through an external service.
 \end{itemize}
 
-\item stimulates the virtuous behaviours of the users:
+\item {[G15]} Allows only the registered users to log in to the system:
 
 \begin{itemize}
-	\item The system must be able to detect that there are at least two passengers (not including the driver) on the car and in this case it applies a discount of 10\% on the bill of the user that reserve the car;
-	\item The system must be able to detect if  the battery level is greater or equal to the 50\% of the total battery level and in this case it applies a discount of 20\% on the bill of the user that reserve the car;
-	\item The system must be able to detect if the car is in a recharging station area and it is plugged to the power grid, in this case it applies a discount of 30\% on the bill of the user that reserve the car;
-	\item The system must be able to detect if the battery level is less than 20\% of the total battery level, in this case the system applies a raise of 30\% on the bill of the user that reserve the car;
-	\item The system must be able to detect if the car is left more than 3 Km away from the nearest recharging station, in this case the system applies a raise of 30\% on the bill of user that reserve the car;
+	\item {[R1]} The system must be able to check if the username and password provided are correct;
+	\item {[R2]} The system must allow the user login if and only if the provided username and the password are correct.
 \end{itemize}
 
 \end{enumerate}
