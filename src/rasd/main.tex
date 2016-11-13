@@ -12,6 +12,14 @@
 \usepackage{pdfpages}
 \usepackage{tocbibind}
 
+% Packages and configuration for Alloy code listing
+\usepackage{listings}
+\usepackage{alloy}
+\usepackage{color}
+\definecolor{alloy-keyword}{rgb}{0.23, 0.23, 0.7}
+\definecolor{alloy-comment}{rgb}{0.18, 0.64, 0.18}
+\definecolor{alloy-string}{rgb}{0.71, 0.18, 0.71}
+
 \def\chapterautorefname{Chapter}
 
 
@@ -63,6 +71,7 @@
 \input{specific_requirements/performance_requirements.tex} it could be included in functional requirements
 % \input{specific_requirements/design_constraints.tex}
 \input{specific_requirements/software_system_attributes.tex}
+\input{specific_requirements/alloy.tex}
 
 \chapter{Models}
 \input{models/class_diagram.tex}
