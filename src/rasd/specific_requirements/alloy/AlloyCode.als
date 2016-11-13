@@ -149,7 +149,8 @@ no disjoint psg1, psg2: PowerGridStation | psg1.location = psg2.location
 }
 
 fact eachPGSinaSA{
-all psg: PowerGridStation | one sa: SafeArea | positionInSA[psg.location, sa]
+all psg: PowerGridStation | one sa: SafeArea | 
+	positionInSA[psg.location, sa]
 }
 
 fact eachPlugHasAPSG{
@@ -164,8 +165,10 @@ all psg: PowerGridStation | #psg.plugs.pluggedCar = 1 implies
 //Predicates
 
 pred positionInSA[p: Position, sa: SafeArea]{
-plus[mul[sub[p.latitude, sa.center.latitude], sub[p.latitude, sa.center.latitude]],
-	mul[sub[p.latitude, sa.center.latitude], sub[p.latitude, sa.center.latitude]]]
+plus[mul[sub[p.latitude, sa.center.latitude], 
+	sub[p.latitude, sa.center.latitude]],
+	mul[sub[p.latitude, sa.center.latitude], 
+	sub[p.latitude, sa.center.latitude]]]
 	<= mul[sa.radius, sa.radius]
 }
 
@@ -177,7 +180,8 @@ pred rideisOngoing[r: Ride]{
 #r.endTime = 0
 }
 
-pred reserveACar[ui: User, uf: User, ci: ElectricCar, cf: ElectricCar, r: Ride]{
+pred reserveACar[ui: User, uf: User, 
+	ci: ElectricCar, cf: ElectricCar, r: Ride]{
 no ride: Ride | (ride.user = ui or ride.car = ci) && rideisOngoing[ride]
 
 r.car = cf && rideisOngoing[r] && cf.currentState = Reserved && r.user =
@@ -191,7 +195,8 @@ rf.car = cf && rf.user = uf && not rideisOngoing[rf]
 }
 
 pred rideIsConsecutive[r: Ride, c: ElectricCar]{
-all ride: Ride | ride.car = c implies ride.endTime.time < r.reservationTime.time
+all ride: Ride | ride.car = c implies 
+	ride.endTime.time < r.reservationTime.time
 }
 
 //Functions

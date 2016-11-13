@@ -1,0 +1,48 @@
+\section{Actors and Product Functions}
+%Summary of major functions. It's a sort of summary of the requirements. 
+\subsection{Non Registered User}
+A Non Registered User is someone who has not been logged yet to the system. His/Her provided functions are:
+\begin{description}
+\item[Registration:] a non registered user registers to PowerEnJoy service providing the following data:
+	\begin{itemize}
+	\item name;
+	\item surname;
+	\item username;
+	\item e-mail address;
+	\item date of birth;
+	\item sex;
+	\item country of birth;
+	\item phone number;
+	\item province of birth;
+	\item tax id code; % English for Italian "codice fiscale"
+	\item document information, that has to be validated;
+	\item residential address;
+	\item living address;
+	\item payment information.
+	\end{itemize}
+	The user will receive back a password that can be used to access the system.
+\item[Login:] a user accesses the system using the e-mail address they provided in the registration and the password they received.
+\end{description}
+\subsection{User}
+A user is someone who has been logged to the system. He or she can access to the following functionalities:
+\begin{description}
+\item[Edit profile data:] a user deletes their data, to keep them updated for example.
+\item[Delete account:] a user deletes his account.
+\item[Look for a car with user position:] a user looks for a car basing the research on his or her devices position.
+\item[Look for a car with a specified address:] a user looks for a car basing the research on a specific address.
+\item[Reserve a car:] a user reserves a car that he or she has found in a previous research. He or she has up to one hour to reach the car and unlock it, otherwise the reservation would expire and he or she has to pay a fee of 1 EUR.
+\item[Unlock a car:] a user unlocks a car that he or she has previously reserved at maximum one hour before. This option will be available to the user only if the GPS of his or her device is recognized at maximum at 6 meters from the car.
+\item[Start the car:] a user that has unlocked the car starts the engine of the car by inserting his password in the tablet of the car
+\item[Know the current fee:] a user looks at the tablet of the car and reads the current fee. He or she can do this in every moment when he or she is in the vehicle, because the current fee is always displayed.
+\item[Recharge the car:] a user connects the car to a plug of a power grid station.
+\item[Enable saving money option:] a user enables the money saving option by clicking on the corresponding button in the tablet interface. At this point, he or she can input his or her final destination and the system provides information about the station where to leave the car in order to get a discount.
+This station is determined to ensure a uniform distribution of cars in the city and depends both on the destination of the user and on the availability of power plugs at the selected station. 
+\item[End the ride:] the system stops charging the user as soon as the car is parked in a safe area and the user exits the car.
+\end{description}
+\subsection{Mainainer}
+A maintainer is an employee that has to charge the cars with a battery level under 25\% and to repair the broken components (electronic or mechanical) of the cars. He has also to return all the cars left outside a safe area in a safe one. He or she can access to the following functionalities:
+\begin{description}
+\item[Find an unavailable car:] the mainainer searches for an unavailable car to fix.
+\item[Unlock a car:] as for the user, the mainainer can unlock a car. Unlike the user he or she can unlock each available and unavailable car, without reserve it.
+\item[Call the garage:] if the mainainer cannot fix the car he or she can call the garage in order to asks for a tow truck.
+\end{description}
