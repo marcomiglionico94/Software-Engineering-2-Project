@@ -29,7 +29,7 @@ currentState: one CarState,
 seatsNumber: one Int,
 engineOn: one Bool
 }{
-batteryLevel >= 0
+batteryLevel >= 0 
 batteryLevel <= 100
 seatsNumber > 0
 }
@@ -47,7 +47,7 @@ plugs: set Plug
 }
 
 sig Plug{
-busy: one Bool
+pluggedCar: lone ElectricCar
 }
 
 sig User{
@@ -97,8 +97,8 @@ maxPassengersNumber: one Int,
 feeVariator: set FeeVariator
 }{
 #unlockTime = 1 implies reservationTime.time < unlockTime.time
-#ignitionTime = 1 implies unlockTime.time < ignitionTime.time && #unlockTime = 1
-#endTime = 1 implies ignitionTime.time < endTime.time && #ignitionTime = 1
+#ignitionTime = 1 implies unlockTime.time <= ignitionTime.time && #unlockTime = 1
+#endTime = 1 implies ignitionTime.time <= endTime.time && #ignitionTime = 1
 maxPassengersNumber >= 0
 maxPassengersNumber <= car.seatsNumber
 }
@@ -114,6 +114,10 @@ fact no2SimilarUsers{
 no disjoint u1, u2: User | u1.email = u2.email or u1.taxCode = u2.taxCode or u1.password = u2.password
 }
 
+fact aStartedCarisBusy{
+all c: ElectricCar | c.engineOn = True implies c.currentState = Busy
+}
+
 fact aReservedorBusyCarHasAlwaysARide {
 all c: ElectricCar |(c.currentState in Reserved + Busy) implies  one r: Ride | r.car = c && rideisOngoing[r]
 }
@@ -124,28 +128,28 @@ all r: Ride | #r.unlockTime = 1 && #r.endTime = 0 implies r.car.currentState = B
 all c: ElectricCar | c.currentState in (Busy + Reserved) implies one r: Ride | rideisOngoing[r]
 }
 
-fact aStartedCarisBusy{
-all c: ElectricCar | c.engineOn = True implies c.currentState = Busy
-}
-
-fact no2PGSinTheSameSpot{
-no disjoint psg1, psg2: PowerGridStation | psg1.location = psg2.location
+fact passengerDiscountUnlocksCorrectly{
+all r: Ride, b: PassengersDiscount | r.maxPassengersNumber >= b.minPassengersNumber iff b in r.feeVariator
 }
 
 fact noPassengersGreaterthanSeatsNumber{
 no r: Ride | r.maxPassengersNumber > r.car.seatsNumber
 }
 
-fact eachPlugHasAPSG{
-all pl: Plug | one psg: PowerGridStation | pl in psg.plugs
+fact no2PGSinTheSameSpot{
+no disjoint psg1, psg2: PowerGridStation | psg1.location = psg2.location
 }
 
 fact eachPGSinaSA{
 all psg: PowerGridStation | one sa: SafeArea | positionInSA[psg.location, sa]
 }
 
+fact eachPlugHasAPSG{
+all pl: Plug | one psg: PowerGridStation | pl in psg.plugs
+}
+
 fact eachBusyPlugHasACarPlugged{
-all psg: PowerGridStation | busyPlug[psg] = carParkedIn[psg.location]
+all psg: PowerGridStation | #psg.plugs.pluggedCar = 1 implies psg.location = psg.plugs.pluggedCar.currentPosition
 }
 
 //Predicates
@@ -165,18 +169,22 @@ pred rideisOngoing[r: Ride]{
 pred reserveACar[ui: User, uf: User, ci: ElectricCar, cf: ElectricCar, r: Ride]{
 no ride: Ride | (ride.user = ui or ride.car = ci) && rideisOngoing[ride]
 
-r.car = cf && rideisOngoing[r] && cf.currentState = Reserved && r.user = uf
+r.car = cf && rideisOngoing[r] && cf.currentState = Reserved && r.user = uf && rideIsConsecutive[r, ci]
 }
 
-/*pred endARide[ri: Ride, rf: Ride]{
-rideisOngoing[ri]
+pred endARide[ui, uf: User, ci, cf: ElectricCar, ri, rf: Ride]{
+ri.car = ci && ri.user = ui && rideisOngoing[ri]
 
-(!(rideisOngoing[ri])) && ri.car.currentState = Available
-}*/
+rf.car = cf && rf.user = uf && not rideisOngoing[rf]
+}
+
+pred rideIsConsecutive[r: Ride, c: ElectricCar]{
+all ride: Ride | ride.car = c implies ride.endTime.time < r.reservationTime.time
+}
 
 //Functions
 fun busyPlug[psg: PowerGridStation]: Int{
-#{pl: Plug| pl in psg.plugs && pl.busy = True}
+#{pl: Plug| (pl in psg.plugs) && (#pl.pluggedCar = 1)}
 }
 
 fun carParkedIn[p: Position]: Int{
@@ -206,5 +214,5 @@ no disjoint psg1, psg2: PowerGridStation, pl: Plug | pl in psg1.plugs && pl in p
 }
 
 pred show() {}
-check noPlugInTwoPSG
-run show for 8 but exactly 1 Ride, exactly 2 ElectricCar, exactly 3 Plug, exactly 2 PowerGridStation
+//check noPlugInTwoPSG
+run show for 4 but exactly 1 Ride, exactly 1 ElectricCar
