@@ -1,8 +1,11 @@
 \section{Definitions, acronyms, abbreviations}
 \begin{description}
-%TODO Missing words in the glossary
-	\item [User:] He/she is the person who has previously registered to the service and use its functionalities . In order to use he/she has to be logged into the system
-	\item [Car:] The object the user can reserve. It is uniquely identified by its plate. It could be in one of four different states:
+    \item[Non registered user:] He/she is a common person who is not registered into the system and want to register.
+	\item [Logged User:] He/she is the person who has previously registered to the service and use its functionalities . In order to use he/she has to be logged into the system;
+	\item[Banned User:] He/she is a user that has been banned from the system;
+	\item[Passengers:] They are common people that don't need to be registered into the system;
+	\item[Maintainer:] He/she is an employee that is responsible to recharge and move the cars;
+	\item [Car:] The object the user can reserve. It is uniquely identified by its plate. It could be in one of three different states:
 	\begin{itemize}
 		\item Available: the car can be reserved.
 		\item Booked: the car is reserved but who did it has not yet arrived.
@@ -10,24 +13,11 @@
 		\item Unavailable: the car cannot be reserved because it has some problems.
 	\end{itemize}
 	Each car has its own capacity and battery level.
-	\item [Safe Area:] An area where the user can park the car in order to end the rent. It is uniquely identified by a GPS coordinate and a range.
-	\item [Power Grid Station:] A spot where the user can park the car and charge it, in order to end the rental and obtain the relative discount. It is uniquely identified by a GPS coordinate. Each power grid station has a certain number of plugs where the car can be plugged.
+	\item [Safe Area:] An area where the user can park the car in order to end the rental. It is uniquely identified by a GPS coordinate and a range.
+	\item[Special Area:] A safe are featured with a power grid station.
+	\item[Bill:] It is the amount of money that the user has to pay at the end of the ride;
+	\item[Tablet:] It is the tablet that is present in every car;
+	\item [Power Grid Station:] A spot where the user can park the car and charge it, in order to end the rental and obtain the relative discount. It is uniquely identified by a GPS coordinate.
 	\item [On-Board Computer:] The object that communicate with server, in order to update car status and calculate rental fee.
-	\item [Ride:] When a user reserves a car. It saves four different time events:
-	\begin{itemize}
-		\item Reservation Time: when the user reserved the selected car.
-		\item Unlock Time: when the user opened the reserved car.
-		\item Ignition Time: when the user starts the opened car.
-		\item End Time: when the user parks and ends the reservation.
-	\end{itemize}
-	\item [Fee Variator:] Bonus and malus that can change the final fee amount.
 	
-	There are 4 types of fee variator, 3 bonus and a malus:
-	\begin{itemize}
-		\item Passengers Bonus: if in a ride there are at least two passengers other the driver the final fee will be drecreased by 10\%.
-		\item Battery Bonus: at the end of a ride if the car has at least 50\% power left the final fee will be decreased by 20\%.
-		\item Plug Bonus: at the end of a ride if the car has been plugged on a power grid station the final fee will be decreased by 30\%.
-		\item Far from a plug and with low battery Malus: at the end of a ride if the car has at more 20\% power left and it is parked at more than 3 km from the nearest power grid station the final fee will be increased by 30\%.
-	\end{itemize}
-	During a ride the user can unlock more than one fee variator, but only one for each type. If more than a fee variator is unlocked the final fee is calculated by applying a fee variator equal to the algebric sum of all the fee variators unlocked.
 \end{description}
