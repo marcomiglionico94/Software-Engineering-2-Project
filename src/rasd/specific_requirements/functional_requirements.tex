@@ -1,6 +1,6 @@
 \section{Goals and Functional Requirements}
 % Definition of use case diagrams, use cases and associated sequence/activity diagrams
-Assuming that the domain properties stipulated in the paragraph [1.5] hold, here are presented all the goal to  achieve and the requirements, grouped under each goal from which they are derived.
+Assuming that the domain properties stipulated in the paragraph [2.5] hold, here are presented all the goal to  achieve and the requirements, grouped under each goal from which they are derived.
 
 \begin{enumerate}
 
@@ -8,15 +8,15 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, here
 
 \begin{itemize}
 	\item {[R1]} The system must turn the state of the car from reserved to available if the user did not unlock it within an hour since the moment of the reservation;
-	\item {[R2]} The system must turn the state of the car from available to reserved after the user reserve it.
+	\item {[R2]} The system must turn the state of the car from available to reserved after the user reserves it.
 \end{itemize}
 
 \item {[G2]} Allows the user to find the closest cars with respect to his/her position:
 
 \begin{itemize}
 	\item {[R1]} The system must be able to check the position of the user through the GPS position of his mobile phone;
-	\item {[R2]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 KM from the position of the user;
-	\item {[R3]} If there are not any available cars within a range of 1 KM from the position of the user the system must notify the user.
+	\item {[R2]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 km from the position of the user;
+	\item {[R3]} If there are not any available cars within a range of 1 km from the position of the user the system must notify the user.
 \end{itemize}
 
 \item {[G3]} Allows the user to search for a car in a specific location:
@@ -24,8 +24,8 @@ Assuming that the domain properties stipulated in the paragraph [1.5] hold, here
 \begin{itemize}
 	\item {[R1]} The system must ask the user to insert a specific location;
 	\item {[R2]} The system must be able to identify a specified location;
-	\item {[R3]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 KM from that specific location;
-	\item {[R4]} If there are not any available cars within a range of 1 KM from that specific location the system must notify the user.
+	\item {[R3]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 km from that specific location;
+	\item {[R4]} If there are not any available cars within a range of 1 km from that specific location the system must notify the user.
 \end{itemize}
 
 \item {[G4]} Allows to unlock a car only to the user who currently reserved it:
