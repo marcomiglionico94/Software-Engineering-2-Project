@@ -1,0 +1,56 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[bookmarks, breaklinks, colorlinks]{hyperref}
+\hypersetup{
+	citecolor=black,
+	linkcolor=black,
+	filecolor=black,
+	urlcolor=black
+}
+
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{tocbibind}
+
+\def\chapterautorefname{Chapter}
+
+
+\title{
+	\begin{figure}[h]
+		\centering
+		\includegraphics{../common_resources/logo_polimi.png}
+	\end{figure}
+	\vspace{30px}
+	Software Engineering 2 Project: PowerEnJoy \\ \vspace{1em}
+	\textbf{D}esign \textbf{D}ocument
+}
+	
+
+\author{Marco Ieni, Francesco Lamonaca, Marco Miglionico\\Politecnico di Milano, A.A. 2016/2017}
+\date{\today\\v1.0}
+
+\begin{document}
+\maketitle
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\chapter{Introduction}
+\label{ch:introduction}
+\input{introduction/purpose.tex}
+\input{introduction/scope.tex}
+\input{introduction/definitions.tex}
+\input{introduction/reference_documents.tex}
+\input{introduction/document_structure.tex}
+
+\chapter{Architectural Design}
+\label{ch:architectural_design}
+\input{architectural_design/overview.tex}
+\input{architectural_design/component_view.tex}
+\input{architectural_design/deployment_view.tex}
+\input{architectural_design/runtime_view.tex}
+\input{architectural_design/component_interfaces.tex}
+\input{architectural_design/styles.tex}
+\input{architectural_design/other.tex}
+
+\end{document}
