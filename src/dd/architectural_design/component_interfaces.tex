@@ -1,2 +1,21 @@
 \section{Component Interfaces}
-component interfaces.
+
+\subsection{Logic layer to data storage layer}
+The logic layer communicates with the data storage layer via the Java Persistence API (JPA) over standard network protocols.
+In this way, the two layers can be deployed both in different tiers or in the same one.
+
+The JPA specification uses an object/relational mapping approach to bridge the gap between an object-oriented model and a relational database in order to focus more on the object model rather than on the actual SQL queries used to access data stores.
+
+\subsection{Logic layer to presentation layer}
+
+The logic layer and the presentation layer communicates with each other over HTTPS protocol %TODO
+
+\subsubsection{UserManager}
+\begin{description}
+	\item[Register] This function add a new user in the system with the provided data if these are correct.
+	After this, an email with a token is sent to the user email address in order to confirm the latter.
+    \item[Login] This function allows any registered user to log into the system using his own username and password.
+    If these credentials are correct, the function returns a token to be used in the future requests to identify the user, otherwise it returns an error.
+    \item[Comfirm Email] This function validates the email address that was inserted by a registered user using the token sent to that email address after the registration.
+    \item[Delete User] This function validates the email address that was inserted by a registered user using the token sent to that email address after the registration.
+\end{description}
