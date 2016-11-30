@@ -10,12 +10,38 @@ The JPA specification uses an object/relational mapping approach to bridge the g
 
 The logic layer and the presentation layer communicates with each other over HTTPS protocol %TODO
 
-\subsubsection{UserManager}
-\begin{description}
-	\item[Register] This function add a new user in the system with the provided data if these are correct.
+\subsubsection{User Manager}
+\begin{itemize}
+	\item \textbf{Register:} Add a new user in the system with the provided data if these are correct.
 	After this, an email with a token is sent to the user email address in order to confirm the latter.
-    \item[Login] This function allows any registered user to log into the system using his own username and password.
+    \item \textbf{Login:} Allows any registered user to log into the system using his own username and password.
     If these credentials are correct, the function returns a token to be used in the future requests to identify the user, otherwise it returns an error.
-    \item[Comfirm Email] This function validates the email address that was inserted by a registered user using the token sent to that email address after the registration.
-    \item[Delete User] This function validates the email address that was inserted by a registered user using the token sent to that email address after the registration.
-\end{description}
+    \item \textbf{Confirm email:} Validates the email address that was inserted by a registered user using the token sent to that email address after the registration.
+    \item \textbf{Delete user:} Deletes the user account and information, except for his essential information and rides because they can be requested from authorities.
+	\item \textbf{Edit profile:} Allows users to edit their information. If they user wants to change its email, he/she has to confirm it as for the registration.
+\end{itemize}
+
+\subsubsection{Ride Manager}
+\begin{itemize}
+	\item \textbf{Get ride:} Returns the ride info that corresponds to a given ID. The function will return an error if a user wants to retrieve the info about a ride that is not assigned to him/her.
+	The info about a ride contain: the plate of the car, the username of the user that reserved the car, unlock time, %TODO ignition time, (?)
+	end time and the maximum number of passengers.
+	\item \textbf{Add ride:} Registers a new ride with the start time, the unlock time, %TODO the ignition time, 
+the plate of the car and the username of the user.
+	\item \textbf{End ride:} Ends a ride inserting the end time, the fee variation that were applied and the maximum number of passengers.
+\end{itemize}
+
+\subsubsection{Car Manager}
+\begin{itemize}
+	\item \textbf{Get car:} Returns the car info that corresponds to a given plate.
+	The info about a car contain: the battery level, the state, if the engine is on or off, the number of seats,  the model and the manufacturer.
+	\item \textbf{Update position:} Updates the position of the car. This function is called periodically to monitor the movements of the cars.
+\end{itemize}
+
+\subsubsection{Fee Manager}
+\begin{itemize}
+	\item \textbf{Calculate fee variation:} Calculates a fee variation for a given ride. 
+	\item \textbf{Calculate fee without variation:} Calculates a fee for a given ride, without including the variations of bonuses and penalty.
+	\item \textbf{Calculate fee with variations:} Calculates a fee for a given ride, including the variations of bonuses and penalty.
+\end{itemize}
+
