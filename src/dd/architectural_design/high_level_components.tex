@@ -1,0 +1,42 @@
+\section{High level components and their interaction}
+Now we will present the main components of the system:
+\begin{itemize}
+\item \textbf{Mobile application:} This presentation layer consists in the mobile client. It communicate directly with the application server
+\item \textbf{Application Server:} This layer contains all the application logic of the system. All the policies, the algorithms and the computation are performed here. This layer offers a service-oriented interface.
+\item \textbf{Database:} The data layer is responsible for the data storage and retrieval. It does not implement any application logic. This layer must guarantee ACID properties. 
+\end{itemize}
+
+\begin{figure}
+The system is structured in three layers as we can see in picture 2.1:
+\begin{center}
+\includegraphics[scale=0.6]{architectural_design/Architecture_Diagrams/Layers.png}
+\caption{Layers of the system \label{fig:Layers}}
+\end{center}
+This design choice makes it possible to deploy the application server and the database on different tiers. It also improves scalability and fault tolerance.
+\\
+The figure 2.2 instead,show the three tiers from a very high level point of view:
+\begin{center}
+\includegraphics[scale=0.6]{architectural_design/Architecture_Diagrams/Tier.png}
+\caption{Tiers of the system \label{fig:Layers}}
+\end{center}
+\end{figure}
+\begin{figure}
+The interactions between the main components are shown in the figure 2.3:
+\begin{center}
+\includegraphics[scale=0.6]{architectural_design/Architecture_Diagrams/Tier2.png}
+\caption{High level components of the system \label{fig:Layers}}
+\end{center}
+\end{figure}
+\begin{figure}
+A more detailed description of the three different tiers is shown in picture 2.4:
+\begin{center}
+\includegraphics[scale=0.4]{architectural_design/Architecture_Diagrams/Tier3.png}
+\caption{Detailed description of the tiers,detailed with Java EE components \label{fig:Layers}}
+\end{center}
+\end{figure}
+
+
+
+
+
+
