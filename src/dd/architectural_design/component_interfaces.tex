@@ -8,9 +8,10 @@ The JPA specification uses an object/relational mapping approach to bridge the g
 
 \subsection{Logic layer to presentation layer}
 
-The logic layer and the presentation layer communicates with each other over HTTPS protocol %TODO
+The logic layer and the presentation layer communicates with each other over HTTPS protocol. %TODO
 
 \subsubsection{User Manager}
+All the following functions can be called by the mobile app of the user:
 \begin{itemize}
 	\item \textbf{Register:} Add a new user in the system with the provided data if these are correct.
 	After this, an email with a token is sent to the user email address in order to confirm the latter.
@@ -25,17 +26,20 @@ The logic layer and the presentation layer communicates with each other over HTT
 \begin{itemize}
 	\item \textbf{Get ride:} Returns the ride info that corresponds to a given ID. The function will return an error if a user wants to retrieve the info about a ride that is not assigned to him/her.
 	The info about a ride contain: the plate of the car, the username of the user that reserved the car, unlock time, %TODO ignition time, (?)
-	end time and the maximum number of passengers.
-	\item \textbf{Add ride:} Registers a new ride with the start time, the unlock time, %TODO the ignition time, 
-the plate of the car and the username of the user.
-	\item \textbf{End ride:} Ends a ride inserting the end time, the fee variation that were applied and the maximum number of passengers.
+	end time, the fee with variations and the fee variations and the maximum number of passengers. This function can be called only from the 
+%	\item \textbf{Add ride:} Registers a new ride with the start time, the unlock time, %TODO the ignition time, 
+%the plate of the car and the username of the user.
+	\item \textbf{Get user's rides:} Returns the rides info that corresponds to a given users.
 \end{itemize}
 
 \subsubsection{Car Manager}
 \begin{itemize}
 	\item \textbf{Get car:} Returns the car info that corresponds to a given plate.
 	The info about a car contain: the battery level, the state, if the engine is on or off, the number of seats,  the model and the manufacturer.
-	\item \textbf{Update position:} Updates the position of the car. This function is called periodically to monitor the movements of the cars.
+	\item \textbf{Reserve car:} The mobile app calls this function to allow the user to request a car. This function returns an error if the request is not valid.
+	\item \textbf{Unlock a car:} The mobile app calls this function to allow the user to unlock a car that he reserved. This function returns an error if the request is not valid.
+%	\item \textbf{Update position:} Updates the position of the car. This function is called periodically to monitor the movements of the cars.
+	\item \textbf{End ride:} The HandyCar Board use this function to report to the system that the user ended a ride. At this point, the application server saves the end time, the fee variation that were applied and the maximum number of passengers.
 \end{itemize}
 
 \subsubsection{Fee Manager}
@@ -44,4 +48,3 @@ the plate of the car and the username of the user.
 	\item \textbf{Calculate fee without variation:} Calculates a fee for a given ride, without including the variations of bonuses and penalty.
 	\item \textbf{Calculate fee with variations:} Calculates a fee for a given ride, including the variations of bonuses and penalty.
 \end{itemize}
-
