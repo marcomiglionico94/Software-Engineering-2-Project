@@ -1,0 +1,61 @@
+\section{Algorithms}
+In this section we will describe some algorithms used by the system in different phases of car rent management. We cannot describe all the algorithms used by the system, due to its complexity. However we have chosen the most important ones, in order to show some development choices we made.
+The chosen algorithms are these four:
+\begin{enumerate}
+\item Given a ride, calculate the final fee
+\item Given a circle with center c and radius r, find all the Safe Areas that intersect the given circle
+\item Given a position, find all the car far at most 2km
+\item Given a destination, find the Safe Area where to park
+\end{enumerate}
+In the algorithm description there is not the final code. Instead we will use a mix of common speech and pseudo-code (easy to translate into the desired programming language). This pseudo-code is referred to an object-oriented programming language.
+
+\subsection{Algorithm 1: How to calculate the final fee}
+When a ride ends it is important to calculate the final fee to charge to the user. This may differ to the amount shown on the car screen due to some bonus or malus (called fee variator) unlocked by the user.
+This function will be called by the server once a ride ends. It will have a ride in input and a float as output, that represents the final fee to charge.
+Just to remember, a ride has the following fields:
+\begin{itemize}
+\item Reservation Time
+\item Unlock Time
+\item Ignition Time
+\item End Time
+\item User
+\item Car
+\item max Passengers Number
+\item a set in which are stored the fee variator already unlocked
+\end{itemize}
+
+We also remember that each fee variator has a float field that represents the percentage variation made by that fee variator. These float is positive for the malus (because it has to increase the fee) and is negative for the bonus (because it has to reduce the fee).
+
+In order to describe the algorithm in the easiest way we assume:
+\begin{itemize}
+\item the function can accede to the cost per minute of the rent (CPM) and a set of all the fee variator that can be unlocked (called feeVariatorSet)
+\item the difference between two dates is the number of minutes between them
+\item each fee variator has a function check(Ride ride). Given a ride this function returns true if the relative fee variator can be unlocked, false otherwise.
+\end{itemize}
+
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+   % \SetKwData{ADD}{add}\SetKwData{ALL}{all}\SetKwData{IN}{in}
+\SetKwData{Var}{var}\SetKwData{FVS}{feeVariatorSet}\SetKwData{Ride}{ride}\SetKwData{Res}{result}\SetKwData{cpm}{CPM}
+\SetKwFunction{check}{check}\SetKwFunction{RL}{rideLenght}
+
+	\Input{A ride}
+	\Output{The final fee to charge}
+	\BlankLine
+\ForEach{\Var in \FVS}{
+\lIf{\Var .\check{\Ride}}{
+add \Var in \Ride .feeVariator 
+}}
+	\BlankLine
+\Res = \RL{\Ride} * \cpm \;
+	\BlankLine
+\ForEach{\Var in \Ride .feeVariator}{
+\Res = \Res + \Res * \Var .variator \;
+}
+\Return \Res \;
+\caption{How to calculate the final fee of a ride}
+\end{algorithm}
+
+
+ 
