@@ -4,4 +4,19 @@ The database tier runs MySQL Community Edition and uses InnoDB as storage engine
 
 \includepdf{architectural_design/Architecture_Diagrams/ERDiagram.pdf}
 
+\subsection{Application Server}
+The application server is implemented in the business logic tier, it runs on an open-source application server,GlassFish,that use Java EE and supports Enterprise JavaBeans. The access to the DBMS is not implemented with direct SQL queries but using Java Persistence API (JPA),in particular the Java Persistence Query Language (JPQL) makes queries against entities stored in DBMS. Queries resemble SQL queries in syntax, but operate against entity objects rather than directly with database tables . The object-relation mapping is done by entity beans. The Entity Beans representing the database entities are strictly related to the entities of the ER diagram,the data  are stored automatically using container-managed persistence.They are persistent because their data is stored persistently in the database and they do survive a server failure, failover, or a network failure. The business logic is implemented by custom-built stateless Enterprise JavaBeans (EJB). Our application is quite simple,the state of the cars is stored in the DB, so we do not need stateful EJBs which can be more expensive,but just stateless EJBs. Concurrency management and performance are fundamental, so the reuse of EJBs for many requests is a desirable behaviour.The application server implements a RESTful API using JAX-RS to allow the clients to use the services offered by the EJBs.
+
+\subsection{User Manager}
+This bean manages all the user management features: user registration,user login user deletion and user banning. It also provides a function to confirm the email address provided by the user with the token sent by email. This bean also communicate with two external systems:
+\begin{itemize}
+\item External Payment System that checks that the payment information provided by the user are correct and handle the payment process;
+\item  External System for Driving License Validation that check the driving license of the user during the registration process.
+\end{itemize}
+
+\subsection{Car Manager}
+
+\subsection{Ride Manager}
+
+\subsection{Fee Manager}
 
