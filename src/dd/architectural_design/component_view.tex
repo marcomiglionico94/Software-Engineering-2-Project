@@ -8,15 +8,17 @@ The database tier runs MySQL Community Edition and uses InnoDB as storage engine
 The application server is implemented in the business logic tier, it runs on an open-source application server,GlassFish,that use Java EE and supports Enterprise JavaBeans. The access to the DBMS is not implemented with direct SQL queries but using Java Persistence API (JPA),in particular the Java Persistence Query Language (JPQL) makes queries against entities stored in DBMS. Queries resemble SQL queries in syntax, but operate against entity objects rather than directly with database tables . The object-relation mapping is done by entity beans. The Entity Beans representing the database entities are strictly related to the entities of the ER diagram,the data  are stored automatically using container-managed persistence.They are persistent because their data is stored persistently in the database and they do survive a server failure, failover, or a network failure. The business logic is implemented by custom-built stateless Enterprise JavaBeans (EJB). Our application is quite simple,the state of the cars is stored in the DB, so we do not need stateful EJBs which can be more expensive,but just stateless EJBs. Concurrency management and performance are fundamental, so the reuse of EJBs for many requests is a desirable behaviour.The application server implements a RESTful API using JAX-RS to allow the clients to use the services offered by the EJBs.
 
 \subsection{User Manager}
-This bean manages all the user management features: user registration,user login user deletion and user banning. It also provides a function to confirm the email address provided by the user with the token sent by email. This bean also communicate with two external systems:
+This bean manages all the user management features: user registration,user login user deletion,profile editing and user banning. It also provides a function to confirm the email address provided by the user with the token sent by email. This bean also communicate with two external systems:
 \begin{itemize}
 \item External Payment System that checks that the payment information provided by the user are correct and handle the payment process;
 \item  External System for Driving License Validation that check the driving license of the user during the registration process.
 \end{itemize}
 
 \subsection{Car Manager}
+This bean manages manages all the car's features: get car, reserve car,unlock car and end ride.In this way it keeps references and update all the informations about the car,including the maximum number of passengers the battery level and the numbers of seats. It also provides a function to handles the changes in the status of the car.
 
 \subsection{Ride Manager}
-
+This bean manages all the ride features:create new ride,get ride and get user's ride. It  provides functions that return all the rides informations like the number of passenger on the car,the fee variations,the unlock time and the user that has reserved the car.
 \subsection{Fee Manager}
+This bean manages all the functionalities about the fee of the ride: calculate fee variation,calculate fee with variation and calculate the fee without variation. It handles all the information about the bill that the user has to pay and apply discounts when it is necessary.
 
