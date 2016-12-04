@@ -36,7 +36,7 @@ In order to describe the algorithm in the easiest way we assume:
 \begin{algorithm}[H]
 	\SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
-   % \SetKwData{ADD}{add}\SetKwData{ALL}{all}\SetKwData{IN}{in}
+
 \SetKwData{Var}{var}\SetKwData{FVS}{feeVariatorSet}\SetKwData{Ride}{ride}\SetKwData{Res}{result}\SetKwData{cpm}{CPM}
 \SetKwFunction{check}{check}\SetKwFunction{RL}{rideLenght}
 
@@ -57,5 +57,40 @@ add \Var in \Ride .feeVariator
 \caption{How to calculate the final fee of a ride}
 \end{algorithm}
 
+\subsection{Algorithm 2: How to find the Safe Areas near a given position}
+This algorithm will never be used directly, but it will be included into other algorithms, such as algorithms 3 and 4 described below. 
+This algorithm will produce as output a set of safe areas that intersect a circle with a given center and radius.
+We remember that:
+\begin{itemize}
+\item Two circles intersect iff the distance between the two centers is lesser than the sum of the two radius.
+\item Given two positions $P_{1}$ and $P_{2}$, with $lat_{1}$ and $lat_{2}$ their latitude and $long_{1}$ and $long_{2}$ their longitude, the distance d between them is given by:
+\begin{equation}
+d = R\,\times\,(\arccos (\sin (lat_{1})\, \times\, \sin (lat_{2})\, +\, \cos (lat_{1})\, \times\, \cos (lat_{2})\, \times\, \cos(long_{1} - long_{2}))
+\end{equation}
+\end{itemize}
+We assume also that:
+\begin{itemize}
+\item There is a function called distance(Position $p_{1}$, Position $p_{2}$) that given two positions return the distance between them, according to the equation 3.1.
+\item The algorithm can accede to a set, called $safeAreaSet$, in which are stored all the Safe Area of the system.
+\end{itemize}
 
- 
+So the algorithm is:
+
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+\SetKwData{SA}{safeArea}\SetKwData{SAS}{safeAreaSet}\SetKwData{pos}{position}\SetKwData{Res}{result}\SetKwData{mdis}{max distance}
+\SetKwFunction{dis}{distance}\SetKwFunction{RL}{rideLenght}
+
+	\Input{A position and a max distance}
+	\Output{The set of chosen Safe Areas}
+	\BlankLine
+\ForEach{\SA in \SAS}{
+\lIf{\dis{center of \SA, \pos} $<$ sum of \mdis and \SA radius}{
+add \SA in \Res 
+}
+}
+\Return \Res \;
+\caption{How to find Safe Areas that intersect a circle with given center and radius}
+\end{algorithm}
