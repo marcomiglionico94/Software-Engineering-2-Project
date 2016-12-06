@@ -48,10 +48,10 @@ In order to describe the algorithm in the easiest way we assume:
 add \Var in \Ride .feeVariator 
 }}
 	\BlankLine
-\Res = \RL{\Ride} * \cpm \;
+\Res = \RL{\Ride} * \cpm\;
 	\BlankLine
 \ForEach{\Var in \Ride .feeVariator}{
-\Res = \Res + \Res * \Var .variator \;
+\Res = \Res + \Res * \Var .variator\;
 }
 \Return \Res \;
 \caption{How to calculate the final fee of a ride}
@@ -80,8 +80,8 @@ So the algorithm is:
 	\SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
 
-\SetKwData{SA}{safeArea}\SetKwData{SAS}{safeAreaSet}\SetKwData{pos}{position}\SetKwData{Res}{result}\SetKwData{mdis}{max distance}
-\SetKwFunction{dis}{distance}\SetKwFunction{RL}{rideLenght}
+\SetKwData{SA}{safeArea}\SetKwData{SAS}{safeAreaSet}\SetKwData{pos}{position}\SetKwData{Res}{result}\SetKwData{mdis}{maxDistance}
+\SetKwFunction{dis}{distance}
 
 	\Input{A position and a max distance}
 	\Output{The set of chosen Safe Areas}
@@ -94,3 +94,66 @@ add \SA in \Res
 \Return \Res \;
 \caption{How to find Safe Areas that intersect a circle with given center and radius}
 \end{algorithm}
+
+\subsection{Algorithm 3: How to find cars near a position}
+When a user wants to start a ride he or she will search for a car near his or her position in order to rent it. This algorithm takes care of the car searching.
+We decided that a user can reach a car by foot if its location is 2km or less from his or her one. So when a user wants to start a ride the system has to provide to him or her all the available cars that are far at most 2km.
+
+This algorithm is divided into two parts. In the first part it uses the algorithm 2 to find all the safe areas that intersect a circle with the center into the user's position and a radius equal to 2km. In the second part the algorithm analyzes all the cars parked in the safe areas found in the first part and returns the only ones parked 2km or less from the user's position.
+
+But why is it important to use algorithm 2? We decided to implement algorithm 2 in order to reduce the time to search a car. The number of safe area is much less than the number of car. Furthermore safe area position is fixed, instead car position changes. Using safe areas position instead of cars one lets the algorithm to cycle fewer objects, cutting all the cars parked in safe areas too much distant from the user, saving time and resources.
+
+\BlankLine
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+\SetKwData{SA}{safeArea}\SetKwData{SAS}{algorithm2Result}\SetKwData{pos}{userPosition}\SetKwData{Res}{result}\SetKwData{car}{Car}
+\SetKwFunction{alg}{algorithm2}\SetKwFunction{RL}{rideLenght}
+
+	\Input{The user's position}
+	\Output{The set of chosen cars}
+	\BlankLine
+	
+call \alg{\pos, 2km}\;
+\ForEach{\SA in \SAS}{
+	\ForEach{\car parked in \SA}{
+
+		\lIf{\dis{\pos, \car position} $<$ $2km$}{
+		add \car in \Res 
+		}
+	}
+}
+\Return \Res \;
+\caption{How to find cars far at most 2km from user's position}
+\end{algorithm}
+
+
+\subsection{Algorithm 4: How to find a Safe Area were to park}
+These algorithm fulfill two purposes: one is it find a safe area near a location, were the user can park. The second one is try to balance the car in the city. The second purpose is as important as the first one. In fact we want that the car are equally distributed among all the safe areas. We do not want that some safe areas have much more cars than others.
+As the algorithm 3, algorithm 4 is divided into two parts, with the first one utilizing algorithm 2. And as algorithm 3, the max distance allowed is 2km, the max distance reachable in a reasonable time by foot.
+
+In order to understand the algorithm we assume that there is a function (called carDensity(SafeArea)) that return the density of parked cars in a given safe area (the ratio between number of cars parked in that safe area and the area of the safe area).
+
+\BlankLine
+
+\begin{algorithm}[H]
+	\SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+\SetKwData{SA}{safeArea}\SetKwData{SAS}{algorithm2Result}\SetKwData{pos}{destination}\SetKwData{Res}{result}\SetKwData{car}{Car}
+\SetKwFunction{alg}{algorithm2}\SetKwFunction{cd}{carDensity}
+
+	\Input{The user's destination}
+	\Output{A set of safe areas, ordered by car density}
+	\BlankLine
+	
+call \alg{\pos, 2km}\;
+sort \SAS ordered by \cd{\SA} from lowest to highest\;
+\Return \Res \;
+\caption{How to find a safe area were to park}
+\end{algorithm}
+\BlankLine
+\BlankLine
+\BlankLine
+If the algorithm was called in order to find a safe area, the system will show the first element of the result. If the algorithm was called to find a power grid station, the system will show the first element of the result with a power grid station with a free plug far at most 2km from user's destination.
