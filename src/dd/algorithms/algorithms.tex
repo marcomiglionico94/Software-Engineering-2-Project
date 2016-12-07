@@ -1,4 +1,3 @@
-\section{Algorithms}
 In this section we will describe some algorithms used by the system in different phases of car rent management. We cannot describe all the algorithms used by the system, due to its complexity. However we have chosen the most important ones, in order to show some development choices we made.
 The chosen algorithms are these four:
 \begin{enumerate}
@@ -9,7 +8,7 @@ The chosen algorithms are these four:
 \end{enumerate}
 In the algorithm description there is not the final code. Instead we will use a mix of common speech and pseudo-code (easy to translate into the desired programming language). This pseudo-code is referred to an object-oriented programming language.
 
-\subsection{Algorithm 1: How to calculate the final fee}
+\section{Algorithm 1: How to calculate the final fee}
 When a ride ends it is important to calculate the final fee to charge to the user. This may differ to the amount shown on the car screen due to some bonus or malus (called fee variator) unlocked by the user.
 This function will be called by the server once a ride ends. It will have a ride in input and a float as output, that represents the final fee to charge.
 Just to remember, a ride has the following fields:
@@ -57,7 +56,7 @@ add \Var in \Ride .feeVariator
 \caption{How to calculate the final fee of a ride}
 \end{algorithm}
 
-\subsection{Algorithm 2: How to find the Safe Areas near a given position}
+\section{Algorithm 2: How to find the Safe Areas near a given position}
 This algorithm will never be used directly, but it will be included into other algorithms, such as algorithms 3 and 4 described below. 
 This algorithm will produce as output a set of safe areas that intersect a circle with a given center and radius.
 We remember that:
@@ -75,7 +74,7 @@ We assume also that:
 \end{itemize}
 
 So the algorithm is:
-
+\BlankLine
 \begin{algorithm}[H]
 	\SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
@@ -95,7 +94,7 @@ add \SA in \Res
 \caption{How to find Safe Areas that intersect a circle with given center and radius}
 \end{algorithm}
 
-\subsection{Algorithm 3: How to find cars near a position}
+\section{Algorithm 3: How to find cars near a position}
 When a user wants to start a ride he or she will search for a car near his or her position in order to rent it. This algorithm takes care of the car searching.
 We decided that a user can reach a car by foot if its location is 2km or less from his or her one. So when a user wants to start a ride the system has to provide to him or her all the available cars that are far at most 2km.
 
@@ -129,7 +128,7 @@ call \alg{\pos, 2km}\;
 \end{algorithm}
 
 
-\subsection{Algorithm 4: How to find a Safe Area were to park}
+\section{Algorithm 4: How to find a Safe Area were to park}
 These algorithm fulfill two purposes: one is it find a safe area near a location, were the user can park. The second one is try to balance the car in the city. The second purpose is as important as the first one. In fact we want that the car are equally distributed among all the safe areas. We do not want that some safe areas have much more cars than others.
 As the algorithm 3, algorithm 4 is divided into two parts, with the first one utilizing algorithm 2. And as algorithm 3, the max distance allowed is 2km, the max distance reachable in a reasonable time by foot.
 
