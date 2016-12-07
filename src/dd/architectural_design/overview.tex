@@ -5,6 +5,10 @@ In this section we will present the high level components of the system and thei
 \item[Mobile application:] This presentation layer consists in the mobile client. It communicates directly with the application server.
 \item[Application Server:] This layer contains all the application logic of the system. All the policies, the algorithms and the computation are performed here. This layer offers a service-oriented interface.
 \item[Database:] The data layer is responsible for the data storage and retrieval. It does not implement any application logic. This layer must guarantee ACID properties. 
+\item[HandyCar board:] A board to which all the actuators and sensors of the car are connected.
+It communicates with the application server, abstracting all the low-level details of the cars.
+\item[Car tablet:] A tablet that is on board of the vehicles. It used for the communication between the system and the driver, so the tablets communicates with the application server.
+\item[PowerEnJoy Operator Program:] A program that the operators of PowerEnJoy can use to interact with the system, for example modifying the safe areas. It communicates with the application server.
 \end{description}
 
 \begin{figure}
