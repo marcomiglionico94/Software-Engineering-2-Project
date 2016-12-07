@@ -1,9 +1,50 @@
 \section{Overview}
-In this paragraph we provide a comprehensive view over the system components, both at a physical and logical level.
-The system will be firstly described at a very high level, showing the different components and how they interact (section 2.2).
-Then the system will be described and detailed in the section 2.3, following a top-down approach.
+In this section we will present the high level components of the system and their interaction:
 
-In section 2.4 we will focus our attention more on the physical level, analysing the deployment of the system on physical tiers, while in section 2.5 we will describe the dynamic behaviour of the system.
+\begin{description}
+\item[Mobile application:] This presentation layer consists in the mobile client. It communicates directly with the application server.
+\item[Application Server:] This layer contains all the application logic of the system. All the policies, the algorithms and the computation are performed here. This layer offers a service-oriented interface.
+\item[Database:] The data layer is responsible for the data storage and retrieval. It does not implement any application logic. This layer must guarantee ACID properties. 
+\end{description}
 
-Furthermore, section 2.6 will focus on the interface between the different components of the system.
-Finally, the design choices and patterns used will be presented and discussed in section 2.7.
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{architectural_design/Architecture_Diagrams/Layers.png}
+	\caption{Layers of the system.}
+	\label{fig:layers}
+\end{figure}
+
+The system is structured in three layers as we can see in picture \ref{fig:layers}.
+
+This design choice makes it possible to deploy the application server and the database on different tiers. It also improves scalability and fault tolerance.
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{architectural_design/Architecture_Diagrams/Tier.png}
+	\caption{Tiers of the system.}
+	\label{fig:tiers}
+\end{figure}
+
+The figure \ref{fig:tiers}, instead, shows the three tiers from a very high level point of view.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth,height=\dimexpr\textheight-4\baselineskip-\abovecaptionskip-\belowcaptionskip\relax,keepaspectratio]{architectural_design/Architecture_Diagrams/Tier2.png}
+	\caption{High level components of the system.}
+	\label{fig:high_components}
+\end{figure}
+
+The interactions between the main components are shown in the figure \ref{fig:high_components}.
+
+\begin{figure}
+    \vspace*{-2cm}
+    \makebox[\linewidth]{
+        \includegraphics[width=1.3\linewidth]{architectural_design/Architecture_Diagrams/Tier3.png}
+    }
+    \caption{Description of the tiers, detailed with Java EE components.}
+	\label{fig:tiers_description}
+\end{figure}
+
+A more detailed description of the three different tiers is shown in picture \ref{fig:tiers_description}.
+
+
