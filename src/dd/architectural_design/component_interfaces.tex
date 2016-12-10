@@ -49,8 +49,17 @@ All the following functions can be called by the mobile app of the user:
 	\item \textbf{void endRide():} The HandyCar Board use this function to report to the system that the user ended a ride. At this point, the application server saves the end time, the fee variation that were applied and the maximum number of passengers. Every HandyCar Board has its own ID, so the system can recognize from which car the request is sent.
 \end{itemize}
 
+\subsubsection{Safe Area Manager}
+All this functions can be called only from the user of the ride or from PowerEnJoy operators.
+\begin{itemize}
+	\item \textbf{void addSafeArea(Position center, float radius):} Adds a safe area with a given center and radius. The function returns an error if there is another safe area with the same center.
+	\item \textbf{void deleteSafeArea(Position center):} Removes the safe area with the given center. The function returns an error if there is not a safe area with that center.
+	\item \textbf{void addPowerGridStation(Position position):} Adds a power grid station in a given position. The function returns an error if there is not a safe area in that position.
+	\item \textbf{void removePowerGridStation(Position position):} Removes a power grid station in a given position. The function returns an error if there is not a power grid station in that position.
+\end{itemize}
+
 \subsubsection{Fee Manager}
-All this functions can be called from the user of the ride or from PowerEnJoy operators.
+All this functions can be called only from the user of the ride or from PowerEnJoy operators.
 \begin{itemize}
 	\item \textbf{int getFeeVariation(String ID):} Calculates a fee variation for a given ride ID. 
 	\item \textbf{int getFeeWithoutVariation(String ID):} Calculates a fee for a given ride, without including the variations of bonuses and penalty.
