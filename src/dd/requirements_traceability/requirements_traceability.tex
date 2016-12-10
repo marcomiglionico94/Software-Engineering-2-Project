@@ -1,0 +1,13 @@
+In this chapter we will describe how the design element defined in the previous sections will meet the functional and non-functional requirements listed in the RASD document.
+
+\begin{center}
+\begin{longtable}{|p{0.1\textwidth}|p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
+\hline
+\multicolumn{2}{|c|}{\textbf{Requirement}} & \multicolumn{2}{c|}{\textbf{Design Solution}} \\ \hline
+R.1.1 & The system must turn the state of the car from reserved to available if the user did not unlock it within an hour since the moment of the reservation. & CMP: \linebreak Car Manager & The CarManager monitors every reservation and it takes care of doing this.  \\ \hline
+R.1.2 & The system must turn the state of the car from available to reserved after the user reserves it. & CMP: Car Manager & The CarManager does it. \\ \hline
+R.2.1 & The system must be able to check the position of the user through the GPS position of his mobile phone. & CMP: .. & ... \\ \hline
+\caption{Requirements traceability table} 
+\label{tab:reqTraceTable}
+\end{longtable} 
+\end{center}
