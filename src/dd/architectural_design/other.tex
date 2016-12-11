@@ -1,3 +1,13 @@
 \section{Other design decisions}
 % not mandatory
-other design decision
+
+\subsection{Storage of passwords}
+Users' passwords are not be stored in plain text, but they are hashed and salted.
+In this way it is more difficult for an attacker to retrieve the user information after a possible case of data theft.
+
+In addition to this, the hash algorithm used must be specifically designed to hash passwords, in order to slow down a possible brute force attack.
+
+\subsection{Maps}
+In order to have a knowledge of the maps, the system uses the external service Google Maps. We choose it because it is really reliable and its APIs are well documented and maintained.
+
+Of course it was more convenient to adopt an external service like this instead of reconstruct the maps where the PowerEnJoy service will operate.
