@@ -33,10 +33,10 @@ All the following functions can be called by the mobile app of the user:
 	\item \textbf{Ride getRide(String id):} Returns the ride info that corresponds to a given ID. The function will return an error if a user wants to retrieve the info about a ride that is not assigned to him/her.
 	The PowerEnJoy operators can get all the rides, without restrictions.
 	The info about a ride contain: the plate of the car, the username of the user that reserved the car, unlock time, ignition time, end time, the fee with variations and the fee variations and the maximum number of passengers.
-	\item \textbf{void updateRideStatus(String status):} Update the ride status with the specified new status.
+%	\item \textbf{Add ride:} Registers a new ride with the start time, the unlock time, the ignition time, the plate of the car and the username of the user.
+%\item \textbf{void updateRideStatus(String status):} Update the ride status with the specified new status.
 	\item \textbf{List \textless Ride\textgreater{} getUserRides(String username):} Returns the rides info that corresponds to a given users. The function will return an error if a user wants to retrieve the info about another user.
 	The PowerEnJoy operators can get all the rides, without restrictions.
-	\item \textbf{void endRide():} The HandyCar Board use this function to report to the system that the user ended a ride. At this point, the application server saves the end time, the fee variation that were applied and the maximum number of passengers. Every HandyCar Board has its own ID, so the system can recognize from which car the request is sent.
 \end{itemize}
 
 \subsubsection{Car Manager}
@@ -46,7 +46,9 @@ All the following functions can be called by the mobile app of the user:
 	\item \textbf{List \textless Car\textgreater{} getAvailableCars(Position center, float radius):} Returns the cars that are available in a given circle.
 	\item \textbf{void reserveCar(String plate):} The mobile app calls this function to allow the user to request a car. This function returns an error if the request is not valid.
 	\item \textbf{void unlockCar(String plate):} The mobile app calls this function to allow the user to unlock a car that he reserved. This function returns an error if the request is not valid.
-	\item \textbf{void updatePosition(position:Position):} Updates the position of the car. This function is called periodically to monitor the movements of the cars.
+%	\item \textbf{Update position:} Updates the position of the car. This function is called periodically to monitor the movements of the cars.
+	\item \textbf{void endRide(int maxNumberOfPassengers):} The HandyCar Board use this function to report to the system that the user ended a ride. At this point, the application server saves the end time, the fee variation that were applied and the maximum number of passengers. Every HandyCar Board has its own ID, so the system can recognize from which car the request is sent.
+	\item \textbf{void reportFailedCar():} The HandyCar Board use this function to report to the system that the a car is failed. At this point, the Car Manager in the application server turn the state of that car to unavailable and signal it to the maintainers server.
 \end{itemize}
 
 \subsubsection{Safe Area Manager}
@@ -76,15 +78,12 @@ All these functions can be called only from the user of the ride or from PowerEn
 
 These functions can be called only from the car tablet:
 \begin{itemize}
-	\item \textbf{Position safeAreaCenter enableMoneySavingOption():} This function activates the Money Saving Option and returns the safe area where the user has to leave the car.
+	\item \textbf{Position powerGridStationPosition enableMoneySavingOption():} This function activates the Money Saving Option and returns the power grid station where the user has to plug the car.
 	\item \textbf{void disableMoneySavingOption():} This function disable the Money Saving Option in order to be able to leave the car in every safe area.
 \end{itemize}
 
 \subsubsection{Payments Manager}
 \begin{itemize}
 	\item \textbf{void payRide(String ID):} Pay the fee for the ride of the given ID. The function returns an error if the ride was already paid or if the user is not the owner of the ride
-	\item \textbf{boolean checkPaymentInfo(String info):} Check if the payment informations provided by the user are correct or no. The function return true if they are correc, false if there's an error in the informations.
+	\item \textbf{Boolean checkPaymentInfo(String info):} Check if the payment informations provided by the user are correct or no. The function return true if they are correct, false if there's an error in the informations.
 \end{itemize}
-
-
-
