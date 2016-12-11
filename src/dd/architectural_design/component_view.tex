@@ -22,6 +22,8 @@ The business logic is implemented by custom-built stateless Enterprise JavaBeans
 Our application is quite simple, the state of the cars is stored in the DB, so we do not need stateful EJBs which can be more expensive,but just stateless EJBs.
 Concurrency management and performance are fundamental, so the reuse of EJBs for many requests is a desirable behaviour.
 The application server implements a RESTful API using JAX-RS to allow the clients to use the services offered by the EJBs.
+\includepdf{architectural_design/Architecture_Diagrams/EntityBeans.pdf}
+\includepdf{architectural_design/Architecture_Diagrams/SessionBeans.pdf}
 
 \subsection{User Manager}
 This bean manages all the user management features: user registration, user login user deletion, profile editing and user banning.
