@@ -84,4 +84,9 @@ These functions can be called only from the car tablet:
 \subsubsection{Payments Manager}
 \begin{itemize}
 	\item \textbf{void payRide(String ID):} Pay the fee for the ride of the given ID. The function returns an error if the ride was already paid or if the user is not the owner of the ride
+	\item \textbf{boolean checkPaymentInfo(String info):} Check if the payment informations provided by the user are correct or no. The function return true if they are correc, false if there's an error in the informations.
 \end{itemize}
+
+\includepdf{architectural_design/Architecture_Diagrams/SessionBeans.pdf}
+
+
