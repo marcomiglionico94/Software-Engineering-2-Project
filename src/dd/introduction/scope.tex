@@ -1,2 +1,19 @@
 \section{Scope}
-scope
+The main goal of the system is to let the users easily look for and reserve a vehicle.
+
+In particular we will present different views of the system representing different levels of abstraction: the user's point of view, an internal sight of the subsystems, their high level interactions and the communication interfaces that they use to interact.
+
+We will describe the chosen architectural styles and pattern, some fundamental algorithms and how our choices are mapped
+on the requirements elicited in the RASD (Requirement Analysis and Specification Document).
+
+The software system is divided into three layers: presentation, application and data.
+They will be presented in detail in the following chapters.
+
+The architecture has been designed to be easily extensible and maintainable in order to provide new functionalities.
+Every component must be conveniently thin and must encapsulate a single functionality, in order to ensure an high cohesion.
+The dependency between components is unidirectional and coupling is avoided as much as possible in order to increase the
+reusability of the modules.
+
+In order to simplify the system comprehension and to help the developers during the implementation phase, design patterns and architectural styles were used for solving the architectural problems of the system.
+
+The Design Document would also demonstrate how the design will accomplish all the requirements captured in the RASD.
