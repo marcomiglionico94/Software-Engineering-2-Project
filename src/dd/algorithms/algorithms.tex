@@ -1,5 +1,5 @@
-In this section we will describe some algorithms used by the system in different phases of car rent management. We cannot describe all the algorithms used by the system, due to its complexity. However we have chosen the most important ones, in order to show some development choices we made.
-The chosen algorithms are these four:
+In this section we will describe some algorithms used by the system in different phases during the car rent management. We cannot describe all the algorithms used by the system, due to its complexity. However we have chosen the most important ones, in order to show some development choices we made.
+The chosen algorithms are the following four:
 \begin{enumerate}
 \item Given a ride, calculate the final fee
 \item Given a circle with center c and radius r, find all the Safe Areas that intersect the given circle
@@ -10,7 +10,8 @@ In the algorithm description there is not the final code. Instead we will use a 
 
 \section{Algorithm 1: How to calculate the final fee}
 When a ride ends it is important to calculate the final fee to charge to the user. This may differ to the amount shown on the car screen due to some bonus or malus (called fee variator) unlocked by the user.
-This function will be called by the server once a ride ends. It will have a ride in input and a float as output, that represents the final fee to charge.
+So at the end of each ride the system will call this function. It will have a ride in input and a float as output, that represents the final fee to charge.
+
 Just to remember, a ride has the following fields:
 \begin{itemize}
 \item Reservation Time
@@ -23,12 +24,12 @@ Just to remember, a ride has the following fields:
 \item a set in which are stored the fee variator already unlocked
 \end{itemize}
 
-We also remember that each fee variator has a float field that represents the percentage variation made by that fee variator. These float is positive for the malus (because it has to increase the fee) and is negative for the bonus (because it has to reduce the fee).
+We also remember that each fee variator has a float field called variator that represents the percentage variation made by that fee variator. These float is positive for the malus (because it has to increase the fee) and is negative for the bonus (because it has to reduce the fee).
 
 In order to describe the algorithm in the easiest way we assume:
 \begin{itemize}
 \item the function can accede to the cost per minute of the rent (CPM) and a set of all the fee variator that can be unlocked (called feeVariatorSet)
-\item the difference between two dates is the number of minutes between them
+\item there is a function called rideLength(Ride ride) that returns the length of a ride as a number of minutes
 \item each fee variator has a function check(Ride ride). Given a ride this function returns true if the relative fee variator can be unlocked, false otherwise.
 \end{itemize}
 
@@ -36,33 +37,33 @@ In order to describe the algorithm in the easiest way we assume:
 	\SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
 
-\SetKwData{Var}{var}\SetKwData{FVS}{feeVariatorSet}\SetKwData{Ride}{ride}\SetKwData{Res}{result}\SetKwData{cpm}{CPM}
-\SetKwFunction{check}{check}\SetKwFunction{RL}{rideLenght}
+\SetKwData{Var}{var}\SetKwData{FVS}{feeVariatorSet}\SetKwData{Ride}{ride}\SetKwData{Res}{result}\SetKwData{cpm}{CPM}\SetKwData{fv}{feeVariator}\SetKwData{varr}{variator}
+\SetKwFunction{check}{check}\SetKwFunction{RL}{rideLength}
 
 	\Input{A ride}
 	\Output{The final fee to charge}
 	\BlankLine
 \ForEach{\Var in \FVS}{
-\lIf{\Var .\check{\Ride}}{
-add \Var in \Ride .feeVariator 
+\lIf{\Var is \check{\Ride}}{
+add \Var in \Ride.\fv 
 }}
 	\BlankLine
 \Res = \RL{\Ride} * \cpm\;
 	\BlankLine
-\ForEach{\Var in \Ride .feeVariator}{
-\Res = \Res + \Res * \Var .variator\;
+\ForEach{\Var in \Ride.\fv}{
+\Res = \Res + \Res * \Var.\varr \;
 }
 \Return \Res \;
 \caption{How to calculate the final fee of a ride}
 \end{algorithm}
 
 \section{Algorithm 2: How to find the Safe Areas near a given position}
-This algorithm will never be used directly, but it will be included into other algorithms, such as algorithms 3 and 4 described below. 
+This algorithm will never be used directly but it will be included into other algorithms, such as algorithms 3 and 4 described below. 
 This algorithm will produce as output a set of safe areas that intersect a circle with a given center and radius.
 We remember that:
 \begin{itemize}
 \item Two circles intersect iff the distance between the two centers is lesser than the sum of the two radius.
-\item Given two positions $P_{1}$ and $P_{2}$, with $lat_{1}$ and $lat_{2}$ their latitude and $long_{1}$ and $long_{2}$ their longitude, the distance d between them is given by:
+\item Given two positions $P_{1}$ and $P_{2}$, with $lat_{1}$ and $lat_{2}$ their latitude and $long_{1}$ and $long_{2}$ their longitude, the distance $d$ between them is given by:
 \begin{equation}
 d = R\,\times\,(\arccos (\sin (lat_{1})\, \times\, \sin (lat_{2})\, +\, \cos (lat_{1})\, \times\, \cos (lat_{2})\, \times\, \cos(long_{1} - long_{2}))
 \end{equation}
@@ -70,7 +71,7 @@ d = R\,\times\,(\arccos (\sin (lat_{1})\, \times\, \sin (lat_{2})\, +\, \cos (la
 We assume also that:
 \begin{itemize}
 \item There is a function called distance(Position $p_{1}$, Position $p_{2}$) that given two positions return the distance between them, according to the equation 3.1.
-\item The algorithm can accede to a set, called $safeAreaSet$, in which are stored all the Safe Area of the system.
+\item The algorithm can accede to a set, called $safeAreaSet$, in which all the Safe Area existing in the system are stored.
 \end{itemize}
 
 So the algorithm is:
@@ -94,7 +95,7 @@ add \SA in \Res
 \caption{How to find Safe Areas that intersect a circle with given center and radius}
 \end{algorithm}
 
-\section{Algorithm 3: How to find cars near a position}
+\section{Algorithm 3: How to find cars near a given position}
 When a user wants to start a ride he or she will search for a car near his or her position in order to rent it. This algorithm takes care of the car searching.
 We decided that a user can reach a car by foot if its location is 2km or less from his or her one. So when a user wants to start a ride the system has to provide to him or her all the available cars that are far at most 2km.
 
@@ -128,8 +129,8 @@ call \alg{\pos, 2km}\;
 \end{algorithm}
 
 
-\section{Algorithm 4: How to find a Safe Area were to park}
-These algorithm fulfill two purposes: one is it find a safe area near a location, were the user can park. The second one is try to balance the car in the city. The second purpose is as important as the first one. In fact we want that the car are equally distributed among all the safe areas. We do not want that some safe areas have much more cars than others.
+\section{Algorithm 4: How to find a Safe Area where to park}
+These algorithm fulfill two purposes: one it is find a safe area near a location where the user can park. The second one is try to balance cars in the city. The second purpose is as important as the first one. In fact we want that cars are equally distributed among all the safe areas. We do not want that some safe areas have much more cars than others.
 As the algorithm 3, algorithm 4 is divided into two parts, with the first one utilizing algorithm 2. And as algorithm 3, the max distance allowed is 2km, the max distance reachable in a reasonable time by foot.
 
 In order to understand the algorithm we assume that there is a function (called carDensity(SafeArea)) that return the density of parked cars in a given safe area (the ratio between number of cars parked in that safe area and the area of the safe area).
