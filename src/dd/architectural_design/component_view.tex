@@ -33,14 +33,21 @@ This bean also communicate with two external systems:
 \end{itemize}
 
 \subsection{Car Manager}
-This bean manages manages all the car's features: get car, reserve car, unlock car and end ride.
+This bean manages manages all the car's features: get car, reserve car, unlock car and update position.
 In this way it keeps references and update all the informations about the car, including the maximum number of passengers the battery level and the numbers of seats.
 It also provides a function to handles the changes in the status of the car.
 
 \subsection{Ride Manager}
-This bean manages all the ride features:create new ride, get ride and get user's ride.
-It provides functions that return all the rides informations like the number of passenger on the car, the fee variations,the unlock time and the user that has reserved the car.
+This bean manages all the ride features:create new ride, get ride,get user's ride and end ride.
+It provides functions that return all the rides informations like the number of passenger on the car,the unlock time and the user that has reserved the car.
 
 \subsection{Fee Manager}
 This bean manages all the functionalities about the fee of the ride: calculate fee variation, calculate fee with variation and calculate the fee without variation.
 It handles all the information about the bill that the user has to pay and apply discounts when it is necessary.
+
+\subsection{Safe Area Manager}
+This bean allows the operator to manage the safe area and provides functions to add a new safe area and to delete it. It also provides function to add and delete a power grid station in a specific position.
+Besides it offers also some function available also to the user that allows him/her to know the safe areas and power grid stations positions.
+
+\subsection{Payment Manager}
+This bean provide a function to pay the ride and another one to check the payment information provided by the user thanks to an external system of payment information validation.
