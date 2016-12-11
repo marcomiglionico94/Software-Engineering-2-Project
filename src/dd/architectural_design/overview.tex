@@ -7,8 +7,9 @@ In this section we will present the high level components of the system and thei
 \item[Database:] The data layer is responsible for the data storage and retrieval. It does not implement any application logic. This layer must guarantee ACID properties. 
 \item[HandyCar board:] A board to which all the actuators and sensors of the car are connected.
 It communicates with the application server, abstracting all the low-level details of the cars.
-\item[Car tablet:] A tablet that is on board of the vehicles. It used for the communication between the system and the driver, so the tablets communicates with the application server.
+\item[On-Board tablet:] A tablet that is on board of the vehicles. It used for the communication between the system and the driver, so the tablets communicates with the application server.
 \item[PowerEnJoy Operator Program:] A program that the operators of PowerEnJoy can use to interact with the system, for example modifying the safe areas. It communicates with the application server.
+\item[External Systems:]There are 2 external systems: External System for Payment and External System for Driving License Validation. The first one check the validity of the payment information and handle the payment process,while the second one check if the driving license informations provided by the user are correct.
 \end{description}
 
 \begin{figure}
@@ -29,7 +30,7 @@ This design choice makes it possible to deploy the application server and the da
 	\label{fig:tiers}
 \end{figure}
 
-The figure \ref{fig:tiers}, instead, shows the three tiers from a very high level point of view.
+The figure \ref{fig:tiers}, instead, shows the three tiers from a very high level point of view: Client,Server and Data.
 
 \begin{figure}
 	\centering
