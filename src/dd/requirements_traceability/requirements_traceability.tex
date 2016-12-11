@@ -24,11 +24,16 @@ R.6.4 & The system must be notified when the user enter inside the car. & CMP: C
 R.6.5 & The system must be able to lock the car again if the user doesn't enter inside the car within 3 minutes. & CMP: Car Manager & The Car Manager does it. \\ \hline
 R.7.1 & The system must be able to calculate the current fee with respect to the amount of money per minute defined by the company. & CMP: Fee Manager & The Fee Manager does it. \\ \hline
 R.7.2 & The system must be able to show on the tablet present on the car the current fee that the user has to pay. & Fee Manager & The function float getFeeWithVariation(String ID) can send the current fee to the car tablet. \\ \hline
-R.8.1 & The system must be able to show to the user the position of the power grid station. & Safe Area Manager & The function List \textless Position\textgreater{} getPowerGridStations() does it. \\ \hline
-R.8.2 & The system must be able to show to the user the number of free plugs in every power grid station. & Safe Area Manager & The function int getFreePlugsNumber(Position powerGridStationCenter) does it. \\ \hline
-R.9.1 & The system must allow only the users that has not been banned to search for a car. & Car Manager & The Car Manager does this check. \\ \hline
-R.9.2 & The system must allow only the users that has not been banned to reserve a car. & Car Manager & The Car Manager does this check. \\ \hline
-R.9.3 & The system must be able to know the result of the payment operation. & ... & .... \\ \hline
+R.8.1 & The system must be able to show to the user the position of the power grid station. & CMP: Safe Area Manager & The function List \textless Position\textgreater{} getPowerGridStations() does it. \\ \hline
+R.8.2 & The system must be able to show to the user the number of free plugs in every power grid station. & CMP: Safe Area Manager & The function int getFreePlugsNumber(Position powerGridStationCenter) does it. \\ \hline
+R.9.1 & The system must allow only the users that has not been banned to search for a car. & CMP: Car Manager & The Car Manager does this check. \\ \hline
+R.9.2 & The system must allow only the users that has not been banned to reserve a car. & CMP: Car Manager & The Car Manager does this check. \\ \hline
+R.9.3 & The system must be able to know the result of the payment operation. & CMP: Payments Manager & The function void payRide(String ID) does it. \\ \hline
+R.9.4 & The system must ban a user that has a pending fee. & CMP: User Manager & The User Manager does it. \\ \hline
+R.9.5 & The system must be able to mark a fee as paid if and only if the payment operation is successful. & CMP: Payments Manager & The Payments Manager does it. \\ \hline
+R.9.6 & The system must be able to remove the ban from the user when his/her pending fee has been extinguished. & CMP: User Manager, Payments Manager & The User Manager and the Payments Manager do it. \\ \hline
+R.10.1 & The system must allow the user to enable the saving mode option in every moment from when he/she starts ride. & CMP: Fee Manager & The function Position safeAreaCenter enableMoneySavingOption() does it. \\ \hline
+R.10.2 & The system must be able to recognize the best power grid to station where to park a specified car based on its position and the distribution of the other cars of PowerEnJoy. & CMP: Fee Manager, ALG: 4 & The function Position safeAreaCenter enableMoneySavingOption() does it. \\ \hline
 
 \caption{Requirements traceability table} 
 \label{tab:reqTraceTable}

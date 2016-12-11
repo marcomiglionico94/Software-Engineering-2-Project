@@ -68,9 +68,20 @@ These other functions are available to all the users:
 \end{itemize}
 
 \subsubsection{Fee Manager}
-All this functions can be called only from the user of the ride or from PowerEnJoy operators.
+All these functions can be called only from the user of the ride or from PowerEnJoy operators.
 \begin{itemize}
 	\item \textbf{float getFeeVariation(String ID):} Calculates a fee variation for a given ride ID. 
 	\item \textbf{float getFeeWithoutVariation(String ID):} Calculates a fee for a given ride, without including the variations of bonuses and penalty.
 	\item \textbf{float getFeeWithVariation(String ID):} Calculates a fee for a given ride, including the variations of bonuses and penalty.
+\end{itemize}
+
+These functions can be called only from the car tablet:
+\begin{itemize}
+	\item \textbf{Position safeAreaCenter enableMoneySavingOption():} This function activates the Money Saving Option and returns the safe area where the user has to leave the car.
+	\item \textbf{void disableMoneySavingOption():} This function disable the Money Saving Option in order to be able to leave the car in every safe area.
+\end{itemize}
+
+\subsubsection{Payments Manager}
+\begin{itemize}
+	\item \textbf{void payRide(String ID):} Pay the fee for the ride of the given ID. The function returns an error if the ride was already paid or if the user is not the owner of the ride
 \end{itemize}
