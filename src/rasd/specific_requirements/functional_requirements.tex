@@ -22,10 +22,9 @@ Assuming that the domain properties stipulated in the paragraph [2.5] hold, here
 \item {[G3]} Allows the user to search for a car in a specific location:
 
 \begin{itemize}
-	\item {[R1]} The system must ask the user to insert a specific location;
-	\item {[R2]} The system must be able to identify a specified location;
-	\item {[R3]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 km from that specific location;
-	\item {[R4]} If there are not any available cars within a range of 1 km from that specific location the system must notify the user.
+	\item {[R1]} The system must be able to identify a specified location;
+	\item {[R2]} The system must be able to show all the available cars, with their current level of battery, within a range of 1 km from that specific location;
+	\item {[R3]} If there are not any available cars within a range of 1 km from that specific location the system must notify the user.
 \end{itemize}
 
 \item {[G4]} Allows to unlock a car only to the user who currently reserved it:
@@ -43,11 +42,11 @@ Assuming that the domain properties stipulated in the paragraph [2.5] hold, here
 	\item {[R4]} When the reservation ends the system must change the status of the car in available and lock the car.
 \end{itemize}
 
-\item {[G6]} Allows the user to unlock the vehicle when he/she is next to it using the mobile app:
+\item {[G6]} Allows the user to unlock the vehicle using the mobile app when the distance between his/her mobile phone and the car is less than 6 meters:
 
 \begin{itemize}
 	\item {[R1]} The system must be able to calculate the distance between the car and the mobile phone of the user using the GPS positions;
-	\item {[R2]} When the distance between the car and the mobile phone of the user is less than 6 meters the system must show to the user the option to unlock the car;
+	\item {[R2]} The system must show to the user the option to unlock the car at least when the distance between the car and the mobile phone of the user is less than 6 meters;
 	\item {[R3]} The system must be able to unlock the cars remotely;
 	\item {[R4]} The system must be notified when the user enter inside the car;
 	\item {[R5]} The system must be able to lock the car again if the user doesn't enter inside the car within 3 minutes.
@@ -63,8 +62,8 @@ Assuming that the domain properties stipulated in the paragraph [2.5] hold, here
 \item {[G8]} Allows the user to recharge a car in power grid stations:
 
 \begin{itemize}
-	\item {[R1]} The system must be able to show to the user the position of the power grid stations;
-	\item {[R2]} The system must be able to show to the user the number of free plugs in every power grid stations.
+	\item {[R1]} The system must be able to show to the user the position of the power grid station;
+	\item {[R2]} The system must be able to show to the user the number of free plugs in every power grid station.
 \end{itemize}
 
 \item {[G9]} Does not allow user that has not paid the last fee to use the system, banning them until that fee will be paid:
