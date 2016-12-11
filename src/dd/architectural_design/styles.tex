@@ -1,3 +1,34 @@
 \section{Selected architectural styles and patterns}
 %Please explain which styles/patterns you used, why, and how
-Selected architectural styles and patterns.
+We used the following architectural styles and patterns:
+
+\begin{description}
+\item[Client-Server:]
+The client–server model is used between these communications:
+	\begin{itemize}
+    \item the application server (client) queries the DB (server);
+    \item the presentation layer (client) communicates with the application server (server);
+    \item the application server (client) and the on-board tablet (server);
+    \item the HandyCar Board and the application server (both act like client and server);
+    \item the application server (client) and the payment validation external system (server);
+    \item the application server (client) and the driving license validation external system (server).
+	\end{itemize}
+
+We choose this type of architecture to have a centralized control and because it is simple and well known by our development team.
+
+\item[Service-oriented architecture:]
+The SOA is used by the system for the communication between the application server and the presentation layer.
+
+We used SOA in order to have an high level interaction between these two layers, by looking only at the component interfaces, that represent a black box for its consumers.
+
+In this way, a service logically represents a business activity with a specified outcome, so you want to use it, you do not have to look inside its specific implementation.
+
+\item[Thin client:]
+The thin client is implemented in the mobile app and in the on-board tablet.
+We used this paradigm in order to have light-weight apps, that can run in a large number of devices with a smooth user interaction.
+
+Instead, all the application logic is on the application server, on which the client depends heavily on.
+This can help to reduce the number of updates, because if you want to change something in the application logic, it is not necessary to release a new application of the client.
+
+\end{description}
+% \subsection{Model-View-Controller}
