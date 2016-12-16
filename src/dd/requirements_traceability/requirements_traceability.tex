@@ -23,7 +23,7 @@ R.6.3 & The system must be able to unlock the cars remotely. & CMP: Car Manager 
 R.6.4 & The system must be notified when the user enter inside the car. & CMP: Car Manager & The function \textit{void unlockCar(String plate)} does it. \\ \hline
 R.6.5 & The system must be able to lock the car again if the user doesn't enter inside the car within 3 minutes. & CMP: Car Manager & The Car Manager does it. \\ \hline
 R.7.1 & The system must be able to calculate the current fee with respect to the amount of money per minute defined by the company. & CMP: Fee Manager & The Fee Manager does it. \\ \hline
-R.7.2 & The system must be able to show on the tablet present on the car the current fee that the user has to pay. & Fee Manager & The function \textit{float getFeeWithVariation(String ID)} can send the current fee to the car tablet. \\ \hline
+R.7.2 & The system must be able to show on the tablet present on the car the current fee that the user has to pay. & CMP: Fee Manager & The function \textit{float getFeeWithVariation(String ID)} can send the current fee to the car tablet. \\ \hline
 R.8.1 & The system must be able to show to the user the position of the power grid station. & CMP: Safe Area Manager & The function \textit{List \textless Position\textgreater{} getPowerGridStations()} does it. \\ \hline
 R.8.2 & The system must be able to show to the user the number of free plugs in every power grid station. & CMP: Safe Area Manager & The function \textit{int getFreePlugsNumber(Position powerGridStationCenter)} does it. \\ \hline
 R.9.1 & The system must allow only the users that has not been banned to search for a car. & CMP: Car Manager & The Car Manager does this check. \\ \hline
