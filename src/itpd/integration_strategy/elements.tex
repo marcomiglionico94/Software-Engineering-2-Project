@@ -28,11 +28,15 @@ The second step need to be performed on the three major high-level components th
 be referred to as subsystems:
 \begin{itemize}
 \item \textbf{Client tier:} The client tier consists of our mobile application,the operator terminal and the on-board tablet.
-\item\textbf{Business tier:} This subsystem implements all the application logic and
-communicates with the front-ends.
+\item\textbf{Business tier:} This subsystem implements all the application logic,communicates with the front-ends and the external systems.
 \item \textbf{Database tier:} This is the DBMS,it is not part of the software to be developed,
 but has to be integrated.
 \end{itemize}
-
+It is important to underline that the business tier need to be integrated with some external systems,that we will consider as black box,because we are not going to develop them but just to integrate them. These external systems are:
+\begin{itemize}
+\item \textbf{Handy Car Board};
+\item \textbf{External System For Driving License Validation};
+\item \textbf{External System For Payments}.
+\end{itemize}
 
 
