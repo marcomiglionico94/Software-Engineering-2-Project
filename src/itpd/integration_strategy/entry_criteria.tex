@@ -1,2 +1,30 @@
+In this chapter the integration strategy will be described. In the section 2.1
+the prerequisites for the tests will be presented. The section 2.2 is dedicated to
+the required subsystems to be integrated in the system to execute some tests.
+Finally in the sections 2.3 and 2.4 the strategy used to test the integrations will
+be discussed, paying attention to the order.
 \section{Entry Criteria}
-% Specify the criteria that must be met before integration testing of specific elements may begin (e.g., functions must have been unit tested).
+This section describes the prerequisites that need to be met before integration
+testing can start and produce meaningful results.
+All the classes and methods must pass thorough \textbf{unit tests } which should
+reasonably discover major issues in the structure of the classes or in the implementation
+of the algorithms. Unit tests should have a minimum coverage
+of 90\% of the lines of code and should be run automatically at each build
+using JUnit.Unit testing is not in the scope of this document and will not
+be specified in further detail.
+Moreover, the \textbf{documentation} of all classes and functions, written using
+JavaDoc, has to be complete and up-to-date in order to be used as a reference
+for integration testing development.In particular, the public interfaces of
+each class and module should be well specified. Where necessary, a formal
+specification language can be used.
+The following \textbf{documents} must have been fully written before integration testing can
+begin:
+
+\begin{itemize}
+\item \textbf{Requirement Analysis and Specification Document of PowerEnJoy};
+\item \textbf{Design Document of PowerEnJoy}.
+\end{itemize}
+
+This a required phase to have a complete picture of the interactions between the different components of the system and of the functionalities they offer.
+Finally the integration testing phase can start also if some components don't have the minimum completion percentage necessary to consider it for integration(90\%),this is to reflect their order of integration and to take into account the required time to fully perform integration testing.
+

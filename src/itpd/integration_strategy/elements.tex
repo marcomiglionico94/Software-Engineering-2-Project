@@ -1,2 +1,38 @@
 \section{Elements to be Integrated}
-% Identify the components to be integrated, refer to your design document to identify such components in a way that is consistent with your design.
+In the following paragraph we are going to provide a list of all the components that need to be integrated together.
+
+The integration process of our software is performed on two levels.
+\begin{enumerate}
+\item \textbf{Low Level:} integration of the different subcomponents (classes, Java Beans) inside the
+same subsystem;
+\item \textbf{High Level:} integration of different subsystems.
+\end{enumerate}
+
+The first step needs to be performed only for the components which contains
+the pieces of software that we are going to develop, namely the business
+tier, the mobile application in the client tier.
+In particular the main subcomponents  that we will integrate are:
+\begin{itemize}
+\item \textbf{User Manager};
+\item \textbf{Email Sender};
+\item \textbf{Operator Safe Area Manager};
+\item \textbf{User Safe Area Manager};
+\item \textbf{Ride Manager};
+\item \textbf{Car Manager};
+\item \textbf{Fee Manager};
+\item \textbf{Payment Manager}
+\end{itemize}
+
+
+The second step need to be performed on the three major high-level components that we outlined in the Design Document,that correspond to the tiers of the system, which – from now on – will
+be referred to as subsystems:
+\begin{itemize}
+\item \textbf{Client tier:} The client tier consists of our mobile application,the operator terminal and the on-board tablet.
+\item\textbf{Business tier:} This subsystem implements all the application logic and
+communicates with the front-ends.
+\item \textbf{Database tier:} This is the DBMS,it is not part of the software to be developed,
+but has to be integrated.
+\end{itemize}
+
+
+
