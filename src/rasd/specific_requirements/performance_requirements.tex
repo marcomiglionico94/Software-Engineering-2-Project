@@ -2,7 +2,7 @@
 
 We assume that the response time of the mobile app is almost zero, i.e. the interface do not cause any delay in the interaction with the user, so the speed of the whole system depends only on user's internet connection.
 
-The functions of reserving a car and unlock it shall be completed in less than 5 seconds from the back-end perspective.
+The functions of reserving a car and unlock it shall be completed in less than 4 seconds from the back-end perspective. The 90\% of the request shall be processed in less then 6 seconds, while all the requests shall be completed in less then 11 seconds.
 
 The request of showing the available cars is the most frequent function executed in our system, so there must be a structure in memory that keeps track of them, in order to not compute them every time a user opens the app.
 
