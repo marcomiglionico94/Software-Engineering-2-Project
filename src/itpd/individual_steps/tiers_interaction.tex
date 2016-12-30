@@ -30,7 +30,7 @@
     \hline
     \textbf{Test Item(s)} & Mobile application $\rightarrow$ Business Tier\\
     \hline
-    \textbf{Input Specification} & Typical REST API calls (both correct and intentionally invalid ones) from the presentation tier to the business tier.\\
+    \textbf{Input Specification} & Typical REST API calls (both correct and intentionally invalid ones) from the mobile application to the business tier.\\
     \hline
     \textbf{Output Specification} & Check if the business tier responds accordingly to the API specification. Also, it must react in the right way both if the requests are made correctly or wrongly and if they come from an unauthorized user.\\
     \hline
@@ -51,6 +51,49 @@
     \textbf{Test Item(s)} & Mobile application $\rightarrow$ Business Tier\\
     \hline
     \textbf{Input Specification} & Multiple concurrent (typical and correct) requests to the REST API of the business tier.\\
+    \hline
+    \textbf{Output Specification} & Check if the business tier answers the requests in a reasonable amount time with respect to the applied load. \\
+    \hline
+    \textbf{Environmental Needs} & Complete implementation of the Business tier; GlassFish Server; Apache JMeter.\\
+    \hline
+    \textbf{Test Description} & This test case evaluates whether the business tier satisfy the performance requirements stated in the RASD (section 3.3, \emph{Performance requirements}).\\
+    \hline
+    \textbf{Testing Method} & Automated with Apache JMeter. \\
+    \hline
+\end{tabular}
+
+\vspace{2em}
+
+\subsection{Integration test case SI3}
+\label{sec:performance-business}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & SI3T1\\
+    \hline
+    \textbf{Test Item(s)} & HandyCar Board $\rightarrow$ Business Tier\\
+    \hline
+    \textbf{Input Specification} & All the REST API calls (both correct and intentionally invalid ones) from the HandyCar Board to the business tier.\\
+    \hline
+    \textbf{Output Specification} & Check if the business tier responds accordingly to the API specification. Also, it must react in the right way even if the requests are made wrongly.\\
+    \hline
+    \textbf{Environmental Needs} & Complete implementation of the Business tier; a driver that simulates a HandyCar Board through the REST API calls. \\
+    \hline
+    \textbf{Test Description} & For each API call of the boards, the response of the business tier will be compared with the expected output. The driver used for this test is a REST API client implemented in Java.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit.\\
+    \hline
+\end{tabular}
+
+\vspace{2em}
+
+\noindent\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & SI3T2\\
+    \hline
+    \textbf{Test Item(s)} & HandyCar Board $\rightarrow$ Business Tier\\
+    \hline
+    \textbf{Input Specification} & Multiple concurrent correct requests to the REST API of the business tier.\\
     \hline
     \textbf{Output Specification} & Check if the business tier answers the requests in a reasonable amount time with respect to the applied load. \\
     \hline
