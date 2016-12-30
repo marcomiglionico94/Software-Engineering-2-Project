@@ -1,1 +1,21 @@
 \section{Sequence of Component/Function Integration}
+\subsection{Software Integration Sequence}
+In this section we are going to describe the order of integration (and integration
+testing) of the various components of PowerEnJoy.
+The components are tested starting from the most independent to the less
+one.This because when less independent components are tested, the components which
+they rely on have already been integrated. The components are integrated
+within their classes in order to create an integrated subsystem which is ready
+for subsystem integration.
+As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already been implemented.
+
+\subsection{Subsystem Integration Sequence}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{N.} & \textbf{Subsystem} & \textbf{Component} & \textbf{Integrates with}\\
+\hline
+\rule[-1cm]{0mm}{1cm}
+I1 & Database,Business & (JEB)User & DBMS\\
+\end{tabular}
+
+
