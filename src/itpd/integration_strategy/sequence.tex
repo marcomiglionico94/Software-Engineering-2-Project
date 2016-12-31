@@ -8,14 +8,81 @@ they rely on have already been integrated. The components are integrated
 within their classes in order to create an integrated subsystem which is ready
 for subsystem integration.
 As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already been implemented.
+The integration sequence of the components is described in the following figure and table:
 
-\subsection{Subsystem Integration Sequence}
-\begin{tabular}{|c|c|c|c|}
+\includepdf{integration_strategy/Diagrams/IntegrationDiagram.png}
+
+\begin{longtable}{| m{1cm}| m{3,5cm} | m{4cm} | m{8,7em} | }
 \hline
 \textbf{N.} & \textbf{Subsystem} & \textbf{Component} & \textbf{Integrates with}\\
 \hline
-\rule[-1cm]{0mm}{1cm}
 I1 & Database,Business & (JEB)User & DBMS\\
-\end{tabular}
+\hline
+I2 & Database,Business & (JEB)Ride & DBMS\\
+\hline
+I3 & Database,Business & (JEB)Car & DBMS\\
+\hline
+I4 & Database,Business & (JEB)Operator & DBMS\\
+\hline
+I5 & Database,Business & (JEB)Safe Area & DBMS\\
+\hline
+I6 & Database,Business & (JEB)Power Grid Station & DBMS\\
+\hline
+I7 & Business & (SB)Operator Safe Area Manager & Safe Area\newline Operator\newline Power Grid Station\newline User Safe Area Manager\\
+\hline
+I8 & Business & (SB)User Safe Area Manager & Safe Area\newline User \newline Power Grid Station\\
+\hline
+I9 & Business & (SB)User Manager & User \newline Ride Manager \newline Email Sender\\
+\hline
+I10 & Business & (SB)Ride Manager & Car Manager \newline Fee Manager \newline Payment Manager \newline Ride \newline Car\\
+\hline
+I11 & Business & (SB)Car Manager & Car\\
+\hline
+I12 & Business & (SB)Fee Manager & Ride \newline Payment Manager\\
+\hline
+I13 & Business & (SB)Payment Manager & User\\
+\hline
+I14 & Business & (EJB Container)Safe Area Container & Operator Safe Area Manager \newline User Safe Area Manager\\
+\hline
+I15 & Business & (EJB Container)User Manager Container & Email Sender \newline User Manager\\
+\hline
+I16 & Business & (EJB Container)Ride Manager Container & Ride Manager\\
+\hline
+I17 & Business & (EJB Container)Car Manager Container & Car Manager\\
+\hline
+I18 & Business & (EJB Container)Fee Manager Container & Fee Manager\\
+\hline
+I19 & Business & (EJB Container)Payment Manager Container & Payment Manager\\
+\hline
+I20 & Business & Controller & Safe Area Container \newline User Manager Container \newline Ride Manager Container \newline Car Manager Container \newline Car Manager Container \newline Fee Manager Container \newline Payment Manager Container\\
+\hline
+I21 & External Systems & (EXS)External System For Payment & Payment Manager\\
+\hline
+I22 & External Systems & (EXS)External System For Driving License Validation & User Manager\\
+\hline
+I23 & External Systems & (EXS)Handy Car Board & Car Manager\\
+\hline
+\end{longtable}
 
+\subsection{Subsystem Integration Sequence}
+A choice was made to proceed with the integration process from the database tier to the business tier and finally to the client tier . The reason to do so is that in order to have a functioning client you need to have a working business tier. The business tier, instead, can be tested without any client. 
+The integration sequence of the subsystems is described in the following table and figure 2.1:
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{integration_strategy/Diagrams/IntegrationSubsystem.png}
+	\caption{Order of integration of the subsystems.}
+	\label{fig:subsystems}
+		
+\begin{longtable}{| m{1cm}| m{4cm}| m{4cm} | }
+\hline
+\textbf{N.} & \textbf{Subsystem} & \textbf{Integrates with}\\
+\hline
+SI1 & Business Tier & Database Tier\\
+\hline
+SI2 & Mobile Application \newline On-Board Tablet \newline Power EnJoy Operator Terminal & Business Tier\\
+\hline
+\end{longtable}
+
+
+\end{figure}
 
