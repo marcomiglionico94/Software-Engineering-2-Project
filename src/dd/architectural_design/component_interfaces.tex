@@ -87,3 +87,12 @@ These functions can be called only from the car tablet:
 	\item \textbf{void payRide(String ID):} Pay the fee for the ride of the given ID. The function returns an error if the ride was already paid or if the user is not the owner of the ride
 	\item \textbf{Boolean checkPaymentInfo(String info):} Check if the payment informations provided by the user are correct or no. The function return true if they are correct, false if there's an error in the informations.
 \end{itemize}
+
+\subsection{HandyCar Board}
+The HandyCar Board provides some REST APIs, that allow the application server to interact easily with the sensors and the actuators of the electric cars.
+
+\begin{itemize}
+	\item \textbf{void lock():} Lock the car.
+	\item \textbf{void unlock():} Unlock the car.
+	\item \textbf{CarValues getCarValues():} Returns the values of all the sensors and actuators of the car.
+\end{itemize}
