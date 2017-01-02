@@ -1,0 +1,43 @@
+\section{External services}
+\subsection{Integration test case SI4}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & SI4T1\\
+    \hline
+    \textbf{Test Item(s)} & Business tier $\rightarrow$ Driving license validation service\\
+    \hline
+    \textbf{Input Specification} & Requests for the typical REST API calls (both correct and intentionally invalid ones) from the business tier to the external driving license validation service.\\
+    \hline
+    \textbf{Output Specification} & Check if the business tier interacts with the external service accordingly to the API specification.\\
+    \hline
+    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a driver that simulates the driving license validation service. \\
+    \hline
+    \textbf{Test Description} & For each request of the business tier, the interaction with the driving license validation service will be compared with the expected one.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit.\\
+    \hline
+\end{tabular}
+
+\vspace{2em}
+
+\subsection{Integration test case SI5}
+\label{sec:performance-business}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & SI5T1\\
+    \hline
+    \textbf{Test Item(s)} & Business tier $\rightarrow$ Payment service\\
+    \hline
+    \textbf{Input Specification} & Requests for the typical REST API calls (both correct and intentionally invalid ones) from the business tier to the external payment service.\\
+    \hline
+    \textbf{Output Specification} & Check if the business tier interacts with the external service accordingly to the API specification.\\
+    \hline
+    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a driver that simulates the payment service.\\
+    \hline
+    \textbf{Test Description} & For each request of the business tier, the interaction with the payment service will be compared with the expected one.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit.\\
+    \hline
+\end{tabular}
