@@ -1,0 +1,49 @@
+\section{Container}
+
+In what follows, we are going to see the integration test cases from I18 to I23, that evaluate the SessionBean assignment from the relative container. The test are very similar one another, so they are grouped together.
+
+\subsection{Integration test case I18-I23}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & I18T1\\
+    \hline
+    \textbf{Test Item(s)} & User Manager Container $\rightarrow$ USer Manager \\
+    \hline
+    \hline
+    \textbf{Test Case Identifier} & I19T1\\
+    \hline
+    \textbf{Test Item(s)} & Car Manager Container $\rightarrow$ Car Manager \\
+    \hline
+    \hline
+    \textbf{Test Case Identifier} & I20T1\\
+    \hline
+    \textbf{Test Item(s)} & Ride Manager Container $\rightarrow$ Ride Manager \\
+    \hline
+    \hline
+    \textbf{Test Case Identifier} & I21T1\\
+    \hline
+    \textbf{Test Item(s)} & Fee Manager Container $\rightarrow$ Fee Manager \\
+    \hline
+    \hline
+    \textbf{Test Case Identifier} & I22T1\\
+    \hline
+    \textbf{Test Item(s)} & SafeArea Manager Container $\rightarrow$ SafeArea Manager \\
+    \hline
+    \hline
+    \textbf{Test Case Identifier} & I23T1\\
+    \hline
+    \textbf{Test Item(s)} & Payment Manager Container $\rightarrow$ Payment Manager \\
+    \hline
+    \hline
+    \textbf{Input Specification} & Request the relative SessionBean. \\
+    \hline
+    \textbf{Output Specification} & The requested SessionBean must be assigned correctly and the concurrency between requests must be managed in the right way. \\
+    \hline
+    \textbf{Environmental Needs} & GlassFish Server.\\
+    \hline
+    \textbf{Test Description} & Multiple request for the same SessionBean have to be made in the same time, in order to check the right concurrency management.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit and Arquillan. \\
+    \hline
+\end{tabular}
