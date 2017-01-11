@@ -6,10 +6,14 @@ The software tools required for the integration testing are the following:
     \item[JUnit\footnote{\url{http://junit.org/}}]
     a simple framework to write repeatable tests and it is an instance of the xUnit architecture for unit testing frameworks.
     We are going to use it both for unit testing activities of the single components and for the integration testing, where we verify that the interactions between components are producing the expected results.
-    
 
     \item[Apache JMeter\footnote{\url{http://jmeter.apache.org/}}]
     a powerful tool designed to load test functional behaviour and measure performance.
     In particular, it is used to simulate load on the business tier in order to check if the latter satisfies the performance requirements stated in the RASD.
+
+	\item[Arquillan\footnote{\url{http://arquillian.org/}}]
+    Arquillian is an innovative and highly extensible testing platform for the JVM that enables developers to easily create automated integration, functional and acceptance tests for Java middleware.
+    We plan to use it mainly to test the containers and their integration with JavaBeans (dependency
+injection).
 
 \end{description}
