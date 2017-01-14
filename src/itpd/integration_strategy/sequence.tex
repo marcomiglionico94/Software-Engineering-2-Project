@@ -63,7 +63,7 @@ A choice was made to proceed with the integration process from the database tier
 The integration sequence of the subsystems is described in the following table and figure 2.1:
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.6]{integration_strategy/Diagrams/IntegrationSubsystem.png}
+	\includegraphics[scale=0.4]{integration_strategy/Diagrams/IntegrationSubsystem.png}
 	\caption{Order of integration of the subsystems.}
 	\label{fig:subsystems}
 		
@@ -73,13 +73,17 @@ The integration sequence of the subsystems is described in the following table a
 \hline
 SI1 & Business Tier & Database Tier\\
 \hline
-SI2 & Mobile Application \newline On-Board Tablet \newline Power EnJoy Operator Terminal & Business Tier\\
+SI2 & Mobile Application & Business Tier\\
 \hline
-I21 & External Systems & (EXS)External System For Payment & Payment Manager\\
+SI3 & Power EnJoy Operator Terminal & Business Tier\\
 \hline
-I22 & External Systems & (EXS)External System For Driving License Validation & User Manager\\
+SI4 & On-Board Tablet & Business Tier\\
 \hline
-I23 & External Systems & (EXS)Handy Car Board & Car Manager\\
+SI5 & External System For Payment & Business Tier\\
+\hline
+SI6 & External System For Driving License Validation & Business Tier\\
+\hline
+SI7 & Handy Car Board & Business Tier\\
 \hline
 \end{longtable}
 
