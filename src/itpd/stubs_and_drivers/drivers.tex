@@ -1,0 +1,6 @@
+\section{Drivers}
+As already said in the section 2.3 our testing approach is bottom-up. In order to apply this approach, it is necessary to develop some drivers. These drivers will generate the necessary inputs to manage the test in the right way. We deem necessary to develop two different drivers: the user diver and the ride one.
+\subsection{User Driver}
+This driver will be used for all those tests that demands an interaction with the user, such as a testing the login or the start of a ride. The user driver will provide all the necessary inputs, taken from a predefined pool.
+\subsection{Ride Driver}
+This driver will simulate an ongoing ride, providing all the data of a ride such as the starting time or which car has been rented. Its task is to call all the functions useful during a ride, such as those relative to the fee or the car status. Like the user driver, the ride driver will take all the data from a predefined pool.

@@ -28,17 +28,17 @@ I5 & Database,Business & (JEB)Safe Area & DBMS\\
 \hline
 I6 & Database,Business & (JEB)Power Grid Station & DBMS\\
 \hline
-I7 & Business & (SB)Operator Safe Area Manager & Safe Area\newline Operator\newline Power Grid Station\newline User Safe Area Manager\\
+I7 & Business & (SB)Ride Manager & Car Manager \newline Fee Manager \newline Ride \newline Car\\
 \hline
-I8 & Business & (SB)User Safe Area Manager & Safe Area\newline User \newline Power Grid Station\\
+I8 & Business & (SB)Car Manager & Car \newline Ride Manager \\
 \hline
-I9 & Business & (SB)User Manager & User \newline Ride Manager \newline Email Sender\\
+I9 & Business & (SB)User Manager & User \newline User Safe Area Manager \newline Email Sender\\
 \hline
-I10 & Business & (SB)Ride Manager & Car Manager \newline Fee Manager \newline Payment Manager \newline Ride \newline Car\\
+I10 & Business & (SB)User Safe Area Manager & Safe Area\newline User \newline Power Grid Station\\
 \hline
-I11 & Business & (SB)Car Manager & Car\\
+I11 & Business & (SB)Operator Safe Area Manager & Safe Area\newline Operator\newline Power Grid Station\newline User Safe Area Manager\\
 \hline
-I12 & Business & (SB)Fee Manager & Ride \newline Payment Manager\\
+I12 & Business & (SB)Fee Manager & Ride\\
 \hline
 I13 & Business & (SB)Payment Manager & User\\
 \hline
@@ -55,12 +55,6 @@ I18 & Business & (EJB Container)Fee Manager Container & Fee Manager\\
 I19 & Business & (EJB Container)Payment Manager Container & Payment Manager\\
 \hline
 I20 & Business & Controller & Safe Area Container \newline User Manager Container \newline Ride Manager Container \newline Car Manager Container \newline Car Manager Container \newline Fee Manager Container \newline Payment Manager Container\\
-\hline
-I21 & External Systems & (EXS)External System For Payment & Payment Manager\\
-\hline
-I22 & External Systems & (EXS)External System For Driving License Validation & User Manager\\
-\hline
-I23 & External Systems & (EXS)Handy Car Board & Car Manager\\
 \hline
 \end{longtable}
 
@@ -80,6 +74,12 @@ The integration sequence of the subsystems is described in the following table a
 SI1 & Business Tier & Database Tier\\
 \hline
 SI2 & Mobile Application \newline On-Board Tablet \newline Power EnJoy Operator Terminal & Business Tier\\
+\hline
+I21 & External Systems & (EXS)External System For Payment & Payment Manager\\
+\hline
+I22 & External Systems & (EXS)External System For Driving License Validation & User Manager\\
+\hline
+I23 & External Systems & (EXS)Handy Car Board & Car Manager\\
 \hline
 \end{longtable}
 
