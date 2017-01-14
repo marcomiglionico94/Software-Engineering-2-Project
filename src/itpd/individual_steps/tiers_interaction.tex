@@ -66,41 +66,44 @@
 
 \subsection{Integration test case SI3}
 \label{sec:performance-business}
-
 \begin{tabular}{l p{0.7\textwidth}}
     \hline
-    \textbf{Test Case Identifier} & SI3T1\\
+    \textbf{Test Case Identifier} & SI2T1\\
     \hline
-    \textbf{Test Item(s)} & HandyCar Board $\rightarrow$ Business Tier\\
+    \textbf{Test Item(s)} & Power EnJoy Operator Terminal $\rightarrow$ Business Tier\\
     \hline
-    \textbf{Input Specification} & All the REST API calls (both correct and intentionally invalid ones) from the HandyCar Board to the business tier.\\
+    \textbf{Input Specification} & Typical REST API calls (both correct and intentionally invalid ones) from the Power EnJoy Operator Terminal to the business tier.\\
     \hline
-    \textbf{Output Specification} & Check if the business tier responds accordingly to the API specification. Also, it must react in the right way even if the requests are made wrongly.\\
+    \textbf{Output Specification} & Check if the business tier responds accordingly to the API specification. Also, it must react in the right way both if the requests are made correctly or wrongly and if they come from an unauthorized user.\\
     \hline
-    \textbf{Environmental Needs} & Complete implementation of the Business tier; a driver that simulates a HandyCar Board through the REST API calls. \\
+    \textbf{Environmental Needs} & Complete implementation of the Business tier; a driver that simulates a mobile client through the REST API calls. \\
     \hline
-    \textbf{Test Description} & For each API call of the boards, the response of the business tier will be compared with the expected output. The driver used for this test is a REST API client implemented in Java.\\
+    \textbf{Test Description} & For each API call of the clients, the response of the business tier will be compared with the expected output. The driver used for this test is a REST API client implemented in Java.\\
     \hline
     \textbf{Testing Method} & Automated with JUnit.\\
     \hline
 \end{tabular}
 
-\vspace{2em}
 
-\noindent\begin{tabular}{l p{0.7\textwidth}}
+
+\subsection{Integration test case SI4}
+\label{sec:performance-business}
+
+\begin{tabular}{l p{0.7\textwidth}}
     \hline
-    \textbf{Test Case Identifier} & SI3T2\\
+    \textbf{Test Case Identifier} & SI4T1\\
     \hline
-    \textbf{Test Item(s)} & HandyCar Board $\rightarrow$ Business Tier\\
+    \textbf{Test Item(s)} & On-board Tablet $\rightarrow$ Business Tier\\
     \hline
-    \textbf{Input Specification} & Multiple concurrent correct requests to the REST API of the business tier.\\
+    \textbf{Input Specification} & Methods call from the on-board tablet to the application server.\\
     \hline
-    \textbf{Output Specification} & Check if the business tier answers the requests in a reasonable amount time with respect to the applied load. \\
+    \textbf{Output Specification} & Check if server can handle user’s interrogations from the on-board tablet correctly.\\
     \hline
-    \textbf{Environmental Needs} & Complete implementation of the Business tier; GlassFish Server; Apache JMeter.\\
+    \textbf{Environmental Needs} & GlassFish Server; complete implementation of the HandyCar System and the onboard tablet.\\
     \hline
-    \textbf{Test Description} & This test case evaluates whether the business tier satisfies the performance requirements stated in the RASD (section 3.3, \emph{Performance requirements}).\\
+    \textbf{Test Description} & Verify if the on-board tablet can communicate user’s input to the server correctly and if the server can handle them in the right way.\\
     \hline
-    \textbf{Testing Method} & Automated with Apache JMeter. \\
+    \textbf{Testing Method} & Automated with JUnit.\\
     \hline
 \end{tabular}
+

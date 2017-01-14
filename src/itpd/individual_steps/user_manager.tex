@@ -1,19 +1,37 @@
 \section{User Manager}
-\subsection{Integration test case I14}
+\subsection{Integration test case I9}
 
 \begin{tabular}{l p{0.7\textwidth}}
     \hline
-    \textbf{Test Case Identifier} & I14T1\\
+    \textbf{Test Case Identifier} & I9T1\\
     \hline
-    \textbf{Test Item(s)} & User Manager $\rightarrow$ SafeArea Manager\\
+    \textbf{Test Item(s)} & User Manager $\rightarrow$ User SafeArea Manager\\
     \hline
-    \textbf{Input Specification} & Methods call form User Manager to SafeArea Manager, to start a new query on the SafeArea table.\\
+    \textbf{Input Specification} & Methods call from User Manager to SafeArea Manager, to start a new query on the SafeArea table.\\
     \hline
     \textbf{Output Specification} & Check if the right query starts and if it is executed correctly.\\
     \hline
     \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; GlassFish Server; Java Persistence API; a test database.\\
     \hline
     \textbf{Test Description} & Verify if the User Manager can communicate the right parameters in order to start the query and that the right query starts.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit.\\
+    \hline
+\end{tabular}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & I9T1\\
+    \hline
+    \textbf{Test Item(s)} & User Manager $\rightarrow$ User,Email Sender \\
+    \hline
+    \textbf{Input Specification} & Methods call from User Manager to the Email Sender in order to guarantee a right email authentication process.\\
+    \hline
+    \textbf{Output Specification} & The email authentication process must be correctly handled.\\
+    \hline
+    \textbf{Environmental Needs} & GlassFish Server;e-mail sender and receiver\\
+    \hline
+    \textbf{Test Description} & Ensure that a user can properly verify his/her email address in order to start using the system functionalities. In order to do that, a mock email address manager which simulates the user behaviour is needed.\\
     \hline
     \textbf{Testing Method} & Automated with JUnit.\\
     \hline

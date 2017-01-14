@@ -1,37 +1,37 @@
 \section{Container}
 
-In what follows, we are going to see the integration test cases from I18 to I23, that evaluate the SessionBean assignment from the relative container. The test are very similar one another, so they are grouped together.
+In what follows, we are going to see the integration test cases from I14 to I19, that evaluate the SessionBean assignment from the relative container. The test are very similar one another, so they are grouped together.
 
-\subsection{Integration test case I18-I23}
+\subsection{Integration test case I14-I19}
 
 \begin{tabular}{l p{0.7\textwidth}}
     \hline
-    \textbf{Test Case Identifier} & I18T1\\
+    \textbf{Test Case Identifier} & I14T1\\
     \hline
     \textbf{Test Item(s)} & User Manager Container $\rightarrow$ USer Manager \\
     \hline
     \hline
-    \textbf{Test Case Identifier} & I19T1\\
+    \textbf{Test Case Identifier} & I15T1\\
     \hline
     \textbf{Test Item(s)} & Car Manager Container $\rightarrow$ Car Manager \\
     \hline
     \hline
-    \textbf{Test Case Identifier} & I20T1\\
+    \textbf{Test Case Identifier} & I16T1\\
     \hline
     \textbf{Test Item(s)} & Ride Manager Container $\rightarrow$ Ride Manager \\
     \hline
     \hline
-    \textbf{Test Case Identifier} & I21T1\\
+    \textbf{Test Case Identifier} & I17T1\\
     \hline
     \textbf{Test Item(s)} & Fee Manager Container $\rightarrow$ Fee Manager \\
     \hline
     \hline
-    \textbf{Test Case Identifier} & I22T1\\
+    \textbf{Test Case Identifier} & I18T1\\
     \hline
     \textbf{Test Item(s)} & SafeArea Manager Container $\rightarrow$ SafeArea Manager \\
     \hline
     \hline
-    \textbf{Test Case Identifier} & I23T1\\
+    \textbf{Test Case Identifier} & I19T1\\
     \hline
     \textbf{Test Item(s)} & Payment Manager Container $\rightarrow$ Payment Manager \\
     \hline
@@ -45,5 +45,25 @@ In what follows, we are going to see the integration test cases from I18 to I23,
     \textbf{Test Description} & Multiple request for the same SessionBean have to be made in the same time, in order to check the right concurrency management.\\
     \hline
     \textbf{Testing Method} & Automated with JUnit and Arquillan. \\
+    \hline
+\end{tabular}
+
+\section{Controller}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & I20T1\\
+    \hline
+    \textbf{Test Item(s)} & Controller $\rightarrow$ Payment Manager Container,Fee Manager Container,Car Manager Container, Ride Manager Container,User Manager Container, Safe Area Container\\
+    \hline
+    \textbf{Input Specification} & Requests from Controller to the containers for the functionalities offered by Session Beans within containers. \\
+    \hline
+    \textbf{Output Specification} &  The controller has to be able to provide the right functionality carrying out the proper request to the containers.\\
+    \hline
+    \textbf{Environmental Needs} & GlassFish Server. \\
+    \hline
+    \textbf{Test Description} & Ensure that the controller is able to provide the functionalities of the system offered by the containers.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit and Arquillian.\\
     \hline
 \end{tabular}
