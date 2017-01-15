@@ -2,11 +2,13 @@
 \subsection{Software Integration Sequence}
 In this section we are going to describe the order of integration (and integration
 testing) of the various components of PowerEnJoy.
+
 The components are tested starting from the most independent to the less
-one.This because when less independent components are tested, the components which
+one. This because when less independent components are tested, the components which
 they rely on have already been integrated. The components are integrated
 within their classes in order to create an integrated subsystem which is ready
 for subsystem integration.
+
 As a notation, an arrow going from component C1 to component C2 means that C1 is necessary for C2 to function and so it must have already been implemented.
 The integration sequence of the components is described in the following figure and table:
 
@@ -59,7 +61,7 @@ I20 & Business & Controller & Safe Area Container \newline User Manager Containe
 \end{longtable}
 
 \subsection{Subsystem Integration Sequence}
-A choice was made to proceed with the integration process from the database tier to the business tier and finally to the client tier . The reason to do so is that in order to have a functioning client you need to have a working business tier. The business tier, instead, can be tested without any client. 
+A choice was made to proceed with the integration process from the database tier to the business tier and finally to the client tier. The reason to do so is that in order to have a functioning client you need to have a working business tier. The business tier, instead, can be tested without any client. 
 The integration sequence of the subsystems is described in the following table and figure 2.1:
 \begin{figure}
 	\centering
