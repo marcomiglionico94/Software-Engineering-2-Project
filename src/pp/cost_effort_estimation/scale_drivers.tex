@@ -1,0 +1,64 @@
+\section{Cost and effort estimation: COCOMO II}
+In this section we are going to use the COCOMO II approach to estimate the
+cost and effort needed to develop PowerEnJoy.
+\subsection{Scale Drivers}
+In order to evaluate the values of the scale drivers, we refer to the following
+official COCOMO II table:
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{2,2 cm} | m{1,8 cm}| }
+\hline
+\textbf{Scale Factors} & \textbf{Very Low} & \textbf{Low} & \textbf{Nominal} & \textbf{High} & \textbf{Very High} & \textbf{Extra High}\\
+\hline
+PREC & thoroughly unprecedented & largely unprecedented & somewhat unprecedented & generally familiar & largely familiar & thoroughly familiar \\
+\newline $SF_j$ & 6.20 & 4.96 & 3.72 & 2.48 & 1.24 & 0.00 \\
+\hline
+FLEX & rigorous & occasional relaxation & some relaxation & general conformity & some conformity & general goals \\
+\newline $SF_j$ & 5.07 & 4.05 & 3.04 & 2.03 & 1.01 & 0.00 \\
+\hline
+RESL & little(20\%) & some(40\%) & often(60\%) & generally (75\%) & mostly(90\%) & full(100\%) \\
+\newline $SF_j$ & 7.07 & 5.65 & 4.24 & 2.83 & 1.41 & 0.00 \\
+\hline
+TEAM & very difficult interactions & some difficult interactions & basically cooperative interactions & largely cooperative & highly cooperative & seamless interactions \\
+\newline $SF_j$ & 5.48 & 4.38 & 3.29 & 2.19 & 1.10 & 0.00\\
+\hline
+PMAT & Level 1 Lower & Level 1 Upper & Level 2 & Level 3 & Level 4 & Level 5 \\
+\newline $SF_j$ & 7.80 & 6.24 & 4.68 & 3.12 & 1.56 & 0.00\\
+\hline
+\end{longtable}
+
+A brief description for each scale driver:
+\begin{itemize}
+\item\textbf{Precedentedness}:it reflects the previous experience of our team in the development of similar project. In our case, since we don't have this kind of experience the value will be low. 
+
+\item\textbf{Development Flexibility}:it reflects the degree of flexibility in the development process with respect to the external specification and requirements.We set it to nominal because we have to follow a prescribed process, but we had a certain degree of flexibility in the definition of the requirements and in the design process.
+
+\item\textbf{Architecture/Risk resolution}: it reflects the level of awareness and reactiveness with
+respect to risks. The risk analysis we performed is quite extensive, so we have a clear definition of budget and schedule,for this reason the value will be set to very high.
+
+\item\textbf{Team cohesion}: it reflects how well the development team know each other and work together. We set it to very high, since the cohesion among the three of us is optimal .
+
+\item\textbf{Process maturity}: it reflects the process maturity of the organization. We set it to 3 because the  process comes very close to achieving the specific objectives such as quality, cost, and schedule. Besides processes, standards, procedures and tools were already defined
+at the organizational level.
+\end{itemize}
+
+The estimated scale drivers for our project, together with the formula to
+compute the exponent E are the following:
+\begin{longtable}{| m{6 cm}| m{6 cm} | m{2 cm} |}
+\hline
+\textbf{Scale Drivers} & \textbf{Factor} & \textbf{Value} \\
+\hline
+Precedentedness(PREC) & Low & 4.96 \\
+\hline
+Development flexibility(FLEX) & Nominal & 3.04 \\
+\hline
+Risk Resolution(RESL) & Very High & 1.41 \\
+\hline
+Team Cohesion (TEAM) & Very High & 1.10 \\
+\hline
+Process Maturity (PMAT) & Level 3 & 3.12 \\
+\hline
+\textbf{Total} & & 13.63\\
+\hline
+\textbf{Total} & E=0.91 + 0.01 x $\sum_{1<=j<=5} SF_j$ & 1.0463 \\
+\hline
+\end{longtable}
