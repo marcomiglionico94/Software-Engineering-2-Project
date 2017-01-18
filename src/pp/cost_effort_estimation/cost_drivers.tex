@@ -1,2 +1,81 @@
 \subsection{Cost Drivers}
 Cost Drivers are the parameters of the Effort Equation that reflect some characteristics of the developing process and act as multiplicators on the effort needed to build the project. They appear as factors in the Effort Equation. Cost Drivers are described in detail in the COCOMO Manual [6, p. 25].
+The cost drivers are the following:
+\begin{itemize}
+\item \textbf{Required Software Reliability}: Since this is not the only car sharing system in the city,an eventual malfunctioning could led to moderate financial losses,for this reason we set the RELY cost driver to nominal. 
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{RELY Cost Drivers}\\
+\hline
+\hline
+RELY Descriptors & slightly inconvenience & easy recoverable losses & moderate recoverable losses & high financial losses & risk to human life & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 0.82 & 0.92 & 1.00 & 1.10 & 1.26 & n/a \\
+\hline
+\end{longtable}
+
+\item \textbf{Database size}: This measure considers the effective size of our database. We don't have the exact size, but our estimation given the tables and fields we have is to reach a 1GB database. Since it is
+distributed over??????? 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314 resulting in the DATA cost driver being nominal.\\ \\ \\ %TODO 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314 
+
+\begin{longtable}{| m{1,5 cm}| m{1,5 cm} | m{1,5 cm} | m{2,4 cm} | m{2,6 cm} | m{1,5 cm} | m{1,5 cm}| }
+\hline
+\multicolumn{7}{c}{DATA Cost Drivers}\\
+\hline
+\hline
+DATA Descriptors &  & \begin{equation*}
+ {D \over P} {<10} 
+\end{equation*} & 
+\begin{equation*}
+{10\le} {D \over P} {\le 100}
+\end{equation*}& 
+\begin{equation*}
+{100\le} {D \over P} {\le 1000}
+\end{equation*} & 
+\begin{equation*}
+ {D \over P} {>1000} 
+\end{equation*}
+& \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 0.82 & 0.92 & 1.00 & 1.10 & 1.26 & n/a \\
+\hline
+\end{longtable}
+
+\item \textbf{Product Complexity}:
+Set to high according to the COCOMO II rating scale.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{CPLX Cost Drivers}\\
+\hline
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 0.73 & 0.87 & 1.00 & 1.17 & 1.34 & 1.74 \\
+\hline
+\end{longtable}
+
+\item \textbf{Required Re-usability}:
+In our case, the re-usability requirements are just across projects, so the RUSE cost driver is set to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{RUSE Cost Drivers}\\
+\hline
+\hline
+RUSE Descriptors &  & None & Across projects & Across programs & Across product line & Across multiple product line\\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & n/a & 0.95 &1.00 & 1.07 & 1.15 & 1.24 \\
+\hline
+\end{longtable}
+
+\item \textbf{Documentation match to life-cycle needs}:aaa
+
+
+\end{itemize}
