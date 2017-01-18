@@ -71,11 +71,221 @@ RUSE Descriptors &  & None & Across projects & Across programs & Across product 
 \hline
 Rating level & very low & low & nominal & high & very high & extra high \\
 \hline
-Effort multipliers & n/a & 0.95 &1.00 & 1.07 & 1.15 & 1.24 \\
+Effort multipliers & n/a & 0.95 & 1.00 & 1.07 & 1.15 & 1.24 \\
 \hline
 \end{longtable}
 
-\item \textbf{Documentation match to life-cycle needs}:aaa
+\item \textbf{Documentation match to life-cycle needs}:This parameter is evaluated in terms of the suitability of the project's documentation to its life-cycle needs. In our case, every need
+of the product life-cycle is already present in the documentation,
+so the DOCU cost driver is set to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{DOCU Cost Drivers}\\
+\hline
+\hline
+DOCU Descriptors & Many life-cycle needs uncovered & Some life-cycle needs uncovered & Right-sized to life-cycle needs & Excessive for life-cycle needs & Very excessive for life-cycle needs & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 0.81 & 0.91 & 1.00 & 1.11 & 1.23 & n/a \\
+\hline
+\end{longtable}
+
+\item \textbf{Execution time constraint}:This parameter is a measure of the CPU usage imposed upon a software system. The rating is expressed in terms of the percentage of available execution time expected to be used by the system or subsystem consuming the execution time resource. In our case,since the software is quite complex,our our expectancy is that its CPU usage will be high.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{TIME Cost Drivers}\\
+\hline
+\hline
+TIME Descriptors &  &  & \begin{equation*}
+{\le 50\%} 
+\end{equation*} use of available execution time & 70\% use of available execution time & 85\% use of available execution time & 95\% use of available execution time \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & n/a & n/a & 1.00 & 1.11 & 1.29 & 1.63 \\
+\hline
+\end{longtable}
+
+\item \textbf{Storage Constraint}: This parameter represents the degree of main storage constraint imposed on a software system or subsystem.As the modern disk drives can easily contain several terabytes of storage, this value is set to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{STOR Cost Drivers}\\
+\hline
+\hline
+STOR Descriptors &  &  & \begin{equation*}
+{\le 50\%} 
+\end{equation*} use of available storage& 70\% use of available storage & 85\% use of available storage & 95\% use of available storage \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & n/a & n/a & 1.00 & 1.05 & 1.17 & 1.46 \\
+\hline
+\end{longtable}
+
+\item \textbf{Platform Volatility}:"Platform" is used here to mean the complex of hardware and software (OS, DBMS, etc.) the software product calls on to perform its tasks. In our case we don’t expect our fundamental platforms to change very often. However, the client applications may require at least a major release once every six months to be aligned with the development cycle of the main mobile operating systems. For this reason, this parameter is set to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{PVOL Cost Drivers}\\
+\hline
+\hline
+PVOL Descriptors &  & Major change every 12 mo;minor change every 1 & Major change every 6mo;minor change every 2wk & Major change every 2mo;minor change every 1wk & Major change every 2wk;minor change every 2 days & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & n/a & 0.87 & 1.00 & 1.15 & 1.30 & n/a \\
+\hline
+\end{longtable}
+
+\item\textbf{Analyst Capability}:Analysts are personnel that work on requirements, high level design and detailed design. The major attributes that should be considered in this rating are Analysis and Design ability, efficiency and thoroughness, and the ability to communicate and cooperate.We think the analysis of the problem has been conducted in very precise and complete way with respect to a potential real world
+implementation. For this reason, this parameter is set to high.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{ACAP Cost Drivers}\\
+\hline
+\hline
+ACAP Descriptors & 15th percentile  & 35th percentile & 55th percentile & 75th percentile & 90th percentile & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.42 & 1.19 & 1.00 & 0.85 & 0.71 & n/a \\
+\hline
+\end{longtable}
+
+\item \textbf{Programmer Capability}:Evaluation should be based on the capability of the programmers as a team rather than as individuals. Major factors which should be considered in the rating are ability, efficiency and thoroughness, and the ability to communicate and cooperate. The experience of the programmer should not be considered here; it is rated with AEXP.We have not implemented the project, so this parameter is just an estimation; however we think our programming ability are good,but the most important thing is that we know each other and the level of communication and cooperation is optimal, for this reason we set this parameter to high.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{PCAP Cost Drivers}\\
+\hline
+\hline
+PCAP Descriptors & 15th percentile  & 35th percentile & 55th percentile & 75th percentile & 90th percentile & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.34 & 1.15 & 1.00 & 0.88 & 0.76 & n/a \\
+\hline
+\end{longtable}
+
+\item\textbf{Application Experience}:This rating is dependent on the level of applications experience of the project team developing the software system or subsystem. We have some experience in the development of Java applications,in particular we made just one project of considerable size,for this reason and for the fact that we never had experience with Java EE we set this parameter to low.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{APEX Cost Drivers}\\
+\hline
+\hline
+APEX Descriptors & \begin{equation*}
+{\le 2}
+\end{equation*} months  & 6 months & 1 year & 3 years & 6 years & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.22 & 1.10 & 1.00 & 0.88 & 0.81 & n/a \\
+\hline
+\end{longtable}
+
+\item \textbf{Platform Experience}:
+As we said before we don’t have any experience with the Java EE platform, but
+we have some previous experience with databases, user interfaces
+and server side development. For this reason, we set
+this parameter to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{PLEX Cost Drivers}\\
+\hline
+\hline
+PLEX Descriptors & \begin{equation*}
+{\le 2}
+\end{equation*} months  & 6 months & 1 year & 3 years & 6 years & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.19 & 1.09 & 1.00 & 0.91 & 0.85 & n/a \\
+\hline
+\end{longtable}
+
+\item\textbf{Language and Tool Experience}:This parameter measure the level of programming language and software tool experience of the project team developing the software system or subsystem. We don’t have any experience with the Java EE platform, but we have some previous experience with databases, user interfaces and server side development. We also know the development environment, so we’re going to set this parameter to nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{LTEX Cost Drivers}\\
+\hline
+\hline
+LTEX Descriptors & \begin{equation*}
+{\le 2}
+\end{equation*} months  & 6 months & 1 year & 3 years & 6 years & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.20 & 1.09 & 1.00 & 0.91 & 0.84 & n/a \\
+\hline
+
+\item \textbf{Personnel continuity}:The rating scale for PCON is in terms of the project's annual personnel turnover. In our case since we have very strict deadlines and since the time we can
+spend on this project is limited we set this parameter to very low.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{PCON Cost Drivers}\\
+\hline
+\hline
+PCON Descriptors & 48\% / year & 24\% / year & 12\% / year & 6\% / year & 3\% / year & \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.29 & 1.12 & 1.00 & 0.90 & 0.81 & n/a \\
+\hline
+\end{longtable}
+
+\textbf{Usage of Software Tools}: Our application environment is quite complete and well integrated, so
+we set this parameter as nominal.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{TOOL Cost Drivers}\\
+\hline
+\hline
+TOOL Descriptors & edit,code,debug & simple,frontend,backend CASE,little integration & basic life-cycle tools,moderately integrated & strong,mature life-cycle tools,moderately integrated & strong,mature, proactive life-cycle tools, well integrated with processes,methods,reuse
+& \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.17 & 1.09 & 1.00 & 0.90 & 0.78 & n/a \\
+\hline
+\end{longtable}
+
+\textbf{Multisite development}:Even if we live in different cities, we have met a considerable number of times and we have also collaborated hugely through Internet services including social networks,Skype,email
+and Whatsapp. For this reason, we  set this parameter to very high.
+
+\begin{longtable}{| m{1,8 cm}| m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{SITE Cost Drivers}\\
+\hline
+\hline
+SITE Collocation Descriptors & International & Multi-city and multi-company & Multi-city or multi-company & Same building or complex  & Fully collocated \\
+\hline
+SITE Communication Descriptors & Some phone,email & Individual phone,fax & Narrow band email & Wideband electronic communication &  Wideband electronic comm. and occasionally video conf. & Interactive multimedia \\ 
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.22 & 1.09 & 1.00 & 0.93 & 0.86 & 0.80 \\
+\hline
+\end{longtable}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{itemize}
