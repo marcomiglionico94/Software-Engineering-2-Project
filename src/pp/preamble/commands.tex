@@ -1,0 +1,16 @@
+% Allow lstinline to break long word
+\makeatletter%
+\def\lst@lettertrue{\let\lst@ifletter\iffalse}%
+\makeatother%
+
+% Commands to insert a code line or a reference to code inside text.
+\usepackage{color}
+\definecolor{inlinecode}{rgb}{0,0.298,0.6}
+\newcommand{\code}[1]{%
+	\lstinline[
+	breaklines=true,
+	breakatwhitespace=false, % if true, allow line breaking only after a white space
+	%prebreak=-, % insert an hypern when a word is broken on two lines
+	basicstyle=\ttfamily\color{inlinecode},
+	stringstyle=\color{inlinecode},
+	]|#1|}
