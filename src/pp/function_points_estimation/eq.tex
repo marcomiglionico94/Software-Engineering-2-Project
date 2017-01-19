@@ -1,1 +1,23 @@
 \section{External Inquiries (EQs)}
+External Inquiry (EQ) represents an elementary process with both input and output components that result in data retrieval from one or more internal logical files and external interface files.
+There must be no significant elaboration of data from logic files.
+
+Our system supports the following EQs:
+\begin{itemize}
+	\item Consulting history of the rides;
+	\item Get info about a given car identified by its plate, like the model, the number of passengers and so on;
+	\item Retrieve the list of all the safe areas;
+	\item Retrieve the list of all the power grid stations;
+	\item Retrieve the actual values of the sensors and actuators of a given car;
+\end{itemize}
+
+The resulting table is the following:
+
+\begin{fpcounttable}{EQ}
+Consult ride history & Low & 2 \\
+Get car info & Low & 2 \\
+Retrieve list of safe areas & Low & 2 \\
+Retrieve list of power grid stations & Low & 2 \\
+Retrieve car sensors and actuators & Low & 2 \\\hline 
+\fptotal{10}	
+\end{fpcounttable}

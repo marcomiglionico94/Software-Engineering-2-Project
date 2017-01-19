@@ -7,18 +7,17 @@ We are now going to summarize the impact of the offered features, grouping them 
 \begin{description}
 	\item[Non registered user:] A Non Registered User is someone who has not been logged yet to the system. They can send inputs to the system mainly through these methods: 
 	\begin{itemize}
-	\item \textbf{Login/Logout}: the most complex part of these operation is the management of the password field in a secure way. Overall they contribute 4 FP each.
-	\item \textbf{Registration:} We have to register all the fields provided by the user and to validate the document information. In addition to this we have to send a password to the user if the registration is successful. It contributes 9 FP.
+	\item \textbf{Login/Logout}: the most complex part of these operation is the management of the password field in a secure way. Overall they contribute 3 FP each and they have an average complexity (together).
+	\item \textbf{Registration:} We have to register all the fields provided by the user and to validate the document information. In addition to this we have to send a password to the user if the registration is successful. It contributes 8 FP.
 	\end{itemize}
 	
 	\item[User:] A user is someone who has been logged to the system. They can send inputs to the system mainly through these methods: 
 	\begin{itemize}
-	\item\textbf{Edit profile data:} This is a trivial operation, because we have only to update the elements in the database, except for the editing of the password and the document information, that has to be validated again. It contributes 4 FP.
-	\item\textbf{Delete account:} It contributes 2 FP.
-	\item\textbf{Look for a car with user position or with a specified address:} These are both very complex operations, that involve a large number of components. For this reason they account for 18 FP in total.
-	\item\textbf{Reserve and unlock a car:} These a trivial operation, because they require only to change the state of the car. They contribute 2 FP each.
-	\item\textbf{Start the car:} The server has to check if the password that the user inserts in the tablet is correct and then it has to change the state of the car. It contributes 4 FP.
-	\item\textbf{Know the current fee:} a user looks at the tablet of the car and reads the current fee. He or she can do this in every moment when he or she is in the vehicle, because the current fee is always displayed.
+	\item\textbf{Edit profile data:} This is a trivial operation, because we have only to update the elements in the database, except for the editing of the password and the document information, that has to be validated again. It contributes 4 FP and has an average complexity.
+	\item\textbf{Delete account:} It contributes 2 FP and has a low complexity.
+	\item\textbf{Look for a car with user position or with a specified address:} These are both very complex operations, that involve a large number of components. For this reason they account for 11 FP each and they have an high complexity.
+	\item\textbf{Reserve and unlock a car:} These a trivial operation, because they require only to change the state of the car. They contribute 2 FP each and have a low complexity.
+	\item\textbf{Start the car:} The server has to check if the password that the user inserts in the tablet is correct and then it has to change the state of the car. It contributes 4 FP and has a low complexity.
 	\item\textbf{Enable saving money option:} This is an operation with high complexity, because the system has to compute the best station where to leave the car. It accounts for 18 FP.
 	\end{itemize}
 	
@@ -31,9 +30,28 @@ We are now going to summarize the impact of the offered features, grouping them 
 	\item[Operator:] The PowerEnjoy employees that has to manage the system from an high level point of view. They can send inputs to the system mainly through these methods: 
 	\begin{itemize}
 	\item\textbf{Add a Safe Area:} After some consistency check, the system has to update the database simply adding the new safe area. It has a very low complexity, so it contributes 1 FP.
-	\item\textbf{Delete a Safe Area:} After some consistency check, the system has to update the database and wait enough time to avoid creating inconvenience to the user that are using that safe area. It contributes 4 FP.
+	\item\textbf{Delete a Safe Area:} After some consistency check, the system has to update the database and wait enough time to avoid creating inconvenience to the user that are using that safe area. It contributes 4 FP and has a low complexity.
 	\item\textbf{Add a Power Grid Station:} After some consistency check, the system has to update the database simply adding the new power grid station. It has a very low complexity, so it contributes 1 FP.
-	\item\textbf{Delete a Power Grid Station:} After some consistency check, the system has to update the database by eliminating that power grid station. It contributes 1 FP.
+	\item\textbf{Delete a Power Grid Station:} After some consistency check, the system has to update the database by eliminating that power grid station. It has a very low complexity, so it contributes 1 FP.
 	\end{itemize}
 	
 \end{description}
+
+The final results are shown in the following table:
+\begin{fpcounttable}{EI}
+Login/Logout & Average & 2x3 \\
+Registration & Average & 8 \\
+Edit profile data & Average & 4 \\
+Delete account & Low & 2 \\
+Look for a car with user position/address & High & 2x11 \\
+Reserve and unlock a car & Low & 2x2 \\
+Start the car & Low & 4 \\
+Enable saving money option & High & 18 \\
+End the ride & Low & 1 \\
+Car recharged & Low & 1 \\
+Add a Safe Area & Low & 1 \\
+Delete a Safe Area & Low & 4 \\
+Add a Power Grid Station & Low & 1 \\
+Delete a Power Grid Station & Low & 1 \\\hline 
+\fptotal{77}	
+\end{fpcounttable}
