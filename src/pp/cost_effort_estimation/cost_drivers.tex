@@ -277,17 +277,63 @@ Effort multipliers & 1.22 & 1.09 & 1.00 & 0.93 & 0.86 & 0.80 \\
 \hline
 \end{longtable}
 
-\item \textbf{Required development schedule}:
+\item \textbf{Required development schedule}: This rating measures the schedule constraint imposed on the project team developing the software. The ratings are defined in terms of the percentage of schedule stretch-out or acceleration with respect to a nominal schedule for a project requiring a given amount of effort. Our efforts were well distributed over the available development time, the definition of all the required documentation took a consistent amount of time. For this reason, this parameter
+is set to high.
 
-
-
-
-
-
-
-
-
-
-
+\begin{longtable}{| m{1,8 cm}| m{2,3 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm} | m{1,8 cm}| }
+\hline
+\multicolumn{7}{c}{SCED Cost Drivers}\\
+\hline
+\hline
+SCED Descriptors & 75\% of nominal & 85\% of nominal & 100\% of nominal & 130\% of nominal & 160\% of nominal  &  \\
+\hline
+Rating level & very low & low & nominal & high & very high & extra high \\
+\hline
+Effort multipliers & 1.43 & 1.14 & 1.00 & 1.00 & 1.00 & n/a \\
+\hline
+\end{longtable}
 
 \end{itemize}
+
+To summarize the total results are expressed in the following table:
+\begin{longtable}{| m{9 cm}| m{3 cm} | m{3 cm} | }
+\hline
+\textbf{Cost Drivers} & \textbf{Factor} & \textbf{Value} \\
+\hline
+Required Software Reliability(RELY) & nominal & 1.00 \\
+\hline
+Database Size(DATA) & nominal & 1.00 \\
+\hline
+Product Complexity(CPLX) & high & 1.17 \\
+\hline
+Required Reusability(RUSE) & nominal & 1.00 \\
+\hline
+Documentation match to life-cycle needs(DOCU) & nominal & 1.00 \\
+\hline
+Execution Time Constraint(TIME) & high & 1.11 \\
+\hline
+Main Storage Constraint(STOR) & nominal & 1.00 \\
+\hline
+Platform Volatility(PVOL) & nominal & 1.00 \\
+\hline
+Analyst Capability(ACAP) & high & 0.85 \\
+\hline
+Programmer Capability(PCAP) & high & 0.88 \\
+\hline
+Application Experience(APEX) & low & 1.10 \\
+\hline
+Platform Experience(PLEX) & nominal & 1.00 \\
+\hline
+Language and Tool Experience(LTEX) & nominal & 1.00 \\
+\hline
+Personnel Continuity(PCON) & very low & 1.29 \\
+\hline
+Usage of Software Tools(TOOL) & nominal & 1.00 \\
+\hline
+Multisite development(SITE) & very high & 0.86 \\
+\hline
+Required Development Schedule(SCED) & high & 1.00 \\
+\hline
+\multicolumn{2}{l}{Total} & 1.1855\\
+\hline
+\end{longtable}
