@@ -17,6 +17,22 @@
 \usepackage{array}
 \usepackage{amsmath}
 
+% FP table
+\newenvironment{fptable}[2]{
+	\begin{center}
+	#1
+	\begin{longtable}{|c|c|c|c|}
+	\hline 
+	&
+	\multicolumn{3}{|c|}{{#2}}\\\nopagebreak\hline	
+}{
+	\hline\end{longtable}\end{center}
+}
+
+\newcommand{\fpvalues}[4]{%
+	\textit{#1} & \textit{#2}& \textit{#3}& \textit{#4}\\\nopagebreak\hline
+}
+
 \def\chapterautorefname{Chapter}
 
 
@@ -40,10 +56,21 @@
 % \listoffigures
 % \listoftables
 
+\chapter{Function Points Estimation}
+\label{ch:function_points_estimation}
+\input{function_points_estimation/chapter_descr.tex}
+\input{function_points_estimation/ilf.tex}
+\input{function_points_estimation/elf.tex}
+\input{function_points_estimation/ei.tex}
+\input{function_points_estimation/eq.tex}
+\input{function_points_estimation/eo.tex}
+\input{function_points_estimation/overall_estimation.tex}
+
 \chapter{Cost and Effort Estimation}
 \label{ch:cost_effor_estimation}
 \input{cost_effort_estimation/scale_drivers.tex}
 \input{cost_effort_estimation/cost_drivers.tex}
+
 \appendix
 \chapter{Appendix}
 \input{appendix/appendix.tex}
