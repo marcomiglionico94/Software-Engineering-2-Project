@@ -1,1 +1,21 @@
 \section{External Outputs (EOs)}
+External Outputs (EO) represent an elementary process in which derived data passes across the boundary from inside to outside. From the internal data are created output files, that are sent to other applications. 
+
+The EOs of the system are the following:
+
+\begin{itemize}
+	\item Confirmation mails after a successful registration of a user;
+	\item Notify a user that he is in a safe area;
+	\item Verify the validity of the document information;
+	\item Notify a user that he was banned from the system.
+\end{itemize}
+
+The resulting table is the following:
+
+\begin{fpcounttable}{EQ}
+Confirmation mails & Low & 2 \\
+Notify a user that he is in a safe area & Low & 4 \\
+Verify the validity of the document information & Low & 3 \\
+Notify a user that he was banned from the system & Low & 1 \\\hline 
+\fptotal{10}	
+\end{fpcounttable}
