@@ -1,2 +1,19 @@
-\section{Internal Logic Files (ILFs)}
+\section{Internal Logical Files (ILFs)}
+Internal Logical Files (ILFs) represent a user identifiable group of logically related data that
+resides entirely within the application boundary and is maintained through External Inputs.
+An internal logical file has the inherent meaning it is internally maintained, it has
+some logical structure and it is stored in a file.
 
+The ILFs of our system match closely the database tables, for which we remind at Chapter 2.2.1 of the Design Document.
+
+Using the previously defined tables, this is the count we obtain:
+
+\begin{fpcounttable}{ILF}
+User & High & 20 \\
+Ride & Average & 12 \\
+Car & Low & 7 \\
+Safe Area & Low & 4 \\
+Power Grid Station + Plug & Low & 3 \\
+Operator & High & 18 \\\hline
+\fptotal{64}	
+\end{fpcounttable}

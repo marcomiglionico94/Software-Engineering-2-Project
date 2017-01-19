@@ -16,6 +16,46 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{amsmath}
+
+% FP table
+\newenvironment{fptable}[2]{
+	\begin{center}
+	#1
+	\begin{longtable}{|c|c|c|c|}
+	\hline 
+	&
+	\multicolumn{3}{|c|}{{#2}}\\\nopagebreak\hline	
+}{
+	\hline\end{longtable}\end{center}
+}
+
+\newcommand{\fpvalues}[4]{%
+	\textit{#1} & \textit{#2}& \textit{#3}& \textit{#4}\\\nopagebreak\hline
+}
+
+% FP count table
+\newenvironment{fpcounttable}[1]{
+	\begin{center}
+	\begin{longtable}{|l|l|l|}
+	\hline 
+	#1 & Complexity & FPs \\\hline
+}{
+	\end{longtable}\end{center}
+}
+
+\newenvironment{fptotaltable}{
+	\begin{center}
+	\begin{longtable}{|l|r|}
+	\hline 
+	Function Type & Value \\\hline
+}{
+	\end{longtable}\end{center}
+}
+
+\newcommand{\fptotal}[1]{
+	\multicolumn{2}{|l|}{{Total}}
+	& #1\\\hline
+}
 \usepackage{listings}
 \lstset{ %
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
@@ -69,6 +109,17 @@
 \tableofcontents
 % \listoffigures
 % \listoftables
+
+\chapter{Function Points Estimation}
+\label{ch:function_points_estimation}
+\input{function_points_estimation/chapter_descr.tex}
+\input{function_points_estimation/ilf.tex}
+\input{function_points_estimation/elf.tex}
+\input{function_points_estimation/ei.tex}
+\input{function_points_estimation/eq.tex}
+\input{function_points_estimation/eo.tex}
+\input{function_points_estimation/overall_estimation.tex}
+
 
 \chapter{Cost and Effort Estimation}
 \label{ch:cost_effor_estimation}
