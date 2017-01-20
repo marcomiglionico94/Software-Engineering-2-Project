@@ -1,0 +1,55 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[boxed,linesnumbered]{algorithm2e}
+\usepackage[bookmarks, breaklinks, colorlinks]{hyperref}
+
+\hypersetup{
+	citecolor=black,
+	linkcolor=black,
+	filecolor=black,
+	urlcolor=black
+}
+
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{tocbibind}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{url}
+
+\def\chapterautorefname{Chapter}
+
+
+\title{
+	\begin{figure}[h]
+		\centering
+		\includegraphics{../common_resources/logo_polimi.png}
+	\end{figure}
+	\vspace{30px}
+	Software Engineering 2 Project: PowerEnJoy \\ \vspace{1em}
+	\textbf{C}ode \textbf{I}nspection
+}
+	
+
+\author{Marco Ieni, Francesco Lamonaca, Marco Miglionico\\Politecnico di Milano, A.A. 2016/2017}
+\date{\today\\v1.0}
+
+\begin{document}
+\maketitle
+\tableofcontents
+% \listoffigures
+% \listoftables
+
+\chapter{Introduction}
+\input{introduction.tex}
+
+\chapter{Description of the code}
+\input{code_description/assignment.tex}
+
+\chapter{Results of the inspection}
+
+\appendix
+\chapter{Appendix}
+\input{appendix/appendix.tex}
+
+\end{document}
