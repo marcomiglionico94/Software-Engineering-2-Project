@@ -14,11 +14,11 @@ where:
 
 With this parameters we can compute the effort value, which has a lower bound of:
 \begin{lstlisting}[mathescape, numbers=none]
-	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 10.948$^{1.0463}$ = 56.957 PM $\approx$ 57 PM
+	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 8418$^{1.0463}$ = 44.586 PM $\approx$ 45 PM
 \end{lstlisting}
 and an upper bound of:
 \begin{lstlisting}[mathescape, numbers=none]
-	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 15.946$^{1.0463}$ = 84.737 PM $\approx$ 85 PM
+	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 12261$^{1.0463}$ = 66.081 PM $\approx$ 66 PM
 \end{lstlisting}
 
 \subsection{Schedule estimation}
@@ -28,14 +28,14 @@ Regarding the final schedule, we are going to use the following formula:
 \end{lstlisting}
 As a lower bound, we consider
 \begin{lstlisting}[mathescape, numbers=none]
-	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1464 = 0.30928
-	Effort = 56.957 PM 
-	Duration = 3.67 * (56.957)$^{0.30928}$ = 12.81 months
+	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1363 = 0.30726
+	Effort = 44.586 PM 
+	Duration = 3.67 * (44.586)$^{0.30726}$ = 11.79 months
 \end{lstlisting}
 while as an upper bound, we consider
 \begin{lstlisting}[mathescape, numbers=none]
-	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1464 = 0.30928
-	Effort = 84.737 PM 
-	Duration = 3.67 * (84.737)$^{0.30928}$ = 14.49 months
+	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1363 = 0.30726
+	Effort = 66.081 PM 
+	Duration = 3.67 * (66.081)$^{0.30726}$ = 13.30 months
 \end{lstlisting}
 which seem to be both reasonable estimates.
