@@ -6,7 +6,7 @@ This final equation gives us the effort estimation measured in Person-Months (PM
 where:
 \begin{lstlisting}[mathescape, numbers=none]
 	A = 2.94 (for COCOMO II.2000) 
-	EAF = product of all cost drivers (1.1855)
+	EAF = product of all cost drivers (1.3040)
 	E = exponent derived from the scale drivers. It is computed as:
 		B + 0.01 * $\sum_{i} SF[i]$ = B + 0.01 * 13.63 = 0.91 + 0.1363 = 1.0463
 		in which B is equal to: 0.91 for COCOMO II.
@@ -14,11 +14,11 @@ where:
 
 With this parameters we can compute the effort value, which has a lower bound of:
 \begin{lstlisting}[mathescape, numbers=none]
-	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 8418$^{1.0463}$ = 44.586 PM $\approx$ 45 PM
+	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.3040 * 8418$^{1.0463}$ = 49.042 PM $\approx$ 49 PM
 \end{lstlisting}
 and an upper bound of:
 \begin{lstlisting}[mathescape, numbers=none]
-	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.1855 * 12261$^{1.0463}$ = 66.081 PM $\approx$ 66 PM
+	Effort = A * EAF * KSLOC$^E$ = 2.94 * 1.3040 * 12261$^{1.0463}$ = 72.685 PM $\approx$ 73 PM
 \end{lstlisting}
 
 \subsection{Schedule estimation}
@@ -29,13 +29,13 @@ Regarding the final schedule, we are going to use the following formula:
 As a lower bound, we consider
 \begin{lstlisting}[mathescape, numbers=none]
 	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1363 = 0.30726
-	Effort = 44.586 PM 
-	Duration = 3.67 * (44.586)$^{0.30726}$ = 11.79 months
+	Effort = 49.042 PM 
+	Duration = 3.67 * (49.042)$^{0.30726}$ = 12.14 months
 \end{lstlisting}
 while as an upper bound, we consider
 \begin{lstlisting}[mathescape, numbers=none]
 	F = 0.28 + 0.2 * (E - B) = 0.28 + 0.2 * 0.1363 = 0.30726
-	Effort = 66.081 PM 
-	Duration = 3.67 * (66.081)$^{0.30726}$ = 13.30 months
+	Effort = 72.685 PM 
+	Duration = 3.67 * (72.685)$^{0.30726}$ = 13.70 months
 \end{lstlisting}
 which seem to be both reasonable estimates.

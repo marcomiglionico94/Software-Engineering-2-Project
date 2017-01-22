@@ -18,7 +18,7 @@ Effort multipliers & 0.82 & 0.92 & 1.00 & 1.10 & 1.26 & n/a \\
 \end{longtable}
 
 \item \textbf{Database size}: This measure considers the effective size of our database. We don't have the exact size, but our estimation given the tables and fields we have is to reach a 1GB database. Since it is
-distributed over??????? 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314 resulting in the DATA cost driver being nominal.\\ \\ \\ %TODO 10.000-15.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 209 and 314 
+distributed over 8.000-12.000 SLOC, the ratio D/P (measured as testing DB bytes/program SLOC) is between 80 and 120 resulting in the DATA cost driver being high.
 
 \begin{longtable}{| m{1,5 cm}| m{1,5 cm} | m{1,5 cm} | m{2,4 cm} | m{2,6 cm} | m{1,5 cm} | m{1,5 cm}| }
 \hline
@@ -302,7 +302,7 @@ To summarize the total results are expressed in the following table:
 \hline
 Required Software Reliability(RELY) & nominal & 1.00 \\
 \hline
-Database Size(DATA) & nominal & 1.00 \\
+Database Size(DATA) & nominal & 1.10 \\
 \hline
 Product Complexity(CPLX) & high & 1.17 \\
 \hline
@@ -334,6 +334,6 @@ Multisite development(SITE) & very high & 0.86 \\
 \hline
 Required Development Schedule(SCED) & high & 1.00 \\
 \hline
-\multicolumn{2}{l}{Total} & 1.1855\\
+\multicolumn{2}{l}{Total} & 1.3040\\
 \hline
 \end{longtable}
