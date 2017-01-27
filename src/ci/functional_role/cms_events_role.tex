@@ -1,1 +1,28 @@
 \section{CmsEvents}
+
+In the public wiki, this class is mentioned in the page "OFBiz Content Management How to"\footnote{https://cwiki.apache.org/confluence/display/OFBIZ/OFBiz+Content+Management+How+to}. Here, you can understand that this class is useful if you want to setup a content driven website. In fact, to do a quickly initial setup, you can add to the controller.xml file the following (or similar) entries:
+
+\lstset{
+    language=xml,
+    tabsize=3,
+    %frame=lines,
+    caption=Test,
+    label=code:sample,
+    frame=shadowbox,
+    rulesepcolor=\color{gray},
+    xleftmargin=20pt,
+    framexleftmargin=15pt,
+    keywordstyle=\color{blue}\bf,
+    commentstyle=\color{OliveGreen},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=5pt,
+    breaklines=true,
+    showstringspaces=false,
+    basicstyle=\footnotesize,
+    emph={path},emphstyle={\color{magenta}}}
+    \lstinputlisting{functional_role/cms_events_example.xml}
+    
+%TODO change this
+In this way, by default all the incoming requests will be dispatched to the CmsEvents event. this event will use the data in the Content data model to generate the content of the page and will return it back to the browser. In this way it will be possible to add new pages just editing the data in the Content data model and without editing the controller.xml file.
