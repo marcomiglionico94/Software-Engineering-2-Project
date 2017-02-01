@@ -1,4 +1,4 @@
-\section{CmsEvents}
+\section{Cms Events}
 
 In the public wiki, this class is mentioned in the page "OFBiz Content Management How to"\footnote{https://cwiki.apache.org/confluence/display/OFBIZ/OFBiz+Content+Management+How+to}. Here, you can understand that this class is useful if you want to setup a content driven website. In fact, to do a quickly initial setup, you can add to the controller.xml file the following (or similar) entries:
 
@@ -25,4 +25,17 @@ In the public wiki, this class is mentioned in the page "OFBiz Content Managemen
     \lstinputlisting{functional_role/cms_events_example.xml}
     
 %TODO change this
-In this way, by default all the incoming requests will be dispatched to the CmsEvents event. this event will use the data in the Content data model to generate the content of the page and will return it back to the browser. In this way it will be possible to add new pages just editing the data in the Content data model and without editing the controller.xml file.
+In this way, by default all the incoming requests will be dispatched to the CmsEvents event.
+This event will use the data in the Content data model to generate the content of the page and will return it back to the browser.
+In this way it will be possible to add new pages just editing the data in the Content data model and without editing the controller.xml file.
+
+
+\subsection{cms method}
+
+The cms method starts taking some info from the http servlet request that was passed to the function, i.e. the delegator, the local dispatcher, the servlet context and the http session, the locale, the website id, the target request and the actual request. It also checks the validity of these last three variables and it manages the case in which they are not specified in the request.
+
+If in the session it is indicated to display the maintenance page, then the maintenance page will be rendered as text/html.
+
+Else, the function identifies the path info of the request, evaluating if there is a specified one or if the default one must be considered and then it parses the path info and gets its alias.
+If the content id of the alias is null, then the request dispatcher forwards the request to the servlet of the request, that has its path elements and parameters adjusted to match the path of the target resource. In this way, the cms method does preliminary processing of the request and the other servlet generates the response. 
+Then it verifies that the request content is associated with the current website and sets the proper status code ("404 NOT FOUND" if the content id is null). If the status code is different from the "200 OK", then the method tries to find a specific Error page for this website concerning the status code
