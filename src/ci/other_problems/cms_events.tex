@@ -1,9 +1,7 @@
 \section{Cms Events}
-
-The return value of the method cms is used only to communicate the outcome of the function. In fact it is a string and the only values that can be returned are "error", "success" or null. We know that in java this is a bad practice, because if you want to signal an error you should not return a special value, but throwing an exception. However, even in the case when you want to return an "error" or "success" value, it would be better to return a Boolean.
-
-The assignments at L69, L100 and L207 are useless.
-
-The following lines nest more than 3 if/for/while/switch/try statements: L131, L175, L196, L198, L200, L211, L224, L232.
-
-The catch at L185 can be combined with the one at L182, which has the same body.
+\begin{itemize}
+\item The return value of the method cms is used only to communicate the outcome of the function. In fact it is a string and the only values that can be returned are "error", "success" or null. We know that in java this is a bad practice, because if you want to signal an error you should not return a special value, but throwing an exception. However, even in the case when you want to return an "error" or "success" value, it would be better to return a Boolean.
+\item The assignments at L69, L100 and L207 are useless.
+\item The following lines nest more than 3 if/for/while/switch/try statements: L131, L175, L196, L198, L200, L211, L224, L232.
+\item The catch at L185 can be combined with the one at L182, which has the same body.
+\end{itemize}
