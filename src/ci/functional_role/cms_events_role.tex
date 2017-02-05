@@ -48,3 +48,9 @@ If in the session it is indicated to display the maintenance page, then the main
 Else, the function identifies the path info of the request, evaluating if there is a specified one or if the default one must be considered and then it parses the path info and gets its alias.
 If the content id of the alias is null, then the request dispatcher forwards the request to the servlet of the request, that has its path elements and parameters adjusted to match the path of the target resource. In this way, the cms method does preliminary processing of the request and the other servlet generates the response. 
 Then it verifies that the request content is associated with the current website and sets the proper status code ("404 NOT FOUND" if the content id is null). If the status code is different from the "200 OK", then the method tries to find a specific Error page for this website concerning the status code
+
+\subsection{verifyContentToWebSite method}
+This method takes as input a delegator (used for queries), a Web Site ID and a Content ID. If the Content ID referes to an actual content of the website referred by the website id the function returns ok. If not it checks if that content is a sub content of any publish point of the website, calling the third method of this class. If the result is positive it returns ok. Otherwise the function returns gone, if the content ID referes to a content no more active, otherwise returns not found.
+
+\subsection{verifySubContent method}
+This metod takes as input a delegator (used for queries), and two content ID. It verifies if the first content is an actual sub content of the second or if it belongs to the tree with the second content as a root. It returns ok if that is true, gone if the content is no more active and not found if there is no connection between the two contents.
