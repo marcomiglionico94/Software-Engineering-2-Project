@@ -1,5 +1,12 @@
 \section{Cms Events}
 
+Given an http request and an http response, the cms method checks if the request is valid or not and it assign the proper status code to the http response. The status code is provided by the verifyContentToWebSite function, that can return three status codes: OK, NOT FOUND and GONE. If the status code is not OK, then the function cms tries to find a specific error page for this website, concerning the status code. If this is not possible then it tries to find a generic (not related to this current website) content error page concerning the status code.
+
+If the status code found with the verifyContentToWebSite function was ok or we found an error page with one of the two previous researches, then we call the function ContentWorker.renderContentAsText.
+This function takes as input a "content id". If the status code is ok, then the content id refers to the one specified in the request, otherwise it refers to the error page that was found.
+
+\subsection{wiki}
+
 In the public wiki, this class is mentioned in the page "OFBiz Content Management How to"\footnote{https://cwiki.apache.org/confluence/display/OFBIZ/OFBiz+Content+Management+How+to}. Here, you can understand that this class is useful if you want to setup a content driven website. In fact, to do a quickly initial setup, you can add to the controller.xml file the following (or similar) entries:
 
 \lstset{
@@ -28,6 +35,8 @@ In the public wiki, this class is mentioned in the page "OFBiz Content Managemen
 In this way, by default all the incoming requests will be dispatched to the CmsEvents event.
 This event will use the data in the Content data model to generate the content of the page and will return it back to the browser.
 In this way it will be possible to add new pages just editing the data in the Content data model and without editing the controller.xml file.
+
+
 
 
 \subsection{cms method}
