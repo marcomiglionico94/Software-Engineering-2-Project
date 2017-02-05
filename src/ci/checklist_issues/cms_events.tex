@@ -1,13 +1,13 @@
 \section{Cms Events}
 
 \begin{enumerate}
-\item \textbf{C1} The constant "ctx" at L282 is not a meaningful name. Similar reason for "rh" at L283.
+\item \textbf{C1} "rd" at L179, "ctx" at L282 and "rh" at L283 are not meaningful names.
 \item \textbf{C5} The method name at L64 is not a verb. constant at L62 does not follow the naming convention, because it is written in lower case.
 \item \textbf{C7} The constant at L62 does not follow the naming convention, because it is written in lower case.
 \item \textbf{C8} After the else statement at L121, the indentation is incorrect until L332, because there 4 spaces less.
 \item \textbf{C11} The if statements at L196, L198, L233, L247, L251, L371, L424 and L427 are not surrounded by curly braces.
 \item \textbf{C13} L64, L66, L67, L76, L82, L102-103, L106, L108, L111, L117 L119, L122-123, L129, L136, L139, L143-145, L167, L179, L196, L198, L206, L212, L221, L225-227, L233, L237-238 and L248 all exceed 80 characters.
-\item \textbf{C14}L252, L261, L291, L295, L298, L300, L302, L306, L308, L310, L318, L322, L325, L329, L348, L350, L355 and L413 exceed 120 characters.
+\item \textbf{C14} L76, L106, L108, L111, L117, L167, L252, L261, L291, L295, L298, L300, L302, L306, L308, L310, L318, L322, L325, L329, L348, L350, L355 and L413 exceed 120 characters.
 \item \textbf{C18} The code overall results poorly commented. In particular the lines in which the comments are strongly needed are: L106, L108 (there is a call to a function with 10 parameters that has not javadoc comment), L143, L167, L175, L181, L225, L237.
 \item \textbf{C22} Javadoc is not present.
 \item \textbf{C23} Javadoc comments for the class and the three methods of this class are missing (even the public one).
@@ -21,10 +21,14 @@
 	\item "text/html": 4;
 	\item "contentId": 13;
 	\item "-fromDate": 4.
-	\end{itemize} 
+	\end{itemize}
+	
+	At L85-L94 there is a piece of duplicate code, in fact it would be better to implement a method for the if-else block and call this method two times, the first for "targetRequest" and the second for "actualRequest".
+	
+	Furthermore, the cms method is very long and does too many things. It would be better to split the different tasks into different private methods.
 \item \textbf{C32} At L391 the variable "responseCode" is not initialized.
-\item \textbf{C33} The declarations at the following lines do not appear at the beginning of a block: L82-83, L97-98, L100, L102, L106, L165, L179, L235, L291, L295, L334-335, L391. 
+\item \textbf{C33} The declarations at the following lines do not appear at the beginning of a block: L82-83, L97-98, L100, L102, L106, L165, L179, L207-208, L235, L291, L295, L334-335, L391. 
 \item \textbf{C43} At L248 there is a space before the character ':'.
 \item \textbf{C44} At L366 the boolean variable hadContent is set true if the condition in the if clause at L365 is true (UtilValidate.isNotEmpty(publishPoints)), otherwise is set to false. The if statement is not necessary but could be written as hadContent = UtilValidate.isNotEmpty(publishPoints). The exact situation is repeated at L407.
-\item \textbf{C53} The catch at L114, L146, L168, L228, L243, L269, L327, L345 only logs the error.
+\item \textbf{C53} The catch at L114, L146, L168, L228, L243, L269, L327, L345 only log the error.
 \end{enumerate}

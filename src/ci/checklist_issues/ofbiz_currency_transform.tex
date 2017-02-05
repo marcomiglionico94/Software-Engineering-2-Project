@@ -1,16 +1,16 @@
 \section{Ofbiz Currency Transform}
 
 \begin{enumerate}
-\item \textbf{C2} The one character variable "o" declared at L53,L72 and L91 is not used as temporary "throwaway" variable.
-\item \textbf{C5} The name of method "formatCurrency" at L176,L178,L181 is not a verb.
+\item \textbf{C2} The one character variable "o" declared at L53, L72 and L91 is not used as temporary "throwaway" variable.
+\item \textbf{C5} The name of method "formatCurrency" at L176, L178, L181 is not a verb.
 \item \textbf{C7} The constant at L49 does not follow the naming convention, because it is written in lower case.
 \item \textbf{C11} The if statements at L55, L78, L92, L143, L147, L169 are not surrounded by curly braces.
-\item \textbf{C13} L55, L78, L92, L140, L142, L143, L169, L176, L178, L181 exceed 80 characters. In particular in L55,L78,L143,L169 this can be easily avoid.
-\item \textbf{C18} The code overall results poorly commented. In particular the lines in which the comments are strongly needed are: L140,L142 and L175.Also, large pieces of code are left uncommented or only have extremely brief explanations of their purpose. This makes the process of verifying the behavior of the code very hard, as it’s not clear what the expected result should be and what’s the rationale behind it.
+\item \textbf{C13} L55, L78, L92, L140, L142, L143, L169, L176, L178, L181 exceed 80 characters. In particular in L55, L78, L143, L169 this can be easily avoid.
+\item \textbf{C18} The code overall results poorly commented. In particular the lines in which the comments are strongly needed are: L140, L142 and L175. Also, large pieces of code are left uncommented or only have extremely brief explanations of their purpose. This makes the process of verifying the behavior of the code very hard, as it's not clear what the expected result should be and what’s the rationale behind it.
 \item \textbf{C22} Javadoc is not present.
 \item \textbf{C23} Javadoc comments for the class and the four methods of this class are missing.
-\item \textbf{C27} The method "getWriter" L116-L188 is very long. This can be avoid by declaring some additional methods that encapsulate some functions of this long method or by splitting the method,in this way the whole class will be more readable.
+\item \textbf{C27} The method "getWriter" L116-L188 is very long. This can be avoid by declaring some additional methods that encapsulate some functions of this long method or by splitting the method, in this way the whole class will be more readable.
 \item \textbf{C41} At L169 there is a grammatical error in the output, in fact "parms" should be renamed as "params".
-\item \textbf{C43} At L55,L78,L92 there is a space before the character ':'.
-\item \textbf{C53} The catch at L132,L183 only logs the error.
+\item \textbf{C43} At L55, L78, L92 there is a space before the character ':'.
+\item \textbf{C53} The catch at L132, L183 only log  the error.
 \end{enumerate}
