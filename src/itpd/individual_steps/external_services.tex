@@ -11,7 +11,7 @@
     \hline
     \textbf{Output Specification} & Check if the business tier interacts with the external service accordingly to the API specification.\\
     \hline
-    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a driver that simulates the driving license validation service. \\
+    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a mock-up that simulates the driving license validation service. \\
     \hline
     \textbf{Test Description} & For each request of the business tier, the interaction with the driving license validation service will be compared with the expected one.\\
     \hline
@@ -34,7 +34,7 @@
     \hline
     \textbf{Output Specification} & Check if the business tier interacts with the external service accordingly to the API specification.\\
     \hline
-    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a driver that simulates the payment service.\\
+    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a mock-up that simulates the payment service.\\
     \hline
     \textbf{Test Description} & For each request of the business tier, the interaction with the payment service will be compared with the expected one.\\
     \hline
@@ -50,6 +50,30 @@
 \begin{tabular}{l p{0.7\textwidth}}
     \hline
     \textbf{Test Case Identifier} & SI7T1\\
+    \hline
+    \textbf{Test Item(s)} & Business tier $\rightarrow$ External system for maintainers\\
+    \hline
+    \textbf{Input Specification} & Requests for the typical REST API calls (both correct and intentionally invalid ones) from the business tier to the external system for maintainers.\\
+    \hline
+    \textbf{Output Specification} & Check if the business tier interacts with the external service accordingly to the API specification.\\
+    \hline
+    \textbf{Environmental Needs} & Complete implementation of the Java Entity Beans; a mock-up that simulates the external system for maintainers.\\
+    \hline
+    \textbf{Test Description} & For each request of the business tier, the interaction with the external system for maintainers will be compared with the expected one.\\
+    \hline
+    \textbf{Testing Method} & Automated with JUnit.\\
+    \hline
+\end{tabular}
+
+\vspace{2em}
+
+
+\subsection{Integration test case SI8}
+\label{sec:performance-business}
+
+\begin{tabular}{l p{0.7\textwidth}}
+    \hline
+    \textbf{Test Case Identifier} & SI8T1\\
     \hline
     \textbf{Test Item(s)} & HandyCar Board $\rightarrow$ Business Tier\\
     \hline
@@ -69,7 +93,7 @@
 
 \noindent\begin{tabular}{l p{0.7\textwidth}}
     \hline
-    \textbf{Test Case Identifier} & SI7T2\\
+    \textbf{Test Case Identifier} & SI8T2\\
     \hline
     \textbf{Test Item(s)} & Business Tier $\rightarrow$ Handy Car Board\\
     \hline
