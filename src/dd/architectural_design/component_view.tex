@@ -34,16 +34,19 @@ The application server implements a RESTful API using JAX-RS to allow the client
 \subsection{User Manager}
 This bean manages all the user management features: user registration, user login user deletion, profile editing and user banning.
 It also provides a function to confirm the email address provided by the user with the token sent by email.
-This bean also communicate with two external systems:
+
+This bean also communicates with two external systems:
 \begin{itemize}
-\item External Payment System that checks that the payment information provided by the user are correct and handle the payment process;
-\item External System for Driving License Validation that check the driving license of the user during the registration process.
+\item External Payment System, that checks that the payment information provided by the user are correct and handle the payment process;
+\item External System for Driving License Validation, that checks the driving license of the user during the registration process.
 \end{itemize}
 
 \subsection{Car Manager}
 This bean manages manages all the car's features: get car, reserve car, unlock car and update position.
 In this way it keeps references and update all the informations about the car, including the maximum number of passengers the battery level and the numbers of seats.
 It also provides a function to handles the changes in the status of the car.
+
+This bean also communicates with the External System for Maintainers, because the bean signals the unavailable cars to it.
 
 \subsection{Ride Manager}
 This bean manages all the ride features:create new ride, get ride,get user's ride and end ride.
